@@ -1,0 +1,1 @@
+/// This file contains callsign-related QSO fields.

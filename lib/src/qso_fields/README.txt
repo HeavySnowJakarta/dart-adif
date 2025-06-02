@@ -1,0 +1,1 @@
+This folder includes the actual QSO field definitions.
