@@ -50,7 +50,7 @@ extension AdifOperations on Adif {
                   for (var adifField in qso.adifdefs) {
                     b.element(
                       adifField.fieldName,
-                      nest: adifField.getAsString(),
+                      nest: adifField.getString(),
                     );
                   }
                   // Application-defined fields.

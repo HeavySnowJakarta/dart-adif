@@ -6,17 +6,21 @@ import './type.dart';
 
 /// A ADIF-defined QSO field. Any classes that implement this class shall be
 /// defined by the ADIF format document.
-abstract class QsoField {
+abstract class AdifField {
   /// The field name. It must be UPPER_SNAKE_CASE style.
   final String fieldName;
 
   /// The method to get it value as a string.
-  String getAsString();
+  String getString();
+  
+  // TODO: The method to get the original type.
 
   /// The method to parse the value from a string.
-  void parseFromString(String str);
+  static AdifField fromString(String str) {
+    throw UnimplementedError('fromString must be implemented in subclasses');
+  }
 
-  QsoField(this.fieldName);
+  AdifField(this.fieldName);
 }
 
 /// An application-defined field of a QSO.
@@ -57,32 +61,7 @@ class Userdef {
 /// corresponding INTL field will be marked as "ASCII only".
 class Qso {
   /// The QSO's ADIF-defined fields.
-  List<QsoField> adifdefs = [];
-  // /// The contacted station's callsign. ASCII only.
-  // String? call;
-
-  // /// The date and time when the QSO STARTS. This field describes both
-  // /// `QSO_DATE` and `TIME_ON`.
-  // DateTime? startTime;
-
-  // /// Frequency in MHz.
-  // double? freq;
-
-  // /// QSO mode. ASCII only.
-  // String? mode;
-
-  // /// Signal report from the contacted station.
-  // String? rstRcvd;
-
-  // /// Signal report sent to the contacted station.
-  // String? rstSent;
-
-  // /// Notes. INTL compatible.
-  // String? note;
-
-  // /// The logging station's callsign (the callsign used over the air). ASCII
-  // /// only.
-  // String? stationCallsign;
+  List<AdifField> adifdefs = [];
 
   /// The application-defined fields.
   List<Appdef> appdefs;

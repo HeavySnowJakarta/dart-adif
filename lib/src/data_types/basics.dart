@@ -44,6 +44,30 @@ class AdifInteger extends AdifGeneral {
   }
 }
 
+/// Postive integer type.
+class AdifPositiveInteger extends AdifGeneral {
+  final int value;
+
+  @override
+  String getType() => 'PostiveInteger';
+  @override
+  String getString() => value.toString();
+
+  AdifPositiveInteger(this.value) {
+    if (value < 0) {
+      throw ArgumentError('Value must be a positive integer: $value');
+    }
+  }
+
+  static AdifPositiveInteger fromString(String str) {
+    final intValue = int.tryParse(str);
+    if (intValue == null || intValue < 0) {
+      throw ArgumentError('Invalid positive integer string: $str');
+    }
+    return AdifPositiveInteger(intValue);
+  }
+}
+
 /// Number type.
 class AdifNumber extends AdifGeneral {
   final double value;
