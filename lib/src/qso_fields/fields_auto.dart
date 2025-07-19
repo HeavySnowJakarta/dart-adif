@@ -3,1765 +3,1765 @@
 library;
 
 import '../data.dart';
-import '../data_types/total.dart';
+import '../data_types/index.dart';
 
 /// the contacted station's complete mailing address: full name, street address, city, postal code, and country
-class Address extends AdifField {
+class AdifAddress extends AdifField {
   final AdifMultilineString value;
   
-  Address(this.value) : super('ADDRESS');
+  AdifAddress(this.value) : super('ADDRESS');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Address fromString(String str) {
-    return Address(AdifMultilineString.fromString(str));
+  static AdifAddress fromString(String str) {
+    return AdifAddress(AdifMultilineString.fromString(str));
   }
 }
 
 /// the contacted station's complete mailing address: full name, street address, city, postal code, and country
-class AddressIntl extends AdifField {
+class AdifAddressIntl extends AdifField {
   final AdifIntlMultilineString value;
   
-  AddressIntl(this.value) : super('ADDRESS_INTL');
+  AdifAddressIntl(this.value) : super('ADDRESS_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static AddressIntl fromString(String str) {
-    return AddressIntl(AdifIntlMultilineString.fromString(str));
+  static AdifAddressIntl fromString(String str) {
+    return AdifAddressIntl(AdifIntlMultilineString.fromString(str));
   }
 }
 
 /// the contacted station's callsign
-class Call extends AdifField {
+class AdifCall extends AdifField {
   final AdifString value;
   
-  Call(this.value) : super('CALL');
+  AdifCall(this.value) : super('CALL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Call fromString(String str) {
-    return Call(AdifString.fromString(str));
+  static AdifCall fromString(String str) {
+    return AdifCall(AdifString.fromString(str));
   }
 }
 
 /// contest check (e.g. for ARRL Sweepstakes)
-class Check extends AdifField {
+class AdifCheck extends AdifField {
   final AdifString value;
   
-  Check(this.value) : super('CHECK');
+  AdifCheck(this.value) : super('CHECK');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Check fromString(String str) {
-    return Check(AdifString.fromString(str));
+  static AdifCheck fromString(String str) {
+    return AdifCheck(AdifString.fromString(str));
   }
 }
 
 /// contest class (e.g. for ARRL Field Day)
-class Class extends AdifField {
+class AdifClass extends AdifField {
   final AdifString value;
   
-  Class(this.value) : super('CLASS');
+  AdifClass(this.value) : super('CLASS');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Class fromString(String str) {
-    return Class(AdifString.fromString(str));
+  static AdifClass fromString(String str) {
+    return AdifClass(AdifString.fromString(str));
   }
 }
 
 /// the date the QSO was last uploaded to the Club Log online service
-class ClublogQsoUploadDate extends AdifField {
+class AdifClublogQsoUploadDate extends AdifField {
   final AdifDate value;
   
-  ClublogQsoUploadDate(this.value) : super('CLUBLOG_QSO_UPLOAD_DATE');
+  AdifClublogQsoUploadDate(this.value) : super('CLUBLOG_QSO_UPLOAD_DATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static ClublogQsoUploadDate fromString(String str) {
-    return ClublogQsoUploadDate(AdifDate.fromString(str));
+  static AdifClublogQsoUploadDate fromString(String str) {
+    return AdifClublogQsoUploadDate(AdifDate.fromString(str));
   }
 }
 
 /// comment field for QSO
-class Comment extends AdifField {
+class AdifComment extends AdifField {
   final AdifString value;
   
-  Comment(this.value) : super('COMMENT');
+  AdifComment(this.value) : super('COMMENT');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Comment fromString(String str) {
-    return Comment(AdifString.fromString(str));
+  static AdifComment fromString(String str) {
+    return AdifComment(AdifString.fromString(str));
   }
 }
 
 /// comment field for QSO
-class CommentIntl extends AdifField {
+class AdifCommentIntl extends AdifField {
   final AdifIntlString value;
   
-  CommentIntl(this.value) : super('COMMENT_INTL');
+  AdifCommentIntl(this.value) : super('COMMENT_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static CommentIntl fromString(String str) {
-    return CommentIntl(AdifIntlString.fromString(str));
+  static AdifCommentIntl fromString(String str) {
+    return AdifCommentIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the callsign of the individual operating the contacted station
-class ContactedOp extends AdifField {
+class AdifContactedOp extends AdifField {
   final AdifString value;
   
-  ContactedOp(this.value) : super('CONTACTED_OP');
+  AdifContactedOp(this.value) : super('CONTACTED_OP');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static ContactedOp fromString(String str) {
-    return ContactedOp(AdifString.fromString(str));
+  static AdifContactedOp fromString(String str) {
+    return AdifContactedOp(AdifString.fromString(str));
   }
 }
 
 /// QSO Contest Identifier
-class ContestId extends AdifField {
+class AdifContestId extends AdifField {
   final AdifString value;
   
-  ContestId(this.value) : super('CONTEST_ID');
+  AdifContestId(this.value) : super('CONTEST_ID');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static ContestId fromString(String str) {
-    return ContestId(AdifString.fromString(str));
+  static AdifContestId fromString(String str) {
+    return AdifContestId(AdifString.fromString(str));
   }
 }
 
 /// the contacted station's DXCC entity name
-class Country extends AdifField {
+class AdifCountry extends AdifField {
   final AdifString value;
   
-  Country(this.value) : super('COUNTRY');
+  AdifCountry(this.value) : super('COUNTRY');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Country fromString(String str) {
-    return Country(AdifString.fromString(str));
+  static AdifCountry fromString(String str) {
+    return AdifCountry(AdifString.fromString(str));
   }
 }
 
 /// the contacted station's DXCC entity name
-class CountryIntl extends AdifField {
+class AdifCountryIntl extends AdifField {
   final AdifIntlString value;
   
-  CountryIntl(this.value) : super('COUNTRY_INTL');
+  AdifCountryIntl(this.value) : super('COUNTRY_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static CountryIntl fromString(String str) {
-    return CountryIntl(AdifIntlString.fromString(str));
+  static AdifCountryIntl fromString(String str) {
+    return AdifCountryIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the contacted station's CQ Zone in the range 1 to 40 (inclusive)
-class Cqz extends AdifField {
+class AdifCqz extends AdifField {
   final AdifPositiveInteger value;
   
-  Cqz(this.value) : super('CQZ');
+  AdifCqz(this.value) : super('CQZ');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Cqz fromString(String str) {
-    return Cqz(AdifPositiveInteger.fromString(str));
+  static AdifCqz fromString(String str) {
+    return AdifCqz(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// date QSL received from DCL
-class DclQslrdate extends AdifField {
+class AdifDclQslrdate extends AdifField {
   final AdifDate value;
   
-  DclQslrdate(this.value) : super('DCL_QSLRDATE');
+  AdifDclQslrdate(this.value) : super('DCL_QSLRDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static DclQslrdate fromString(String str) {
-    return DclQslrdate(AdifDate.fromString(str));
+  static AdifDclQslrdate fromString(String str) {
+    return AdifDclQslrdate(AdifDate.fromString(str));
   }
 }
 
 /// date QSL sent to DCL
-class DclQslsdate extends AdifField {
+class AdifDclQslsdate extends AdifField {
   final AdifDate value;
   
-  DclQslsdate(this.value) : super('DCL_QSLSDATE');
+  AdifDclQslsdate(this.value) : super('DCL_QSLSDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static DclQslsdate fromString(String str) {
-    return DclQslsdate(AdifDate.fromString(str));
+  static AdifDclQslsdate fromString(String str) {
+    return AdifDclQslsdate(AdifDate.fromString(str));
   }
 }
 
 /// the contacted station's email address
-class Email extends AdifField {
+class AdifEmail extends AdifField {
   final AdifString value;
   
-  Email(this.value) : super('EMAIL');
+  AdifEmail(this.value) : super('EMAIL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Email fromString(String str) {
-    return Email(AdifString.fromString(str));
+  static AdifEmail fromString(String str) {
+    return AdifEmail(AdifString.fromString(str));
   }
 }
 
 /// the contacted station's owner's callsign
-class EqCall extends AdifField {
+class AdifEqCall extends AdifField {
   final AdifString value;
   
-  EqCall(this.value) : super('EQ_CALL');
+  AdifEqCall(this.value) : super('EQ_CALL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static EqCall fromString(String str) {
-    return EqCall(AdifString.fromString(str));
+  static AdifEqCall fromString(String str) {
+    return AdifEqCall(AdifString.fromString(str));
   }
 }
 
 /// date QSL received from eQSL.cc
-class EqslQslrdate extends AdifField {
+class AdifEqslQslrdate extends AdifField {
   final AdifDate value;
   
-  EqslQslrdate(this.value) : super('EQSL_QSLRDATE');
+  AdifEqslQslrdate(this.value) : super('EQSL_QSLRDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static EqslQslrdate fromString(String str) {
-    return EqslQslrdate(AdifDate.fromString(str));
+  static AdifEqslQslrdate fromString(String str) {
+    return AdifEqslQslrdate(AdifDate.fromString(str));
   }
 }
 
 /// date QSL sent to eQSL.cc
-class EqslQslsdate extends AdifField {
+class AdifEqslQslsdate extends AdifField {
   final AdifDate value;
   
-  EqslQslsdate(this.value) : super('EQSL_QSLSDATE');
+  AdifEqslQslsdate(this.value) : super('EQSL_QSLSDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static EqslQslsdate fromString(String str) {
-    return EqslQslsdate(AdifDate.fromString(str));
+  static AdifEqslQslsdate fromString(String str) {
+    return AdifEqslQslsdate(AdifDate.fromString(str));
   }
 }
 
 /// the contacted station's FISTS CW Club member number with a value greater than 0.
-class Fists extends AdifField {
+class AdifFists extends AdifField {
   final AdifPositiveInteger value;
   
-  Fists(this.value) : super('FISTS');
+  AdifFists(this.value) : super('FISTS');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Fists fromString(String str) {
-    return Fists(AdifPositiveInteger.fromString(str));
+  static AdifFists fromString(String str) {
+    return AdifFists(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// the contacted station's FISTS CW Club Century Certificate (CC) number with a value greater than 0.
-class FistsCc extends AdifField {
+class AdifFistsCc extends AdifField {
   final AdifPositiveInteger value;
   
-  FistsCc(this.value) : super('FISTS_CC');
+  AdifFistsCc(this.value) : super('FISTS_CC');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static FistsCc fromString(String str) {
-    return FistsCc(AdifPositiveInteger.fromString(str));
+  static AdifFistsCc fromString(String str) {
+    return AdifFistsCc(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// "new EME ""initial"""
-class ForceInit extends AdifField {
+class AdifForceInit extends AdifField {
   final AdifBoolean value;
   
-  ForceInit(this.value) : super('FORCE_INIT');
+  AdifForceInit(this.value) : super('FORCE_INIT');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static ForceInit fromString(String str) {
-    return ForceInit(AdifBoolean.fromString(str));
+  static AdifForceInit fromString(String str) {
+    return AdifForceInit(AdifBoolean.fromString(str));
   }
 }
 
 /// import-only: use OPERATOR instead
-class GuestOp extends AdifField {
+class AdifGuestOp extends AdifField {
   final AdifString value;
   
-  GuestOp(this.value) : super('GUEST_OP');
+  AdifGuestOp(this.value) : super('GUEST_OP');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static GuestOp fromString(String str) {
-    return GuestOp(AdifString.fromString(str));
+  static AdifGuestOp fromString(String str) {
+    return AdifGuestOp(AdifString.fromString(str));
   }
 }
 
 /// the date the QSO was last uploaded to the HAMLOG.EU online service
-class HamlogeuQsoUploadDate extends AdifField {
+class AdifHamlogeuQsoUploadDate extends AdifField {
   final AdifDate value;
   
-  HamlogeuQsoUploadDate(this.value) : super('HAMLOGEU_QSO_UPLOAD_DATE');
+  AdifHamlogeuQsoUploadDate(this.value) : super('HAMLOGEU_QSO_UPLOAD_DATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static HamlogeuQsoUploadDate fromString(String str) {
-    return HamlogeuQsoUploadDate(AdifDate.fromString(str));
+  static AdifHamlogeuQsoUploadDate fromString(String str) {
+    return AdifHamlogeuQsoUploadDate(AdifDate.fromString(str));
   }
 }
 
 /// the date the QSO was last uploaded to the HamQTH.com online service
-class HamqthQsoUploadDate extends AdifField {
+class AdifHamqthQsoUploadDate extends AdifField {
   final AdifDate value;
   
-  HamqthQsoUploadDate(this.value) : super('HAMQTH_QSO_UPLOAD_DATE');
+  AdifHamqthQsoUploadDate(this.value) : super('HAMQTH_QSO_UPLOAD_DATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static HamqthQsoUploadDate fromString(String str) {
-    return HamqthQsoUploadDate(AdifDate.fromString(str));
+  static AdifHamqthQsoUploadDate fromString(String str) {
+    return AdifHamqthQsoUploadDate(AdifDate.fromString(str));
   }
 }
 
 /// the date the QSO was last uploaded to the HRDLog.net online service
-class HrdlogQsoUploadDate extends AdifField {
+class AdifHrdlogQsoUploadDate extends AdifField {
   final AdifDate value;
   
-  HrdlogQsoUploadDate(this.value) : super('HRDLOG_QSO_UPLOAD_DATE');
+  AdifHrdlogQsoUploadDate(this.value) : super('HRDLOG_QSO_UPLOAD_DATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static HrdlogQsoUploadDate fromString(String str) {
-    return HrdlogQsoUploadDate(AdifDate.fromString(str));
+  static AdifHrdlogQsoUploadDate fromString(String str) {
+    return AdifHrdlogQsoUploadDate(AdifDate.fromString(str));
   }
 }
 
 /// the contacted station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
-class IotaIslandId extends AdifField {
+class AdifIotaIslandId extends AdifField {
   final AdifPositiveInteger value;
   
-  IotaIslandId(this.value) : super('IOTA_ISLAND_ID');
+  AdifIotaIslandId(this.value) : super('IOTA_ISLAND_ID');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static IotaIslandId fromString(String str) {
-    return IotaIslandId(AdifPositiveInteger.fromString(str));
+  static AdifIotaIslandId fromString(String str) {
+    return AdifIotaIslandId(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// the contacted station's ITU zone in the range 1 to 90 (inclusive)
-class Ituz extends AdifField {
+class AdifItuz extends AdifField {
   final AdifPositiveInteger value;
   
-  Ituz(this.value) : super('ITUZ');
+  AdifItuz(this.value) : super('ITUZ');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Ituz fromString(String str) {
-    return Ituz(AdifPositiveInteger.fromString(str));
+  static AdifItuz fromString(String str) {
+    return AdifItuz(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// the geomagnetic K index at the time of the QSO in the range 0 to 9 (inclusive)
-class KIndex extends AdifField {
+class AdifKIndex extends AdifField {
   final AdifInteger value;
   
-  KIndex(this.value) : super('K_INDEX');
+  AdifKIndex(this.value) : super('K_INDEX');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static KIndex fromString(String str) {
-    return KIndex(AdifInteger.fromString(str));
+  static AdifKIndex fromString(String str) {
+    return AdifKIndex(AdifInteger.fromString(str));
   }
 }
 
 /// the contacted station's latitude
-class Lat extends AdifField {
+class AdifLat extends AdifField {
   final AdifLocation value;
   
-  Lat(this.value) : super('LAT');
+  AdifLat(this.value) : super('LAT');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Lat fromString(String str) {
-    return Lat(AdifLocation.fromString(str));
+  static AdifLat fromString(String str) {
+    return AdifLat(AdifLocation.fromString(str));
   }
 }
 
 /// the contacted station's longitude
-class Lon extends AdifField {
+class AdifLon extends AdifField {
   final AdifLocation value;
   
-  Lon(this.value) : super('LON');
+  AdifLon(this.value) : super('LON');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Lon fromString(String str) {
-    return Lon(AdifLocation.fromString(str));
+  static AdifLon fromString(String str) {
+    return AdifLon(AdifLocation.fromString(str));
   }
 }
 
 /// date QSL received from ARRL Logbook of the World
-class LotwQslrdate extends AdifField {
+class AdifLotwQslrdate extends AdifField {
   final AdifDate value;
   
-  LotwQslrdate(this.value) : super('LOTW_QSLRDATE');
+  AdifLotwQslrdate(this.value) : super('LOTW_QSLRDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static LotwQslrdate fromString(String str) {
-    return LotwQslrdate(AdifDate.fromString(str));
+  static AdifLotwQslrdate fromString(String str) {
+    return AdifLotwQslrdate(AdifDate.fromString(str));
   }
 }
 
 /// date QSL sent to ARRL Logbook of the World
-class LotwQslsdate extends AdifField {
+class AdifLotwQslsdate extends AdifField {
   final AdifDate value;
   
-  LotwQslsdate(this.value) : super('LOTW_QSLSDATE');
+  AdifLotwQslsdate(this.value) : super('LOTW_QSLSDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static LotwQslsdate fromString(String str) {
-    return LotwQslsdate(AdifDate.fromString(str));
+  static AdifLotwQslsdate fromString(String str) {
+    return AdifLotwQslsdate(AdifDate.fromString(str));
   }
 }
 
 /// details of the contacted station's Morse key (e.g. make, model, etc).
-class MorseKeyInfo extends AdifField {
+class AdifMorseKeyInfo extends AdifField {
   final AdifString value;
   
-  MorseKeyInfo(this.value) : super('MORSE_KEY_INFO');
+  AdifMorseKeyInfo(this.value) : super('MORSE_KEY_INFO');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MorseKeyInfo fromString(String str) {
-    return MorseKeyInfo(AdifString.fromString(str));
+  static AdifMorseKeyInfo fromString(String str) {
+    return AdifMorseKeyInfo(AdifString.fromString(str));
   }
 }
 
 /// For Meteor Scatter QSOs, the name of the meteor shower in progress
-class MsShower extends AdifField {
+class AdifMsShower extends AdifField {
   final AdifString value;
   
-  MsShower(this.value) : super('MS_SHOWER');
+  AdifMsShower(this.value) : super('MS_SHOWER');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MsShower fromString(String str) {
-    return MsShower(AdifString.fromString(str));
+  static AdifMsShower fromString(String str) {
+    return AdifMsShower(AdifString.fromString(str));
   }
 }
 
 /// the logging station's antenna
-class MyAntenna extends AdifField {
+class AdifMyAntenna extends AdifField {
   final AdifString value;
   
-  MyAntenna(this.value) : super('MY_ANTENNA');
+  AdifMyAntenna(this.value) : super('MY_ANTENNA');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyAntenna fromString(String str) {
-    return MyAntenna(AdifString.fromString(str));
+  static AdifMyAntenna fromString(String str) {
+    return AdifMyAntenna(AdifString.fromString(str));
   }
 }
 
 /// the logging station's antenna
-class MyAntennaIntl extends AdifField {
+class AdifMyAntennaIntl extends AdifField {
   final AdifIntlString value;
   
-  MyAntennaIntl(this.value) : super('MY_ANTENNA_INTL');
+  AdifMyAntennaIntl(this.value) : super('MY_ANTENNA_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyAntennaIntl fromString(String str) {
-    return MyAntennaIntl(AdifIntlString.fromString(str));
+  static AdifMyAntennaIntl fromString(String str) {
+    return AdifMyAntennaIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the logging station's city
-class MyCity extends AdifField {
+class AdifMyCity extends AdifField {
   final AdifString value;
   
-  MyCity(this.value) : super('MY_CITY');
+  AdifMyCity(this.value) : super('MY_CITY');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyCity fromString(String str) {
-    return MyCity(AdifString.fromString(str));
+  static AdifMyCity fromString(String str) {
+    return AdifMyCity(AdifString.fromString(str));
   }
 }
 
 /// the logging station's city
-class MyCityIntl extends AdifField {
+class AdifMyCityIntl extends AdifField {
   final AdifIntlString value;
   
-  MyCityIntl(this.value) : super('MY_CITY_INTL');
+  AdifMyCityIntl(this.value) : super('MY_CITY_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyCityIntl fromString(String str) {
-    return MyCityIntl(AdifIntlString.fromString(str));
+  static AdifMyCityIntl fromString(String str) {
+    return AdifMyCityIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the logging station's DXCC entity name
-class MyCountry extends AdifField {
+class AdifMyCountry extends AdifField {
   final AdifString value;
   
-  MyCountry(this.value) : super('MY_COUNTRY');
+  AdifMyCountry(this.value) : super('MY_COUNTRY');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyCountry fromString(String str) {
-    return MyCountry(AdifString.fromString(str));
+  static AdifMyCountry fromString(String str) {
+    return AdifMyCountry(AdifString.fromString(str));
   }
 }
 
 /// the logging station's DXCC entity name
-class MyCountryIntl extends AdifField {
+class AdifMyCountryIntl extends AdifField {
   final AdifIntlString value;
   
-  MyCountryIntl(this.value) : super('MY_COUNTRY_INTL');
+  AdifMyCountryIntl(this.value) : super('MY_COUNTRY_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyCountryIntl fromString(String str) {
-    return MyCountryIntl(AdifIntlString.fromString(str));
+  static AdifMyCountryIntl fromString(String str) {
+    return AdifMyCountryIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the logging station's CQ Zone in the range 1 to 40 (inclusive)
-class MyCqZone extends AdifField {
+class AdifMyCqZone extends AdifField {
   final AdifPositiveInteger value;
   
-  MyCqZone(this.value) : super('MY_CQ_ZONE');
+  AdifMyCqZone(this.value) : super('MY_CQ_ZONE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyCqZone fromString(String str) {
-    return MyCqZone(AdifPositiveInteger.fromString(str));
+  static AdifMyCqZone fromString(String str) {
+    return AdifMyCqZone(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// the logging station's FISTS CW Club member number with a value greater than 0.
-class MyFists extends AdifField {
+class AdifMyFists extends AdifField {
   final AdifPositiveInteger value;
   
-  MyFists(this.value) : super('MY_FISTS');
+  AdifMyFists(this.value) : super('MY_FISTS');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyFists fromString(String str) {
-    return MyFists(AdifPositiveInteger.fromString(str));
+  static AdifMyFists fromString(String str) {
+    return AdifMyFists(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// the logging station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
-class MyIotaIslandId extends AdifField {
+class AdifMyIotaIslandId extends AdifField {
   final AdifPositiveInteger value;
   
-  MyIotaIslandId(this.value) : super('MY_IOTA_ISLAND_ID');
+  AdifMyIotaIslandId(this.value) : super('MY_IOTA_ISLAND_ID');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyIotaIslandId fromString(String str) {
-    return MyIotaIslandId(AdifPositiveInteger.fromString(str));
+  static AdifMyIotaIslandId fromString(String str) {
+    return AdifMyIotaIslandId(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// the logging station's ITU zone in the range 1 to 90 (inclusive)
-class MyItuZone extends AdifField {
+class AdifMyItuZone extends AdifField {
   final AdifPositiveInteger value;
   
-  MyItuZone(this.value) : super('MY_ITU_ZONE');
+  AdifMyItuZone(this.value) : super('MY_ITU_ZONE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyItuZone fromString(String str) {
-    return MyItuZone(AdifPositiveInteger.fromString(str));
+  static AdifMyItuZone fromString(String str) {
+    return AdifMyItuZone(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// the logging station's latitude
-class MyLat extends AdifField {
+class AdifMyLat extends AdifField {
   final AdifLocation value;
   
-  MyLat(this.value) : super('MY_LAT');
+  AdifMyLat(this.value) : super('MY_LAT');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyLat fromString(String str) {
-    return MyLat(AdifLocation.fromString(str));
+  static AdifMyLat fromString(String str) {
+    return AdifMyLat(AdifLocation.fromString(str));
   }
 }
 
 /// the logging station's longitude
-class MyLon extends AdifField {
+class AdifMyLon extends AdifField {
   final AdifLocation value;
   
-  MyLon(this.value) : super('MY_LON');
+  AdifMyLon(this.value) : super('MY_LON');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyLon fromString(String str) {
-    return MyLon(AdifLocation.fromString(str));
+  static AdifMyLon fromString(String str) {
+    return AdifMyLon(AdifLocation.fromString(str));
   }
 }
 
 /// details of the logging station's Morse key (e.g. make, model, etc).
-class MyMorseKeyInfo extends AdifField {
+class AdifMyMorseKeyInfo extends AdifField {
   final AdifString value;
   
-  MyMorseKeyInfo(this.value) : super('MY_MORSE_KEY_INFO');
+  AdifMyMorseKeyInfo(this.value) : super('MY_MORSE_KEY_INFO');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyMorseKeyInfo fromString(String str) {
-    return MyMorseKeyInfo(AdifString.fromString(str));
+  static AdifMyMorseKeyInfo fromString(String str) {
+    return AdifMyMorseKeyInfo(AdifString.fromString(str));
   }
 }
 
 /// the logging operator's name
-class MyName extends AdifField {
+class AdifMyName extends AdifField {
   final AdifString value;
   
-  MyName(this.value) : super('MY_NAME');
+  AdifMyName(this.value) : super('MY_NAME');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyName fromString(String str) {
-    return MyName(AdifString.fromString(str));
+  static AdifMyName fromString(String str) {
+    return AdifMyName(AdifString.fromString(str));
   }
 }
 
 /// the logging operator's name
-class MyNameIntl extends AdifField {
+class AdifMyNameIntl extends AdifField {
   final AdifIntlString value;
   
-  MyNameIntl(this.value) : super('MY_NAME_INTL');
+  AdifMyNameIntl(this.value) : super('MY_NAME_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyNameIntl fromString(String str) {
-    return MyNameIntl(AdifIntlString.fromString(str));
+  static AdifMyNameIntl fromString(String str) {
+    return AdifMyNameIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the logging station's postal code
-class MyPostalCode extends AdifField {
+class AdifMyPostalCode extends AdifField {
   final AdifString value;
   
-  MyPostalCode(this.value) : super('MY_POSTAL_CODE');
+  AdifMyPostalCode(this.value) : super('MY_POSTAL_CODE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyPostalCode fromString(String str) {
-    return MyPostalCode(AdifString.fromString(str));
+  static AdifMyPostalCode fromString(String str) {
+    return AdifMyPostalCode(AdifString.fromString(str));
   }
 }
 
 /// the logging station's postal code
-class MyPostalCodeIntl extends AdifField {
+class AdifMyPostalCodeIntl extends AdifField {
   final AdifIntlString value;
   
-  MyPostalCodeIntl(this.value) : super('MY_POSTAL_CODE_INTL');
+  AdifMyPostalCodeIntl(this.value) : super('MY_POSTAL_CODE_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyPostalCodeIntl fromString(String str) {
-    return MyPostalCodeIntl(AdifIntlString.fromString(str));
+  static AdifMyPostalCodeIntl fromString(String str) {
+    return AdifMyPostalCodeIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// description of the logging station's equipment
-class MyRig extends AdifField {
+class AdifMyRig extends AdifField {
   final AdifString value;
   
-  MyRig(this.value) : super('MY_RIG');
+  AdifMyRig(this.value) : super('MY_RIG');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyRig fromString(String str) {
-    return MyRig(AdifString.fromString(str));
+  static AdifMyRig fromString(String str) {
+    return AdifMyRig(AdifString.fromString(str));
   }
 }
 
 /// description of the logging station's equipment
-class MyRigIntl extends AdifField {
+class AdifMyRigIntl extends AdifField {
   final AdifIntlString value;
   
-  MyRigIntl(this.value) : super('MY_RIG_INTL');
+  AdifMyRigIntl(this.value) : super('MY_RIG_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyRigIntl fromString(String str) {
-    return MyRigIntl(AdifIntlString.fromString(str));
+  static AdifMyRigIntl fromString(String str) {
+    return AdifMyRigIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// special interest activity or event
-class MySig extends AdifField {
+class AdifMySig extends AdifField {
   final AdifString value;
   
-  MySig(this.value) : super('MY_SIG');
+  AdifMySig(this.value) : super('MY_SIG');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MySig fromString(String str) {
-    return MySig(AdifString.fromString(str));
+  static AdifMySig fromString(String str) {
+    return AdifMySig(AdifString.fromString(str));
   }
 }
 
 /// special interest activity or event
-class MySigIntl extends AdifField {
+class AdifMySigIntl extends AdifField {
   final AdifIntlString value;
   
-  MySigIntl(this.value) : super('MY_SIG_INTL');
+  AdifMySigIntl(this.value) : super('MY_SIG_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MySigIntl fromString(String str) {
-    return MySigIntl(AdifIntlString.fromString(str));
+  static AdifMySigIntl fromString(String str) {
+    return AdifMySigIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// special interest activity or event information
-class MySigInfo extends AdifField {
+class AdifMySigInfo extends AdifField {
   final AdifString value;
   
-  MySigInfo(this.value) : super('MY_SIG_INFO');
+  AdifMySigInfo(this.value) : super('MY_SIG_INFO');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MySigInfo fromString(String str) {
-    return MySigInfo(AdifString.fromString(str));
+  static AdifMySigInfo fromString(String str) {
+    return AdifMySigInfo(AdifString.fromString(str));
   }
 }
 
 /// special interest activity or event information
-class MySigInfoIntl extends AdifField {
+class AdifMySigInfoIntl extends AdifField {
   final AdifIntlString value;
   
-  MySigInfoIntl(this.value) : super('MY_SIG_INFO_INTL');
+  AdifMySigInfoIntl(this.value) : super('MY_SIG_INFO_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MySigInfoIntl fromString(String str) {
-    return MySigInfoIntl(AdifIntlString.fromString(str));
+  static AdifMySigInfoIntl fromString(String str) {
+    return AdifMySigInfoIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the logging station's street
-class MyStreet extends AdifField {
+class AdifMyStreet extends AdifField {
   final AdifString value;
   
-  MyStreet(this.value) : super('MY_STREET');
+  AdifMyStreet(this.value) : super('MY_STREET');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyStreet fromString(String str) {
-    return MyStreet(AdifString.fromString(str));
+  static AdifMyStreet fromString(String str) {
+    return AdifMyStreet(AdifString.fromString(str));
   }
 }
 
 /// the logging station's street
-class MyStreetIntl extends AdifField {
+class AdifMyStreetIntl extends AdifField {
   final AdifIntlString value;
   
-  MyStreetIntl(this.value) : super('MY_STREET_INTL');
+  AdifMyStreetIntl(this.value) : super('MY_STREET_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static MyStreetIntl fromString(String str) {
-    return MyStreetIntl(AdifIntlString.fromString(str));
+  static AdifMyStreetIntl fromString(String str) {
+    return AdifMyStreetIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// the contacted station's operator's name
-class Name extends AdifField {
+class AdifName extends AdifField {
   final AdifString value;
   
-  Name(this.value) : super('NAME');
+  AdifName(this.value) : super('NAME');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Name fromString(String str) {
-    return Name(AdifString.fromString(str));
+  static AdifName fromString(String str) {
+    return AdifName(AdifString.fromString(str));
   }
 }
 
 /// the contacted station's operator's name
-class NameIntl extends AdifField {
+class AdifNameIntl extends AdifField {
   final AdifIntlString value;
   
-  NameIntl(this.value) : super('NAME_INTL');
+  AdifNameIntl(this.value) : super('NAME_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static NameIntl fromString(String str) {
-    return NameIntl(AdifIntlString.fromString(str));
+  static AdifNameIntl fromString(String str) {
+    return AdifNameIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// QSO notes
-class Notes extends AdifField {
+class AdifNotes extends AdifField {
   final AdifMultilineString value;
   
-  Notes(this.value) : super('NOTES');
+  AdifNotes(this.value) : super('NOTES');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Notes fromString(String str) {
-    return Notes(AdifMultilineString.fromString(str));
+  static AdifNotes fromString(String str) {
+    return AdifNotes(AdifMultilineString.fromString(str));
   }
 }
 
 /// QSO notes
-class NotesIntl extends AdifField {
+class AdifNotesIntl extends AdifField {
   final AdifIntlMultilineString value;
   
-  NotesIntl(this.value) : super('NOTES_INTL');
+  AdifNotesIntl(this.value) : super('NOTES_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static NotesIntl fromString(String str) {
-    return NotesIntl(AdifIntlMultilineString.fromString(str));
+  static AdifNotesIntl fromString(String str) {
+    return AdifNotesIntl(AdifIntlMultilineString.fromString(str));
   }
 }
 
 /// the number of meteor scatter bursts heard by the logging station with a value greater than or equal to 0
-class NrBursts extends AdifField {
+class AdifNrBursts extends AdifField {
   final AdifInteger value;
   
-  NrBursts(this.value) : super('NR_BURSTS');
+  AdifNrBursts(this.value) : super('NR_BURSTS');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static NrBursts fromString(String str) {
-    return NrBursts(AdifInteger.fromString(str));
+  static AdifNrBursts fromString(String str) {
+    return AdifNrBursts(AdifInteger.fromString(str));
   }
 }
 
 /// the number of meteor scatter pings heard by the logging station with a value greater than or equal to 0
-class NrPings extends AdifField {
+class AdifNrPings extends AdifField {
   final AdifInteger value;
   
-  NrPings(this.value) : super('NR_PINGS');
+  AdifNrPings(this.value) : super('NR_PINGS');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static NrPings fromString(String str) {
-    return NrPings(AdifInteger.fromString(str));
+  static AdifNrPings fromString(String str) {
+    return AdifNrPings(AdifInteger.fromString(str));
   }
 }
 
 /// the logging operator's callsign
-class Operator extends AdifField {
+class AdifOperator extends AdifField {
   final AdifString value;
   
-  Operator(this.value) : super('OPERATOR');
+  AdifOperator(this.value) : super('OPERATOR');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Operator fromString(String str) {
-    return Operator(AdifString.fromString(str));
+  static AdifOperator fromString(String str) {
+    return AdifOperator(AdifString.fromString(str));
   }
 }
 
 /// the callsign of the owner of the station used to log the contact (the
-class OwnerCallsign extends AdifField {
+class AdifOwnerCallsign extends AdifField {
   final AdifString value;
   
-  OwnerCallsign(this.value) : super('OWNER_CALLSIGN');
+  AdifOwnerCallsign(this.value) : super('OWNER_CALLSIGN');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static OwnerCallsign fromString(String str) {
-    return OwnerCallsign(AdifString.fromString(str));
+  static AdifOwnerCallsign fromString(String str) {
+    return AdifOwnerCallsign(AdifString.fromString(str));
   }
 }
 
 /// the contacted station's WPX prefix
-class Pfx extends AdifField {
+class AdifPfx extends AdifField {
   final AdifString value;
   
-  Pfx(this.value) : super('PFX');
+  AdifPfx(this.value) : super('PFX');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Pfx fromString(String str) {
-    return Pfx(AdifString.fromString(str));
+  static AdifPfx fromString(String str) {
+    return AdifPfx(AdifString.fromString(str));
   }
 }
 
 /// contest precedence (e.g. for ARRL Sweepstakes)
-class Precedence extends AdifField {
+class AdifPrecedence extends AdifField {
   final AdifString value;
   
-  Precedence(this.value) : super('PRECEDENCE');
+  AdifPrecedence(this.value) : super('PRECEDENCE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Precedence fromString(String str) {
-    return Precedence(AdifString.fromString(str));
+  static AdifPrecedence fromString(String str) {
+    return AdifPrecedence(AdifString.fromString(str));
   }
 }
 
 /// public encryption key
-class PublicKey extends AdifField {
+class AdifPublicKey extends AdifField {
   final AdifString value;
   
-  PublicKey(this.value) : super('PUBLIC_KEY');
+  AdifPublicKey(this.value) : super('PUBLIC_KEY');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static PublicKey fromString(String str) {
-    return PublicKey(AdifString.fromString(str));
+  static AdifPublicKey fromString(String str) {
+    return AdifPublicKey(AdifString.fromString(str));
   }
 }
 
 /// date QSO downloaded from QRZ.COM logbook
-class QrzcomQsoDownloadDate extends AdifField {
+class AdifQrzcomQsoDownloadDate extends AdifField {
   final AdifDate value;
   
-  QrzcomQsoDownloadDate(this.value) : super('QRZCOM_QSO_DOWNLOAD_DATE');
+  AdifQrzcomQsoDownloadDate(this.value) : super('QRZCOM_QSO_DOWNLOAD_DATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QrzcomQsoDownloadDate fromString(String str) {
-    return QrzcomQsoDownloadDate(AdifDate.fromString(str));
+  static AdifQrzcomQsoDownloadDate fromString(String str) {
+    return AdifQrzcomQsoDownloadDate(AdifDate.fromString(str));
   }
 }
 
 /// the date the QSO was last uploaded to the QRZ.COM online service
-class QrzcomQsoUploadDate extends AdifField {
+class AdifQrzcomQsoUploadDate extends AdifField {
   final AdifDate value;
   
-  QrzcomQsoUploadDate(this.value) : super('QRZCOM_QSO_UPLOAD_DATE');
+  AdifQrzcomQsoUploadDate(this.value) : super('QRZCOM_QSO_UPLOAD_DATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QrzcomQsoUploadDate fromString(String str) {
-    return QrzcomQsoUploadDate(AdifDate.fromString(str));
+  static AdifQrzcomQsoUploadDate fromString(String str) {
+    return AdifQrzcomQsoUploadDate(AdifDate.fromString(str));
   }
 }
 
 /// a message for the contacted station's operator to be incorporated in a paper or electronic QSL
-class Qslmsg extends AdifField {
+class AdifQslmsg extends AdifField {
   final AdifMultilineString value;
   
-  Qslmsg(this.value) : super('QSLMSG');
+  AdifQslmsg(this.value) : super('QSLMSG');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Qslmsg fromString(String str) {
-    return Qslmsg(AdifMultilineString.fromString(str));
+  static AdifQslmsg fromString(String str) {
+    return AdifQslmsg(AdifMultilineString.fromString(str));
   }
 }
 
 /// a message for the contacted station's operator to be incorporated in a paper or electronic QSL
-class QslmsgIntl extends AdifField {
+class AdifQslmsgIntl extends AdifField {
   final AdifIntlMultilineString value;
   
-  QslmsgIntl(this.value) : super('QSLMSG_INTL');
+  AdifQslmsgIntl(this.value) : super('QSLMSG_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QslmsgIntl fromString(String str) {
-    return QslmsgIntl(AdifIntlMultilineString.fromString(str));
+  static AdifQslmsgIntl fromString(String str) {
+    return AdifQslmsgIntl(AdifIntlMultilineString.fromString(str));
   }
 }
 
 /// a message addressed to the logging station's operator incorporated in a paper or electronic QSL
-class QslmsgRcvd extends AdifField {
+class AdifQslmsgRcvd extends AdifField {
   final AdifMultilineString value;
   
-  QslmsgRcvd(this.value) : super('QSLMSG_RCVD');
+  AdifQslmsgRcvd(this.value) : super('QSLMSG_RCVD');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QslmsgRcvd fromString(String str) {
-    return QslmsgRcvd(AdifMultilineString.fromString(str));
+  static AdifQslmsgRcvd fromString(String str) {
+    return AdifQslmsgRcvd(AdifMultilineString.fromString(str));
   }
 }
 
 /// QSL received date
-class Qslrdate extends AdifField {
+class AdifQslrdate extends AdifField {
   final AdifDate value;
   
-  Qslrdate(this.value) : super('QSLRDATE');
+  AdifQslrdate(this.value) : super('QSLRDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Qslrdate fromString(String str) {
-    return Qslrdate(AdifDate.fromString(str));
+  static AdifQslrdate fromString(String str) {
+    return AdifQslrdate(AdifDate.fromString(str));
   }
 }
 
 /// QSL sent date
-class Qslsdate extends AdifField {
+class AdifQslsdate extends AdifField {
   final AdifDate value;
   
-  Qslsdate(this.value) : super('QSLSDATE');
+  AdifQslsdate(this.value) : super('QSLSDATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Qslsdate fromString(String str) {
-    return Qslsdate(AdifDate.fromString(str));
+  static AdifQslsdate fromString(String str) {
+    return AdifQslsdate(AdifDate.fromString(str));
   }
 }
 
 /// the contacted station's QSL route
-class QslVia extends AdifField {
+class AdifQslVia extends AdifField {
   final AdifString value;
   
-  QslVia(this.value) : super('QSL_VIA');
+  AdifQslVia(this.value) : super('QSL_VIA');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QslVia fromString(String str) {
-    return QslVia(AdifString.fromString(str));
+  static AdifQslVia fromString(String str) {
+    return AdifQslVia(AdifString.fromString(str));
   }
 }
 
 /// date on which the QSO started
-class QsoDate extends AdifField {
+class AdifQsoDate extends AdifField {
   final AdifDate value;
   
-  QsoDate(this.value) : super('QSO_DATE');
+  AdifQsoDate(this.value) : super('QSO_DATE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QsoDate fromString(String str) {
-    return QsoDate(AdifDate.fromString(str));
+  static AdifQsoDate fromString(String str) {
+    return AdifQsoDate(AdifDate.fromString(str));
   }
 }
 
 /// date on which the QSO ended
-class QsoDateOff extends AdifField {
+class AdifQsoDateOff extends AdifField {
   final AdifDate value;
   
-  QsoDateOff(this.value) : super('QSO_DATE_OFF');
+  AdifQsoDateOff(this.value) : super('QSO_DATE_OFF');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QsoDateOff fromString(String str) {
-    return QsoDateOff(AdifDate.fromString(str));
+  static AdifQsoDateOff fromString(String str) {
+    return AdifQsoDateOff(AdifDate.fromString(str));
   }
 }
 
 /// indicates whether the QSO was random or scheduled
-class QsoRandom extends AdifField {
+class AdifQsoRandom extends AdifField {
   final AdifBoolean value;
   
-  QsoRandom(this.value) : super('QSO_RANDOM');
+  AdifQsoRandom(this.value) : super('QSO_RANDOM');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QsoRandom fromString(String str) {
-    return QsoRandom(AdifBoolean.fromString(str));
+  static AdifQsoRandom fromString(String str) {
+    return AdifQsoRandom(AdifBoolean.fromString(str));
   }
 }
 
 /// the contacted station's city
-class Qth extends AdifField {
+class AdifQth extends AdifField {
   final AdifString value;
   
-  Qth(this.value) : super('QTH');
+  AdifQth(this.value) : super('QTH');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Qth fromString(String str) {
-    return Qth(AdifString.fromString(str));
+  static AdifQth fromString(String str) {
+    return AdifQth(AdifString.fromString(str));
   }
 }
 
 /// the contacted station's city
-class QthIntl extends AdifField {
+class AdifQthIntl extends AdifField {
   final AdifIntlString value;
   
-  QthIntl(this.value) : super('QTH_INTL');
+  AdifQthIntl(this.value) : super('QTH_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static QthIntl fromString(String str) {
-    return QthIntl(AdifIntlString.fromString(str));
+  static AdifQthIntl fromString(String str) {
+    return AdifQthIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// description of the contacted station's equipment
-class Rig extends AdifField {
+class AdifRig extends AdifField {
   final AdifMultilineString value;
   
-  Rig(this.value) : super('RIG');
+  AdifRig(this.value) : super('RIG');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Rig fromString(String str) {
-    return Rig(AdifMultilineString.fromString(str));
+  static AdifRig fromString(String str) {
+    return AdifRig(AdifMultilineString.fromString(str));
   }
 }
 
 /// description of the contacted station's equipment
-class RigIntl extends AdifField {
+class AdifRigIntl extends AdifField {
   final AdifIntlMultilineString value;
   
-  RigIntl(this.value) : super('RIG_INTL');
+  AdifRigIntl(this.value) : super('RIG_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static RigIntl fromString(String str) {
-    return RigIntl(AdifIntlMultilineString.fromString(str));
+  static AdifRigIntl fromString(String str) {
+    return AdifRigIntl(AdifIntlMultilineString.fromString(str));
   }
 }
 
 /// signal report from the contacted station
-class RstRcvd extends AdifField {
+class AdifRstRcvd extends AdifField {
   final AdifString value;
   
-  RstRcvd(this.value) : super('RST_RCVD');
+  AdifRstRcvd(this.value) : super('RST_RCVD');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static RstRcvd fromString(String str) {
-    return RstRcvd(AdifString.fromString(str));
+  static AdifRstRcvd fromString(String str) {
+    return AdifRstRcvd(AdifString.fromString(str));
   }
 }
 
 /// signal report sent to the contacted station
-class RstSent extends AdifField {
+class AdifRstSent extends AdifField {
   final AdifString value;
   
-  RstSent(this.value) : super('RST_SENT');
+  AdifRstSent(this.value) : super('RST_SENT');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static RstSent fromString(String str) {
-    return RstSent(AdifString.fromString(str));
+  static AdifRstSent fromString(String str) {
+    return AdifRstSent(AdifString.fromString(str));
   }
 }
 
 /// satellite mode - a code representing the satellite's uplink band and downlink band
-class SatMode extends AdifField {
+class AdifSatMode extends AdifField {
   final AdifString value;
   
-  SatMode(this.value) : super('SAT_MODE');
+  AdifSatMode(this.value) : super('SAT_MODE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static SatMode fromString(String str) {
-    return SatMode(AdifString.fromString(str));
+  static AdifSatMode fromString(String str) {
+    return AdifSatMode(AdifString.fromString(str));
   }
 }
 
 /// name of satellite
-class SatName extends AdifField {
+class AdifSatName extends AdifField {
   final AdifString value;
   
-  SatName(this.value) : super('SAT_NAME');
+  AdifSatName(this.value) : super('SAT_NAME');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static SatName fromString(String str) {
-    return SatName(AdifString.fromString(str));
+  static AdifSatName fromString(String str) {
+    return AdifSatName(AdifString.fromString(str));
   }
 }
 
 /// the solar flux at the time of the QSO in the range 0 to 300 (inclusive).
-class Sfi extends AdifField {
+class AdifSfi extends AdifField {
   final AdifInteger value;
   
-  Sfi(this.value) : super('SFI');
+  AdifSfi(this.value) : super('SFI');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Sfi fromString(String str) {
-    return Sfi(AdifInteger.fromString(str));
+  static AdifSfi fromString(String str) {
+    return AdifSfi(AdifInteger.fromString(str));
   }
 }
 
 /// the name of the contacted station's special activity or interest group
-class Sig extends AdifField {
+class AdifSig extends AdifField {
   final AdifString value;
   
-  Sig(this.value) : super('SIG');
+  AdifSig(this.value) : super('SIG');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Sig fromString(String str) {
-    return Sig(AdifString.fromString(str));
+  static AdifSig fromString(String str) {
+    return AdifSig(AdifString.fromString(str));
   }
 }
 
 /// the name of the contacted station's special activity or interest group
-class SigIntl extends AdifField {
+class AdifSigIntl extends AdifField {
   final AdifIntlString value;
   
-  SigIntl(this.value) : super('SIG_INTL');
+  AdifSigIntl(this.value) : super('SIG_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static SigIntl fromString(String str) {
-    return SigIntl(AdifIntlString.fromString(str));
+  static AdifSigIntl fromString(String str) {
+    return AdifSigIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// information associated with the contacted station's activity or interest group
-class SigInfo extends AdifField {
+class AdifSigInfo extends AdifField {
   final AdifString value;
   
-  SigInfo(this.value) : super('SIG_INFO');
+  AdifSigInfo(this.value) : super('SIG_INFO');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static SigInfo fromString(String str) {
-    return SigInfo(AdifString.fromString(str));
+  static AdifSigInfo fromString(String str) {
+    return AdifSigInfo(AdifString.fromString(str));
   }
 }
 
 /// information associated with the contacted station's activity or interest group
-class SigInfoIntl extends AdifField {
+class AdifSigInfoIntl extends AdifField {
   final AdifIntlString value;
   
-  SigInfoIntl(this.value) : super('SIG_INFO_INTL');
+  AdifSigInfoIntl(this.value) : super('SIG_INFO_INTL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static SigInfoIntl fromString(String str) {
-    return SigInfoIntl(AdifIntlString.fromString(str));
+  static AdifSigInfoIntl fromString(String str) {
+    return AdifSigInfoIntl(AdifIntlString.fromString(str));
   }
 }
 
 /// 'Y' indicates that the contacted station's operator is now a Silent Key.
-class SilentKey extends AdifField {
+class AdifSilentKey extends AdifField {
   final AdifBoolean value;
   
-  SilentKey(this.value) : super('SILENT_KEY');
+  AdifSilentKey(this.value) : super('SILENT_KEY');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static SilentKey fromString(String str) {
-    return SilentKey(AdifBoolean.fromString(str));
+  static AdifSilentKey fromString(String str) {
+    return AdifSilentKey(AdifBoolean.fromString(str));
   }
 }
 
 /// the contacted station's Straight Key Century Club (SKCC) member information
-class Skcc extends AdifField {
+class AdifSkcc extends AdifField {
   final AdifString value;
   
-  Skcc(this.value) : super('SKCC');
+  AdifSkcc(this.value) : super('SKCC');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Skcc fromString(String str) {
-    return Skcc(AdifString.fromString(str));
+  static AdifSkcc fromString(String str) {
+    return AdifSkcc(AdifString.fromString(str));
   }
 }
 
 /// contest QSO received serial number with a value greater than or equal to 0
-class Srx extends AdifField {
+class AdifSrx extends AdifField {
   final AdifInteger value;
   
-  Srx(this.value) : super('SRX');
+  AdifSrx(this.value) : super('SRX');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Srx fromString(String str) {
-    return Srx(AdifInteger.fromString(str));
+  static AdifSrx fromString(String str) {
+    return AdifSrx(AdifInteger.fromString(str));
   }
 }
 
 /// contest QSO received information
-class SrxString extends AdifField {
+class AdifSrxString extends AdifField {
   final AdifString value;
   
-  SrxString(this.value) : super('SRX_STRING');
+  AdifSrxString(this.value) : super('SRX_STRING');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static SrxString fromString(String str) {
-    return SrxString(AdifString.fromString(str));
+  static AdifSrxString fromString(String str) {
+    return AdifSrxString(AdifString.fromString(str));
   }
 }
 
 /// the logging station's callsign (the callsign used over the air)
-class StationCallsign extends AdifField {
+class AdifStationCallsign extends AdifField {
   final AdifString value;
   
-  StationCallsign(this.value) : super('STATION_CALLSIGN');
+  AdifStationCallsign(this.value) : super('STATION_CALLSIGN');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static StationCallsign fromString(String str) {
-    return StationCallsign(AdifString.fromString(str));
+  static AdifStationCallsign fromString(String str) {
+    return AdifStationCallsign(AdifString.fromString(str));
   }
 }
 
 /// contest QSO transmitted serial number with a value greater than or equal to 0
-class Stx extends AdifField {
+class AdifStx extends AdifField {
   final AdifInteger value;
   
-  Stx(this.value) : super('STX');
+  AdifStx(this.value) : super('STX');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Stx fromString(String str) {
-    return Stx(AdifInteger.fromString(str));
+  static AdifStx fromString(String str) {
+    return AdifStx(AdifInteger.fromString(str));
   }
 }
 
 /// contest QSO transmitted information
-class StxString extends AdifField {
+class AdifStxString extends AdifField {
   final AdifString value;
   
-  StxString(this.value) : super('STX_STRING');
+  AdifStxString(this.value) : super('STX_STRING');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static StxString fromString(String str) {
-    return StxString(AdifString.fromString(str));
+  static AdifStxString fromString(String str) {
+    return AdifStxString(AdifString.fromString(str));
   }
 }
 
 /// QSO Submode
-class Submode extends AdifField {
+class AdifSubmode extends AdifField {
   final AdifString value;
   
-  Submode(this.value) : super('SUBMODE');
+  AdifSubmode(this.value) : super('SUBMODE');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Submode fromString(String str) {
-    return Submode(AdifString.fromString(str));
+  static AdifSubmode fromString(String str) {
+    return AdifSubmode(AdifString.fromString(str));
   }
 }
 
 /// indicates that the QSO information pertains to an SWL report
-class Swl extends AdifField {
+class AdifSwl extends AdifField {
   final AdifBoolean value;
   
-  Swl(this.value) : super('SWL');
+  AdifSwl(this.value) : super('SWL');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Swl fromString(String str) {
-    return Swl(AdifBoolean.fromString(str));
+  static AdifSwl fromString(String str) {
+    return AdifSwl(AdifBoolean.fromString(str));
   }
 }
 
 /// Ten-Ten number with a value greater than 0
-class TenTen extends AdifField {
+class AdifTenTen extends AdifField {
   final AdifPositiveInteger value;
   
-  TenTen(this.value) : super('TEN_TEN');
+  AdifTenTen(this.value) : super('TEN_TEN');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static TenTen fromString(String str) {
-    return TenTen(AdifPositiveInteger.fromString(str));
+  static AdifTenTen fromString(String str) {
+    return AdifTenTen(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// HHMM or HHMMSS in UTC
-class TimeOff extends AdifField {
+class AdifTimeOff extends AdifField {
   final AdifTime value;
   
-  TimeOff(this.value) : super('TIME_OFF');
+  AdifTimeOff(this.value) : super('TIME_OFF');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static TimeOff fromString(String str) {
-    return TimeOff(AdifTime.fromString(str));
+  static AdifTimeOff fromString(String str) {
+    return AdifTimeOff(AdifTime.fromString(str));
   }
 }
 
 /// HHMM or HHMMSS in UTC
-class TimeOn extends AdifField {
+class AdifTimeOn extends AdifField {
   final AdifTime value;
   
-  TimeOn(this.value) : super('TIME_ON');
+  AdifTimeOn(this.value) : super('TIME_ON');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static TimeOn fromString(String str) {
-    return TimeOn(AdifTime.fromString(str));
+  static AdifTimeOn fromString(String str) {
+    return AdifTimeOn(AdifTime.fromString(str));
   }
 }
 
 /// the contacted station's UKSMG member number with a value greater than 0
-class Uksmg extends AdifField {
+class AdifUksmg extends AdifField {
   final AdifPositiveInteger value;
   
-  Uksmg(this.value) : super('UKSMG');
+  AdifUksmg(this.value) : super('UKSMG');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Uksmg fromString(String str) {
-    return Uksmg(AdifPositiveInteger.fromString(str));
+  static AdifUksmg fromString(String str) {
+    return AdifUksmg(AdifPositiveInteger.fromString(str));
   }
 }
 
 /// import-only: use STATE instead
-class VeProv extends AdifField {
+class AdifVeProv extends AdifField {
   final AdifString value;
   
-  VeProv(this.value) : super('VE_PROV');
+  AdifVeProv(this.value) : super('VE_PROV');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static VeProv fromString(String str) {
-    return VeProv(AdifString.fromString(str));
+  static AdifVeProv fromString(String str) {
+    return AdifVeProv(AdifString.fromString(str));
   }
 }
 
 /// the contacted station's URL
-class Web extends AdifField {
+class AdifWeb extends AdifField {
   final AdifString value;
   
-  Web(this.value) : super('WEB');
+  AdifWeb(this.value) : super('WEB');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static Web fromString(String str) {
-    return Web(AdifString.fromString(str));
+  static AdifWeb fromString(String str) {
+    return AdifWeb(AdifString.fromString(str));
   }
 }
 

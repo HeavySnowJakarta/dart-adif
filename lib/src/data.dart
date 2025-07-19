@@ -1,5 +1,6 @@
 /// This file defines the structure of a log file and a QSO.
 /// Currently not all fields are supported, but it may update in the future.
+library;
 
 import './basic.dart';
 import './type.dart';

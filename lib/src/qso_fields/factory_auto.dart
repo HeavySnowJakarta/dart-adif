@@ -8,225 +8,225 @@ import './total.dart';
 AdifField adifFieldFactory(String fieldName, String value) {
   switch (fieldName) {
     case 'ADDRESS':
-      return Address.fromString(value);
+      return AdifAddress.fromString(value);
     case 'ADDRESS_INTL':
-      return AddressIntl.fromString(value);
+      return AdifAddressIntl.fromString(value);
     case 'CALL':
-      return Call.fromString(value);
+      return AdifCall.fromString(value);
     case 'CHECK':
-      return Check.fromString(value);
+      return AdifCheck.fromString(value);
     case 'CLASS':
-      return Class.fromString(value);
+      return AdifClass.fromString(value);
     case 'CLUBLOG_QSO_UPLOAD_DATE':
-      return ClublogQsoUploadDate.fromString(value);
+      return AdifClublogQsoUploadDate.fromString(value);
     case 'COMMENT':
-      return Comment.fromString(value);
+      return AdifComment.fromString(value);
     case 'COMMENT_INTL':
-      return CommentIntl.fromString(value);
+      return AdifCommentIntl.fromString(value);
     case 'CONTACTED_OP':
-      return ContactedOp.fromString(value);
+      return AdifContactedOp.fromString(value);
     case 'CONTEST_ID':
-      return ContestId.fromString(value);
+      return AdifContestId.fromString(value);
     case 'COUNTRY':
-      return Country.fromString(value);
+      return AdifCountry.fromString(value);
     case 'COUNTRY_INTL':
-      return CountryIntl.fromString(value);
+      return AdifCountryIntl.fromString(value);
     case 'CQZ':
-      return Cqz.fromString(value);
+      return AdifCqz.fromString(value);
     case 'DCL_QSLRDATE':
-      return DclQslrdate.fromString(value);
+      return AdifDclQslrdate.fromString(value);
     case 'DCL_QSLSDATE':
-      return DclQslsdate.fromString(value);
+      return AdifDclQslsdate.fromString(value);
     case 'EMAIL':
-      return Email.fromString(value);
+      return AdifEmail.fromString(value);
     case 'EQ_CALL':
-      return EqCall.fromString(value);
+      return AdifEqCall.fromString(value);
     case 'EQSL_QSLRDATE':
-      return EqslQslrdate.fromString(value);
+      return AdifEqslQslrdate.fromString(value);
     case 'EQSL_QSLSDATE':
-      return EqslQslsdate.fromString(value);
+      return AdifEqslQslsdate.fromString(value);
     case 'FISTS':
-      return Fists.fromString(value);
+      return AdifFists.fromString(value);
     case 'FISTS_CC':
-      return FistsCc.fromString(value);
+      return AdifFistsCc.fromString(value);
     case 'FORCE_INIT':
-      return ForceInit.fromString(value);
+      return AdifForceInit.fromString(value);
     case 'GUEST_OP':
-      return GuestOp.fromString(value);
+      return AdifGuestOp.fromString(value);
     case 'HAMLOGEU_QSO_UPLOAD_DATE':
-      return HamlogeuQsoUploadDate.fromString(value);
+      return AdifHamlogeuQsoUploadDate.fromString(value);
     case 'HAMQTH_QSO_UPLOAD_DATE':
-      return HamqthQsoUploadDate.fromString(value);
+      return AdifHamqthQsoUploadDate.fromString(value);
     case 'HRDLOG_QSO_UPLOAD_DATE':
-      return HrdlogQsoUploadDate.fromString(value);
+      return AdifHrdlogQsoUploadDate.fromString(value);
     case 'IOTA_ISLAND_ID':
-      return IotaIslandId.fromString(value);
+      return AdifIotaIslandId.fromString(value);
     case 'ITUZ':
-      return Ituz.fromString(value);
+      return AdifItuz.fromString(value);
     case 'K_INDEX':
-      return KIndex.fromString(value);
+      return AdifKIndex.fromString(value);
     case 'LAT':
-      return Lat.fromString(value);
+      return AdifLat.fromString(value);
     case 'LON':
-      return Lon.fromString(value);
+      return AdifLon.fromString(value);
     case 'LOTW_QSLRDATE':
-      return LotwQslrdate.fromString(value);
+      return AdifLotwQslrdate.fromString(value);
     case 'LOTW_QSLSDATE':
-      return LotwQslsdate.fromString(value);
+      return AdifLotwQslsdate.fromString(value);
     case 'MORSE_KEY_INFO':
-      return MorseKeyInfo.fromString(value);
+      return AdifMorseKeyInfo.fromString(value);
     case 'MS_SHOWER':
-      return MsShower.fromString(value);
+      return AdifMsShower.fromString(value);
     case 'MY_ANTENNA':
-      return MyAntenna.fromString(value);
+      return AdifMyAntenna.fromString(value);
     case 'MY_ANTENNA_INTL':
-      return MyAntennaIntl.fromString(value);
+      return AdifMyAntennaIntl.fromString(value);
     case 'MY_CITY':
-      return MyCity.fromString(value);
+      return AdifMyCity.fromString(value);
     case 'MY_CITY_INTL':
-      return MyCityIntl.fromString(value);
+      return AdifMyCityIntl.fromString(value);
     case 'MY_COUNTRY':
-      return MyCountry.fromString(value);
+      return AdifMyCountry.fromString(value);
     case 'MY_COUNTRY_INTL':
-      return MyCountryIntl.fromString(value);
+      return AdifMyCountryIntl.fromString(value);
     case 'MY_CQ_ZONE':
-      return MyCqZone.fromString(value);
+      return AdifMyCqZone.fromString(value);
     case 'MY_FISTS':
-      return MyFists.fromString(value);
+      return AdifMyFists.fromString(value);
     case 'MY_IOTA_ISLAND_ID':
-      return MyIotaIslandId.fromString(value);
+      return AdifMyIotaIslandId.fromString(value);
     case 'MY_ITU_ZONE':
-      return MyItuZone.fromString(value);
+      return AdifMyItuZone.fromString(value);
     case 'MY_LAT':
-      return MyLat.fromString(value);
+      return AdifMyLat.fromString(value);
     case 'MY_LON':
-      return MyLon.fromString(value);
+      return AdifMyLon.fromString(value);
     case 'MY_MORSE_KEY_INFO':
-      return MyMorseKeyInfo.fromString(value);
+      return AdifMyMorseKeyInfo.fromString(value);
     case 'MY_NAME':
-      return MyName.fromString(value);
+      return AdifMyName.fromString(value);
     case 'MY_NAME_INTL':
-      return MyNameIntl.fromString(value);
+      return AdifMyNameIntl.fromString(value);
     case 'MY_POSTAL_CODE':
-      return MyPostalCode.fromString(value);
+      return AdifMyPostalCode.fromString(value);
     case 'MY_POSTAL_CODE_INTL':
-      return MyPostalCodeIntl.fromString(value);
+      return AdifMyPostalCodeIntl.fromString(value);
     case 'MY_RIG':
-      return MyRig.fromString(value);
+      return AdifMyRig.fromString(value);
     case 'MY_RIG_INTL':
-      return MyRigIntl.fromString(value);
+      return AdifMyRigIntl.fromString(value);
     case 'MY_SIG':
-      return MySig.fromString(value);
+      return AdifMySig.fromString(value);
     case 'MY_SIG_INTL':
-      return MySigIntl.fromString(value);
+      return AdifMySigIntl.fromString(value);
     case 'MY_SIG_INFO':
-      return MySigInfo.fromString(value);
+      return AdifMySigInfo.fromString(value);
     case 'MY_SIG_INFO_INTL':
-      return MySigInfoIntl.fromString(value);
+      return AdifMySigInfoIntl.fromString(value);
     case 'MY_STREET':
-      return MyStreet.fromString(value);
+      return AdifMyStreet.fromString(value);
     case 'MY_STREET_INTL':
-      return MyStreetIntl.fromString(value);
+      return AdifMyStreetIntl.fromString(value);
     case 'NAME':
-      return Name.fromString(value);
+      return AdifName.fromString(value);
     case 'NAME_INTL':
-      return NameIntl.fromString(value);
+      return AdifNameIntl.fromString(value);
     case 'NOTES':
-      return Notes.fromString(value);
+      return AdifNotes.fromString(value);
     case 'NOTES_INTL':
-      return NotesIntl.fromString(value);
+      return AdifNotesIntl.fromString(value);
     case 'NR_BURSTS':
-      return NrBursts.fromString(value);
+      return AdifNrBursts.fromString(value);
     case 'NR_PINGS':
-      return NrPings.fromString(value);
+      return AdifNrPings.fromString(value);
     case 'OPERATOR':
-      return Operator.fromString(value);
+      return AdifOperator.fromString(value);
     case 'OWNER_CALLSIGN':
-      return OwnerCallsign.fromString(value);
+      return AdifOwnerCallsign.fromString(value);
     case 'PFX':
-      return Pfx.fromString(value);
+      return AdifPfx.fromString(value);
     case 'PRECEDENCE':
-      return Precedence.fromString(value);
+      return AdifPrecedence.fromString(value);
     case 'PUBLIC_KEY':
-      return PublicKey.fromString(value);
+      return AdifPublicKey.fromString(value);
     case 'QRZCOM_QSO_DOWNLOAD_DATE':
-      return QrzcomQsoDownloadDate.fromString(value);
+      return AdifQrzcomQsoDownloadDate.fromString(value);
     case 'QRZCOM_QSO_UPLOAD_DATE':
-      return QrzcomQsoUploadDate.fromString(value);
+      return AdifQrzcomQsoUploadDate.fromString(value);
     case 'QSLMSG':
-      return Qslmsg.fromString(value);
+      return AdifQslmsg.fromString(value);
     case 'QSLMSG_INTL':
-      return QslmsgIntl.fromString(value);
+      return AdifQslmsgIntl.fromString(value);
     case 'QSLMSG_RCVD':
-      return QslmsgRcvd.fromString(value);
+      return AdifQslmsgRcvd.fromString(value);
     case 'QSLRDATE':
-      return Qslrdate.fromString(value);
+      return AdifQslrdate.fromString(value);
     case 'QSLSDATE':
-      return Qslsdate.fromString(value);
+      return AdifQslsdate.fromString(value);
     case 'QSL_VIA':
-      return QslVia.fromString(value);
+      return AdifQslVia.fromString(value);
     case 'QSO_DATE':
-      return QsoDate.fromString(value);
+      return AdifQsoDate.fromString(value);
     case 'QSO_DATE_OFF':
-      return QsoDateOff.fromString(value);
+      return AdifQsoDateOff.fromString(value);
     case 'QSO_RANDOM':
-      return QsoRandom.fromString(value);
+      return AdifQsoRandom.fromString(value);
     case 'QTH':
-      return Qth.fromString(value);
+      return AdifQth.fromString(value);
     case 'QTH_INTL':
-      return QthIntl.fromString(value);
+      return AdifQthIntl.fromString(value);
     case 'RIG':
-      return Rig.fromString(value);
+      return AdifRig.fromString(value);
     case 'RIG_INTL':
-      return RigIntl.fromString(value);
+      return AdifRigIntl.fromString(value);
     case 'RST_RCVD':
-      return RstRcvd.fromString(value);
+      return AdifRstRcvd.fromString(value);
     case 'RST_SENT':
-      return RstSent.fromString(value);
+      return AdifRstSent.fromString(value);
     case 'SAT_MODE':
-      return SatMode.fromString(value);
+      return AdifSatMode.fromString(value);
     case 'SAT_NAME':
-      return SatName.fromString(value);
+      return AdifSatName.fromString(value);
     case 'SFI':
-      return Sfi.fromString(value);
+      return AdifSfi.fromString(value);
     case 'SIG':
-      return Sig.fromString(value);
+      return AdifSig.fromString(value);
     case 'SIG_INTL':
-      return SigIntl.fromString(value);
+      return AdifSigIntl.fromString(value);
     case 'SIG_INFO':
-      return SigInfo.fromString(value);
+      return AdifSigInfo.fromString(value);
     case 'SIG_INFO_INTL':
-      return SigInfoIntl.fromString(value);
+      return AdifSigInfoIntl.fromString(value);
     case 'SILENT_KEY':
-      return SilentKey.fromString(value);
+      return AdifSilentKey.fromString(value);
     case 'SKCC':
-      return Skcc.fromString(value);
+      return AdifSkcc.fromString(value);
     case 'SRX':
-      return Srx.fromString(value);
+      return AdifSrx.fromString(value);
     case 'SRX_STRING':
-      return SrxString.fromString(value);
+      return AdifSrxString.fromString(value);
     case 'STATION_CALLSIGN':
-      return StationCallsign.fromString(value);
+      return AdifStationCallsign.fromString(value);
     case 'STX':
-      return Stx.fromString(value);
+      return AdifStx.fromString(value);
     case 'STX_STRING':
-      return StxString.fromString(value);
+      return AdifStxString.fromString(value);
     case 'SUBMODE':
-      return Submode.fromString(value);
+      return AdifSubmode.fromString(value);
     case 'SWL':
-      return Swl.fromString(value);
+      return AdifSwl.fromString(value);
     case 'TEN_TEN':
-      return TenTen.fromString(value);
+      return AdifTenTen.fromString(value);
     case 'TIME_OFF':
-      return TimeOff.fromString(value);
+      return AdifTimeOff.fromString(value);
     case 'TIME_ON':
-      return TimeOn.fromString(value);
+      return AdifTimeOn.fromString(value);
     case 'UKSMG':
-      return Uksmg.fromString(value);
+      return AdifUksmg.fromString(value);
     case 'VE_PROV':
-      return VeProv.fromString(value);
+      return AdifVeProv.fromString(value);
     case 'WEB':
-      return Web.fromString(value);
+      return AdifWeb.fromString(value);
     default:
       throw ArgumentError('Unknown field name: $fieldName');
   }

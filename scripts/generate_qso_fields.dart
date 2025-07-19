@@ -1,7 +1,23 @@
 /// This script generates classes of supported QSO fields according to given
 /// information of the CSV table.
 
+// TODO: Add support for getting original data.
+
 import 'dart:io';
+
+// Convert ADIF type to Dart type in strings.
+const typeDict = {
+  'Boolean': 'bool',
+  'Integer': 'int',
+  'PostiveInteger': 'int',
+  'Number': 'double',
+  'Date': 'DateTime',
+  'Time': 'DateTime',
+  'String': 'String',
+  'IntlString': 'String',
+  'MultilineString': 'String',
+  'IntlMultilineString': 'String',
+};
 
 // Convert the string from UPPER_SNAKE_CASE to UpperCamelCase.
 String toUpperCamelCase(String str) {
@@ -29,7 +45,7 @@ void main() {
 library;
 
 import '../data.dart';
-import '../data_types/total.dart';
+import '../data_types/index.dart';
 
 """;
   String factoryContent = """
@@ -56,18 +72,18 @@ AdifField adifFieldFactory(String fieldName, String value) {
     // Write to the implement file.
     implementContent += """
 /// $fieldDescription
-class $fieldNameUpperCamel extends AdifField {
+class Adif$fieldNameUpperCamel extends AdifField {
   final Adif$fieldType value;
   
-  $fieldNameUpperCamel(this.value) : super('$fieldNameUpperSnake');
+  Adif$fieldNameUpperCamel(this.value) : super('$fieldNameUpperSnake');
   
   @override
   String getString() {
     return value.getString();
   }
   
-  static $fieldNameUpperCamel fromString(String str) {
-    return $fieldNameUpperCamel(Adif$fieldType.fromString(str));
+  static Adif$fieldNameUpperCamel fromString(String str) {
+    return Adif$fieldNameUpperCamel(Adif$fieldType.fromString(str));
   }
 }
 
@@ -75,7 +91,7 @@ class $fieldNameUpperCamel extends AdifField {
 
     factoryContent += """
     case '$fieldNameUpperSnake':
-      return $fieldNameUpperCamel.fromString(value);
+      return Adif$fieldNameUpperCamel.fromString(value);
 """;
   }
 
