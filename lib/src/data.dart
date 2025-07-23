@@ -50,10 +50,7 @@ class Userdef {
 }
 
 /// The structure of each QSO. The major fields are the same with ADIF defined
-/// formats (converted from UPPER_SNAKE_CASE to lowerCamelCase), with only a
-/// few exceptions:
-///
-/// - `QSO_DATE` and `TIME_ON` are merged into a single field [startTime].
+/// formats (converted from UPPER_SNAKE_CASE to lowerCamelCase).
 ///
 /// When exporting to ADX files, fields marked with "INTL compatible" will be
 /// always converted to its corresponding INTL field, no matter whether

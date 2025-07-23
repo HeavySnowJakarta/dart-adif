@@ -49,6 +49,227 @@
   <h1 id="dart_adif">Dart_adif</h1>
 <p>Amateur Data Interchange Format (ADIF) parser for Dart.</p>
 <p>There are three parts among the version. The first part is <em>the version of the related ADIF file</em>, for example <code>315</code> refers to <a href="https://www.adif.org/315/ADIF_315.htm">ADIF 3.1.5</a>. The second and third part are the version of this library that is compatiple to the corresponding ADIF version.</p>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>Enumeration is not supported yet, and modes are considered as strings for now. Be cautious if other apps can parse from the modes exported from this library.</li>
+<li>All the fields exported to ADX are considered as international as possible.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>First let's see the data structure of a QSO:</p>
+<pre class="language-dart"><code class="language-dart">class Qso {
+  /// The QSO's ADIF-defined fields.
+  List&lt;AdifField&gt; adifdefs = [];
+
+  /// TODO: The application-defined fields.
+  List&lt;Appdef&gt; appdefs;
+
+  /// TODO: The user-defined fields.
+  List&lt;Userdef&gt; userdefs;
+}
+</code></pre>
+<p>You can generate a QSO like this:</p>
+<pre class="language-dart"><code class="language-dart">final call = adifFieldFactory('CALL', 'BA1ABC');
+final date = adifFieldFactory('DATE', '20250505');
+
+final qso = Qso([call, date], [], []);
+</code></pre>
+<p>And here is the structure of an ADIF object:</p>
+<pre class="language-dart"><code class="language-dart">class Adif {
+  /// The ADIF version. Generally defined by this library.
+  String adifVer = adifVersion;
+
+  /// Created timestamp, shall be converted to string when converting.
+  /// Generated automatically.
+  DateTime? createdTimestamp = DateTime.now().toUtc();
+
+  /// The program's name.
+  final String? programid;
+
+  /// The program's version.
+  final String? programversion;
+
+  /// TODO: The userdefined fields.
+  /// The `index`th one on the list refers to `USERDEF[index+1]` as for ADIF it
+  /// shall be a postive number.
+  List&lt;String&gt; userdef;
+
+  /// The QSO data.
+  List&lt;Qso&gt; data;
+
+  Adif(this.programid, this.programversion, this.userdef, this.data);
+}
+</code></pre>
+<p>Give the fields of your program, leave the <code>userdef</code> as empty, and put the QSOs together as a list, you can get an ADIF object:</p>
+<pre class="language-dart"><code class="language-dart">// Generate an ADIF log.
+final adif = Adif(
+  "dart-adif.test_suites",
+  "315.0.1",
+  [],
+  [qso1, qso2, qso3]);
+</code></pre>
+<p>Then export it into an ADX string:</p>
+<pre class="language-dart"><code class="language-dart">final String adxString = adif.buildAdxString();
+</code></pre>
+<h2 id="roadmap">Roadmap</h2>
+<h3 id="supported-adif-data-types">Supported ADIF Data types</h3>
+<ul>
+<li><code>x</code> Boolean</li>
+<li><code> </code> Character</li>
+<li><code> </code> CreditList</li>
+<li><code>x</code> Date</li>
+<li><code> </code> Digit</li>
+<li><code> </code> Enumeration</li>
+<li><code> </code> GridSquare</li>
+<li><code> </code> GridSquareExt</li>
+<li><code> </code> GridSquareList</li>
+<li><code>x</code> Integer</li>
+<li><code> </code> IntlCharacter</li>
+<li><code>x</code> IntlMultilineString</li>
+<li><code>x</code> IntlString</li>
+<li><code> </code> IOTARefNo</li>
+<li><code>x</code> Location</li>
+<li><code>x</code> MultilineString</li>
+<li><code>x</code> Number</li>
+<li><code>x</code> PositiveInteger</li>
+<li><code> </code> POTARef</li>
+<li><code> </code> POTARefList</li>
+<li><code> </code> SecondarySubdivisionList</li>
+<li><code> </code> SecondaryAdministrativeSubdivisionListAlt</li>
+<li><code> </code> SOTARef</li>
+<li><code> </code> SponsoredAwardList</li>
+<li><code>x</code> String</li>
+<li><code>x</code> Time</li>
+<li><code> </code> WWFFRef</li>
+</ul>
+<h3 id="supported-operations">Supported operations</h3>
+<ul>
+<li><code> </code> Import from ADI</li>
+<li><code> </code> Export to ADI</li>
+<li><code> </code> Import from ADX</li>
+<li><code>x</code> Export to ADX</li>
+</ul>
+<h3 id="supported-fields">Supported fields</h3>
+<ul>
+<li><code>x</code> ADIF-defined fields</li>
+<li><code> </code> APP-defined fields</li>
+<li><code> </code> User-defied fields</li>
+</ul>
+<h3 id="supported-adif-defined-fields">Supported ADIF-defined fields</h3>
+<ul>
+<li>ADDRESS</li>
+<li>ADDRESS_INTL</li>
+<li>CALL</li>
+<li>CHECK</li>
+<li>CLASS</li>
+<li>CLUBLOG_QSO_UPLOAD_DATE</li>
+<li>COMMENT</li>
+<li>COMMENT_INTL</li>
+<li>CONTACTED_OP</li>
+<li>CONTEST_ID</li>
+<li>COUNTRY</li>
+<li>COUNTRY_INTL</li>
+<li>CQZ</li>
+<li>DCL_QSLRDATE</li>
+<li>DCL_QSLSDATE</li>
+<li>EMAIL</li>
+<li>EQ_CALL</li>
+<li>EQSL_QSLRDATE</li>
+<li>EQSL_QSLSDATE</li>
+<li>FISTS</li>
+<li>FISTS_CC</li>
+<li>FORCE_INIT</li>
+<li>FREQ</li>
+<li>FREQ_RX</li>
+<li>GUEST_OP</li>
+<li>HAMLOGEU_QSO_UPLOAD_DATE</li>
+<li>HAMQTH_QSO_UPLOAD_DATE</li>
+<li>HRDLOG_QSO_UPLOAD_DATE</li>
+<li>IOTA_ISLAND_ID</li>
+<li>ITUZ</li>
+<li>K_INDEX</li>
+<li>LAT</li>
+<li>LON</li>
+<li>LOTW_QSLRDATE</li>
+<li>LOTW_QSLSDATE</li>
+<li>MODE</li>
+<li>MORSE_KEY_INFO</li>
+<li>MS_SHOWER</li>
+<li>MY_ANTENNA</li>
+<li>MY_ANTENNA_INTL</li>
+<li>MY_CITY</li>
+<li>MY_CITY_INTL</li>
+<li>MY_COUNTRY</li>
+<li>MY_COUNTRY_INTL</li>
+<li>MY_CQ_ZONE</li>
+<li>MY_FISTS</li>
+<li>MY_IOTA_ISLAND_ID</li>
+<li>MY_ITU_ZONE</li>
+<li>MY_LAT</li>
+<li>MY_LON</li>
+<li>MY_MORSE_KEY_INFO</li>
+<li>MY_NAME</li>
+<li>MY_NAME_INTL</li>
+<li>MY_POSTAL_CODE</li>
+<li>MY_POSTAL_CODE_INTL</li>
+<li>MY_RIG</li>
+<li>MY_RIG_INTL</li>
+<li>MY_SIG</li>
+<li>MY_SIG_INTL</li>
+<li>MY_SIG_INFO</li>
+<li>MY_SIG_INFO_INTL</li>
+<li>MY_STREET</li>
+<li>MY_STREET_INTL</li>
+<li>NAME</li>
+<li>NAME_INTL</li>
+<li>NOTES</li>
+<li>NOTES_INTL</li>
+<li>NR_BURSTS</li>
+<li>NR_PINGS</li>
+<li>OPERATOR</li>
+<li>OWNER_CALLSIGN</li>
+<li>PFX</li>
+<li>PRECEDENCE</li>
+<li>PUBLIC_KEY</li>
+<li>QRZCOM_QSO_DOWNLOAD_DATE</li>
+<li>QRZCOM_QSO_UPLOAD_DATE</li>
+<li>QSLMSG</li>
+<li>QSLMSG_INTL</li>
+<li>QSLMSG_RCVD</li>
+<li>QSLRDATE</li>
+<li>QSLSDATE</li>
+<li>QSL_VIA</li>
+<li>QSO_DATE</li>
+<li>QSO_DATE_OFF</li>
+<li>QSO_RANDOM</li>
+<li>QTH</li>
+<li>QTH_INTL</li>
+<li>RIG</li>
+<li>RIG_INTL</li>
+<li>RST_RCVD</li>
+<li>RST_SENT</li>
+<li>SAT_MODE</li>
+<li>SAT_NAME</li>
+<li>SFI</li>
+<li>SIG</li>
+<li>SIG_INTL</li>
+<li>SIG_INFO</li>
+<li>SIG_INFO_INTL</li>
+<li>SILENT_KEY</li>
+<li>SKCC</li>
+<li>SRX</li>
+<li>SRX_STRING</li>
+<li>STATION_CALLSIGN</li>
+<li>STX</li>
+<li>STX_STRING</li>
+<li>SUBMODE</li>
+<li>SWL</li>
+<li>TEN_TEN</li>
+<li>TIME_OFF</li>
+<li>TIME_ON</li>
+<li>UKSMG</li>
+<li>VE_PROV</li>
+<li>WEB</li>
+</ul>
 </section>
 
 

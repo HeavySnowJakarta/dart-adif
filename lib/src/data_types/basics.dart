@@ -200,12 +200,12 @@ class AdifIntlMultilineString extends AdifGeneral<String> {
 /// a sequence of 11 characters representing a latitude or longitude in
 /// XDDD MM.MMM format, where
 /// - X is a directional Character from the set {E, W, N, S}
-/// - DDD is a 3-Digit degrees specifier, where 0 <= DDD <= 180 [use leading
-///   zeroes]
+/// - DDD is a 3-Digit degrees specifier, where 0 <= DDD <= 180 (use leading
+///   zeroes)
 /// - There is a single space character in between DDD and MM.MMM
 /// - MM.MMM is an unsigned Number minutes specifier with its decimal point
-/// in the third position, where 00.000 <= MM.MMM <= 59.999  [use leading and
-/// trailing zeroes]
+/// in the third position, where 00.000 <= MM.MMM <= 59.999  (use leading and
+/// trailing zeroes)
 class AdifLocation extends AdifGeneral<String> {
   @override
   String getType() => 'L';
