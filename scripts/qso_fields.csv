@@ -20,6 +20,8 @@ EQSL_QSLSDATE|Date|date QSL sent to eQSL.cc
 FISTS|PositiveInteger|the contacted station's FISTS CW Club member number with a value greater than 0.
 FISTS_CC|PositiveInteger|the contacted station's FISTS CW Club Century Certificate (CC) number with a value greater than 0.
 FORCE_INIT|Boolean|"new EME ""initial"""
+FREQ|Number|QSO frequency in Megahertz
+FREQ_RX|Number|in a split frequency QSO, the logging station's receiving frequency in Megahertz
 GUEST_OP|String|import-only: use OPERATOR instead
 HAMLOGEU_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the HAMLOG.EU online service
 HAMQTH_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the HamQTH.com online service
@@ -31,6 +33,7 @@ LAT|Location|the contacted station's latitude
 LON|Location|the contacted station's longitude
 LOTW_QSLRDATE|Date|date QSL received from ARRL Logbook of the World
 LOTW_QSLSDATE|Date|date QSL sent to ARRL Logbook of the World
+MODE|String|QSO mode
 MORSE_KEY_INFO|String|details of the contacted station's Morse key (e.g. make, model, etc).
 MS_SHOWER|String|For Meteor Scatter QSOs, the name of the meteor shower in progress
 MY_ANTENNA|String|the logging station's antenna

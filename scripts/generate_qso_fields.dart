@@ -1,5 +1,5 @@
-/// This script generates classes of supported QSO fields according to given
-/// information of the CSV table.
+// This script generates classes of supported QSO fields according to given
+// information of the CSV table.
 
 // TODO: Add support for getting original data.
 

@@ -357,6 +357,38 @@ class AdifForceInit extends AdifField {
   }
 }
 
+/// QSO frequency in Megahertz
+class AdifFreq extends AdifField {
+  final AdifNumber value;
+  
+  AdifFreq(this.value) : super('FREQ');
+  
+  @override
+  String getString() {
+    return value.getString();
+  }
+  
+  static AdifFreq fromString(String str) {
+    return AdifFreq(AdifNumber.fromString(str));
+  }
+}
+
+/// in a split frequency QSO, the logging station's receiving frequency in Megahertz
+class AdifFreqRx extends AdifField {
+  final AdifNumber value;
+  
+  AdifFreqRx(this.value) : super('FREQ_RX');
+  
+  @override
+  String getString() {
+    return value.getString();
+  }
+  
+  static AdifFreqRx fromString(String str) {
+    return AdifFreqRx(AdifNumber.fromString(str));
+  }
+}
+
 /// import-only: use OPERATOR instead
 class AdifGuestOp extends AdifField {
   final AdifString value;
@@ -530,6 +562,22 @@ class AdifLotwQslsdate extends AdifField {
   
   static AdifLotwQslsdate fromString(String str) {
     return AdifLotwQslsdate(AdifDate.fromString(str));
+  }
+}
+
+/// QSO mode
+class AdifMode extends AdifField {
+  final AdifString value;
+  
+  AdifMode(this.value) : super('MODE');
+  
+  @override
+  String getString() {
+    return value.getString();
+  }
+  
+  static AdifMode fromString(String str) {
+    return AdifMode(AdifString.fromString(str));
   }
 }
 

@@ -51,6 +51,10 @@ AdifField adifFieldFactory(String fieldName, String value) {
       return AdifFistsCc.fromString(value);
     case 'FORCE_INIT':
       return AdifForceInit.fromString(value);
+    case 'FREQ':
+      return AdifFreq.fromString(value);
+    case 'FREQ_RX':
+      return AdifFreqRx.fromString(value);
     case 'GUEST_OP':
       return AdifGuestOp.fromString(value);
     case 'HAMLOGEU_QSO_UPLOAD_DATE':
@@ -73,6 +77,8 @@ AdifField adifFieldFactory(String fieldName, String value) {
       return AdifLotwQslrdate.fromString(value);
     case 'LOTW_QSLSDATE':
       return AdifLotwQslsdate.fromString(value);
+    case 'MODE':
+      return AdifMode.fromString(value);
     case 'MORSE_KEY_INFO':
       return AdifMorseKeyInfo.fromString(value);
     case 'MS_SHOWER':
