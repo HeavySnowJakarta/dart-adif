@@ -1,3 +1,8 @@
+## 315.1.1
+
+Fixes:
+- Downgraded dependences for better compatibility.
+
 ## 315.0.0
 
 Initial version:
