@@ -62,6 +62,11 @@ AdifField adifFieldFactory(String fieldName, String value) {
 
   // Parse fields from the read data.
   for (final line in inputContent.trim().split('\n')) {
+    // Skip comments.
+    if (line[0] == '#') {
+      continue;
+    }
+
     // Parse the fields.
     final parts = line.split('|');
     final fieldNameUpperSnake = parts[0].trim();
@@ -74,14 +79,14 @@ AdifField adifFieldFactory(String fieldName, String value) {
 /// $fieldDescription
 class Adif$fieldNameUpperCamel extends AdifField {
   final Adif$fieldType value;
-  
+
   Adif$fieldNameUpperCamel(this.value) : super('$fieldNameUpperSnake');
-  
+
   @override
   String getString() {
     return value.getString();
   }
-  
+
   static Adif$fieldNameUpperCamel fromString(String str) {
     return Adif$fieldNameUpperCamel(Adif$fieldType.fromString(str));
   }

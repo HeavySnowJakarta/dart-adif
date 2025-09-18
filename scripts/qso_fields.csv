@@ -1,31 +1,62 @@
+#FIELD_NAME|DataType|description
 ADDRESS|MultilineString|the contacted station's complete mailing address: full name, street address, city, postal code, and country
 ADDRESS_INTL|IntlMultilineString|the contacted station's complete mailing address: full name, street address, city, postal code, and country
+AGE|Number|the contacted station's operator's age in years in the range 0 to 120 (inclusive)
+ALTITUDE|Number|the height of the contacted station in meters relative to Mean Sea Level (MSL).
+ANT_AZ|Number|the logging station's antenna azimuth, in degrees with a value between 0 to 360 (inclusive).
+ANT_EL|Number|the logging station's antenna elevation, in degrees with a value between -90 to 90 (inclusive).
+ANT_PATH|AntPathEnumeration|the signal path
+ARRL_SECT|ArrlSectionEnumeration|the contacted station's ARRL section
+#AWARD_SUBMITTED|SponsoredAwardList|the list of awards submitted to a sponsor.
+#AWARD_GRANTED|SponsoredAwardList|the list of awards granted by a sponsor.
+A_INDEX|Number|the geomagnetic A index at the time of the QSO in the range 0 to 400 (inclusive)
+BAND|BandEnumeration|QSO Band
+BAND_RX|BandEnumeration|in a split frequency QSO, the logging station's receiving band
 CALL|String|the contacted station's callsign
 CHECK|String|contest check (e.g. for ARRL Sweepstakes)
 CLASS|String|contest class (e.g. for ARRL Field Day)
 CLUBLOG_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the Club Log online service
+CLUBLOG_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO on the Club Log online service
+#CNTY|SecondaryAdministrativeSubdivisionEnumeration|the contacted station's Secondary Administrative Subdivision (e.g. US county, JA Gun), in the specified format
+#CNTY_ALT|SecondaryAdministrativeSubdivisionListAlt|a semicolon (;) delimited, unordered list of Secondary Administrative Subdivision Alt codes for the contacted station
 COMMENT|String|comment field for QSO
 COMMENT_INTL|IntlString|comment field for QSO
+CONT|ContinentEnumeration|the contacted station's Continent
 CONTACTED_OP|String|the callsign of the individual operating the contacted station
 CONTEST_ID|String|QSO Contest Identifier
 COUNTRY|String|the contacted station's DXCC entity name
 COUNTRY_INTL|IntlString|the contacted station's DXCC entity name
 CQZ|PositiveInteger|the contacted station's CQ Zone in the range 1 to 40 (inclusive)
+CREDIT_SUBMITTED|CreditList|the list of credits sought for this QSO
+CREDIT_GRANTED|CreditList|the list of credits granted to this QSO
+#DARC_DOK|DARC DOKEnumeration|the contacted station's DARC DOK (District Location Code)
 DCL_QSLRDATE|Date|date QSL received from DCL
 DCL_QSLSDATE|Date|date QSL sent to DCL
+DCL_QSL_RCVD|QslRcvdEnumeration|DCL QSL received status
+DCL_QSL_SENT|QslSentEnumeration|DCL QSL sent status
+DISTANCE|Number|the distance between the logging station and the contacted station in kilometers via the specified signal path with a value greater than or equal to 0
+DXCC|DxccEntityCodeEnumeration|the contacted station's DXCC Entity Code
 EMAIL|String|the contacted station's email address
 EQ_CALL|String|the contacted station's owner's callsign
 EQSL_QSLRDATE|Date|date QSL received from eQSL.cc
 EQSL_QSLSDATE|Date|date QSL sent to eQSL.cc
+EQSL_QSL_RCVD|QslRcvdEnumeration|eQSL.cc QSL received status
+EQSL_QSL_SENT|QslSentEnumeration|eQSL.cc QSL sent status
 FISTS|PositiveInteger|the contacted station's FISTS CW Club member number with a value greater than 0.
 FISTS_CC|PositiveInteger|the contacted station's FISTS CW Club Century Certificate (CC) number with a value greater than 0.
-FORCE_INIT|Boolean|"new EME ""initial"""
+FORCE_INIT|Boolean|new EME "initial"
 FREQ|Number|QSO frequency in Megahertz
 FREQ_RX|Number|in a split frequency QSO, the logging station's receiving frequency in Megahertz
+GRIDSQUARE|GridSquare|the contacted station's 2-character, 4-character, 6-character, or 8-character Maidenhead Grid Square
+GRIDSQUARE_EXT|GridSquareExt|for a contacted station's 10-character Maidenhead locator, supplements the GRIDSQUARE field by containing characters 9 and 10.
 GUEST_OP|String|import-only: use OPERATOR instead
 HAMLOGEU_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the HAMLOG.EU online service
+HAMLOGEU_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO on the HAMLOG.EU online service
 HAMQTH_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the HamQTH.com online service
+HAMQTH_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO on the HamQTH.com online service
 HRDLOG_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the HRDLog.net online service
+HRDLOG_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO on the HRDLog.net online service
+IOTA|IOTARefNo|the contacted station's IOTA designator, in format CC-XXX, where
 IOTA_ISLAND_ID|PositiveInteger|the contacted station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
 ITUZ|PositiveInteger|the contacted station's ITU zone in the range 1 to 90 (inclusive)
 K_INDEX|Integer|the geomagnetic K index at the time of the QSO in the range 0 to 9 (inclusive)
@@ -33,34 +64,54 @@ LAT|Location|the contacted station's latitude
 LON|Location|the contacted station's longitude
 LOTW_QSLRDATE|Date|date QSL received from ARRL Logbook of the World
 LOTW_QSLSDATE|Date|date QSL sent to ARRL Logbook of the World
-MODE|String|QSO mode
+LOTW_QSL_RCVD|QslRcvdEnumeration|ARRL Logbook of the World QSL received status
+LOTW_QSL_SENT|QslSentEnumeration|ARRL Logbook of the World QSL sent status
+MAX_BURSTS|Number|maximum length of meteor scatter bursts heard by the logging station, in seconds with a value greater than or equal to 0
+MODE|ModeEnumeration|QSO Mode
 MORSE_KEY_INFO|String|details of the contacted station's Morse key (e.g. make, model, etc).
+MORSE_KEY_TYPE|MorseKeyTypeEnumeration|the contacted station's Morse key type (e.g. straight key, bug, etc).
 MS_SHOWER|String|For Meteor Scatter QSOs, the name of the meteor shower in progress
+MY_ALTITUDE|Number|the height of the logging station in meters relative to Mean Sea Level (MSL).
 MY_ANTENNA|String|the logging station's antenna
 MY_ANTENNA_INTL|IntlString|the logging station's antenna
+MY_ARRL_SECT|ArrlSectionEnumeration|the logging station's ARRL section
 MY_CITY|String|the logging station's city
 MY_CITY_INTL|IntlString|the logging station's city
+#MY_CNTY|SecondaryAdministrativeSubdivisionEnumeration|the logging station's Secondary Administrative Subdivision (e.g. US county, JA Gun), in the specified format
+#MY_CNTY_ALT|SecondaryAdministrativeSubdivisionListAlt|a semicolon (;) delimited, unordered list of Secondary Administrative Subdivision Alt codes for the logging station
 MY_COUNTRY|String|the logging station's DXCC entity name
 MY_COUNTRY_INTL|IntlString|the logging station's DXCC entity name
 MY_CQ_ZONE|PositiveInteger|the logging station's CQ Zone in the range 1 to 40 (inclusive)
+#MY_DARC_DOK|DARC DOKEnumeration|the logging station's DARC DOK (District Location Code)
+MY_DXCC|DxccEntityCodeEnumeration|the logging station's DXCC Entity Code
 MY_FISTS|PositiveInteger|the logging station's FISTS CW Club member number with a value greater than 0.
+MY_GRIDSQUARE|GridSquare|the logging station's 2-character, 4-character, 6-character, or 8-character Maidenhead Grid Square
+MY_GRIDSQUARE_EXT|GridSquareExt|for a logging station's 10-character Maidenhead locator, supplements the MY_GRIDSQUARE field by containing characters 9 and 10.
+MY_IOTA|IOTARefNo|the logging station's IOTA designator, in format CC-XXX, where
 MY_IOTA_ISLAND_ID|PositiveInteger|the logging station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
 MY_ITU_ZONE|PositiveInteger|the logging station's ITU zone in the range 1 to 90 (inclusive)
 MY_LAT|Location|the logging station's latitude
 MY_LON|Location|the logging station's longitude
 MY_MORSE_KEY_INFO|String|details of the logging station's Morse key (e.g. make, model, etc).
+MY_MORSE_KEY_TYPE|MorseKeyTypeEnumeration|the logging station's Morse key type (e.g. straight key, bug, etc).
 MY_NAME|String|the logging operator's name
 MY_NAME_INTL|IntlString|the logging operator's name
 MY_POSTAL_CODE|String|the logging station's postal code
 MY_POSTAL_CODE_INTL|IntlString|the logging station's postal code
+MY_POTA_REF|POTARefList|a comma-delimited list of one or more of the logging station's POTA reference(s).
 MY_RIG|String|description of the logging station's equipment
 MY_RIG_INTL|IntlString|description of the logging station's equipment
 MY_SIG|String|special interest activity or event
 MY_SIG_INTL|IntlString|special interest activity or event
 MY_SIG_INFO|String|special interest activity or event information
 MY_SIG_INFO_INTL|IntlString|special interest activity or event information
+MY_SOTA_REF|SOTARef|the logging station's International SOTA Reference.
+#MY_STATE|PrimaryAdministrativeSubdivisionEnumeration|the code for the logging station's Primary Administrative Subdivision (e.g. US State, JA Island, VE Province)
 MY_STREET|String|the logging station's street
 MY_STREET_INTL|IntlString|the logging station's street
+MY_USACA_COUNTIES|SecondarySubdivisionList|two US counties in the case where the logging station is located on a border between two counties, representing counties that the contacted station may claim for the CQ Magazine USA-CA award program.
+MY_VUCC_GRIDS|GridSquareList|two or four adjacent Maidenhead grid locators, each four or six characters long, representing the logging station's grid squares that the contacted station may claim for the ARRL VUCC award program.
+MY_WWFF_REF|WWFFRef|the logging station's WWFF (World Wildlife Flora & Fauna) reference
 NAME|String|the contacted station's operator's name
 NAME_INTL|IntlString|the contacted station's operator's name
 NOTES|MultilineString|QSO notes
@@ -68,27 +119,38 @@ NOTES_INTL|IntlMultilineString|QSO notes
 NR_BURSTS|Integer|the number of meteor scatter bursts heard by the logging station with a value greater than or equal to 0
 NR_PINGS|Integer|the number of meteor scatter pings heard by the logging station with a value greater than or equal to 0
 OPERATOR|String|the logging operator's callsign
-OWNER_CALLSIGN|String|the callsign of the owner of the station used to log the contact (the
+OWNER_CALLSIGN|String|the callsign of the owner of the station used to log the contact (the callsign of the OPERATOR's host)
 PFX|String|the contacted station's WPX prefix
+POTA_REF|POTARefList|a comma-delimited list of one or more of the contacted station's POTA reference(s).
 PRECEDENCE|String|contest precedence (e.g. for ARRL Sweepstakes)
+PROP_MODE|PropagationModeEnumeration|QSO propagation mode
 PUBLIC_KEY|String|public encryption key
 QRZCOM_QSO_DOWNLOAD_DATE|Date|date QSO downloaded from QRZ.COM logbook
+QRZCOM_QSO_DOWNLOAD_STATUS|QsoDownloadStatusEnumeration|QRZ.COM logbook QSO download status
 QRZCOM_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the QRZ.COM online service
+QRZCOM_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO on the QRZ.COM online service
 QSLMSG|MultilineString|a message for the contacted station's operator to be incorporated in a paper or electronic QSL
 QSLMSG_INTL|IntlMultilineString|a message for the contacted station's operator to be incorporated in a paper or electronic QSL
 QSLMSG_RCVD|MultilineString|a message addressed to the logging station's operator incorporated in a paper or electronic QSL
 QSLRDATE|Date|QSL received date
 QSLSDATE|Date|QSL sent date
+QSL_RCVD|QslRcvdEnumeration|QSL received status
+QSL_RCVD_VIA|QslViaEnumeration|if QSL_RCVD is set to 'Y' or 'V', the means by which the QSL was received by the logging station; otherwise, the means by which the logging station requested or intends to request that the QSL be conveyed.
+QSL_SENT|QslSentEnumeration|QSL sent status
+QSL_SENT_VIA|QslViaEnumeration|if QSL_SENT is set to 'Y', the means by which the QSL was sent by the logging station; otherwise, the means by which the logging station intends to convey the QSL
 QSL_VIA|String|the contacted station's QSL route
+QSO_COMPLETE|QsoCompleteEnumeration|indicates whether the QSO was complete from the perspective of the logging station
 QSO_DATE|Date|date on which the QSO started
 QSO_DATE_OFF|Date|date on which the QSO ended
 QSO_RANDOM|Boolean|indicates whether the QSO was random or scheduled
 QTH|String|the contacted station's city
 QTH_INTL|IntlString|the contacted station's city
+REGION|RegionEnumeration|the contacted station's WAE or CQ entity contained within a DXCC entity.
 RIG|MultilineString|description of the contacted station's equipment
 RIG_INTL|IntlMultilineString|description of the contacted station's equipment
 RST_RCVD|String|signal report from the contacted station
 RST_SENT|String|signal report sent to the contacted station
+RX_PWR|Number|the contacted station's transmitter power in Watts with a value greater than or equal to 0
 SAT_MODE|String|satellite mode - a code representing the satellite's uplink band and downlink band
 SAT_NAME|String|name of satellite
 SFI|Integer|the solar flux at the time of the QSO in the range 0 to 300 (inclusive).
@@ -98,16 +160,22 @@ SIG_INFO|String|information associated with the contacted station's activity or 
 SIG_INFO_INTL|IntlString|information associated with the contacted station's activity or interest group
 SILENT_KEY|Boolean|'Y' indicates that the contacted station's operator is now a Silent Key.
 SKCC|String|the contacted station's Straight Key Century Club (SKCC) member information
+SOTA_REF|SOTARef|the contacted station's International SOTA Reference.
 SRX|Integer|contest QSO received serial number with a value greater than or equal to 0
 SRX_STRING|String|contest QSO received information
+#STATE|PrimaryAdministrativeSubdivisionEnumeration|the code for the contacted station's Primary Administrative Subdivision (e.g. US State, JA Island, VE Province)
 STATION_CALLSIGN|String|the logging station's callsign (the callsign used over the air)
 STX|Integer|contest QSO transmitted serial number with a value greater than or equal to 0
 STX_STRING|String|contest QSO transmitted information
 SUBMODE|String|QSO Submode
 SWL|Boolean|indicates that the QSO information pertains to an SWL report
-TEN_TEN|PositiveInteger|Ten-Ten number with a value greater than 0
+TEN_TEN|PositiveInteger|Ten-Ten number with a value greater than 0.
 TIME_OFF|Time|HHMM or HHMMSS in UTC
 TIME_ON|Time|HHMM or HHMMSS in UTC
-UKSMG|PositiveInteger|the contacted station's UKSMG member number with a value greater than 0
+TX_PWR|Number|the logging station's power in Watts with a value greater than or equal to 0
+UKSMG|PositiveInteger|the contacted station's UKSMG member number with a value greater than 0.
+USACA_COUNTIES|SecondarySubdivisionList|two US counties in the case where the contacted station is located on a border between two counties, representing counties credited to the QSO for the CQ Magazine USA-CA award program.
 VE_PROV|String|import-only: use STATE instead
+VUCC_GRIDS|GridSquareList|two or four adjacent Maidenhead grid locators, each four or six characters long, representing the contacted station's grid squares credited to the QSO for the ARRL VUCC award program.
 WEB|String|the contacted station's URL
+WWFF_REF|WWFFRef|the contacted station's WWFF (World Wildlife Flora & Fauna) reference

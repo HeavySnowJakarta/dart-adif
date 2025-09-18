@@ -69,7 +69,7 @@ Give the fields of your program, leave the `userdef` as empty, and put the QSOs 
 // Generate an ADIF log.
 final adif = Adif(
   "dart-adif.test_suites",
-  "315.0.1",
+  "315.0.2",
   [],
   [qso1, qso2, qso3]);
 ```
@@ -84,33 +84,34 @@ final String adxString = adif.buildAdxString();
 
 ### Supported ADIF Data types
 
++ [x] AwardList
 + [x] Boolean
-+ [ ] Character
-+ [ ] CreditList
++ [x] Character
++ [x] CreditList
 + [x] Date
-+ [ ] Digit
-+ [ ] Enumeration
-+ [ ] GridSquare
-+ [ ] GridSquareExt
-+ [ ] GridSquareList
++ [x] Digit
++ [x] Enumeration
++ [x] GridSquare
++ [x] GridSquareExt
++ [x] GridSquareList
 + [x] Integer
-+ [ ] IntlCharacter
++ [x] IntlCharacter
 + [x] IntlMultilineString
 + [x] IntlString
-+ [ ] IOTARefNo
++ [x] IOTARefNo
 + [x] Location
 + [x] MultilineString
 + [x] Number
 + [x] PositiveInteger
-+ [ ] POTARef
-+ [ ] POTARefList
-+ [ ] SecondarySubdivisionList
++ [x] POTARef
++ [x] POTARefList
++ [x] SecondarySubdivisionList (`Secondary_Administrative_Subdivision_Alt` items are treated as strings)
 + [ ] SecondaryAdministrativeSubdivisionListAlt
-+ [ ] SOTARef
++ [x] SOTARef
 + [ ] SponsoredAwardList
 + [x] String
 + [x] Time
-+ [ ] WWFFRef
++ [x] WWFFRef
 
 ### Supported operations
 
@@ -125,118 +126,15 @@ final String adxString = adif.buildAdxString();
 + [ ] APP-defined fields
 + [ ] User-defied fields
 
-### Supported ADIF-defined fields
+### Unupported ADIF-defined fields
 
-+ ADDRESS
-+ ADDRESS_INTL
-+ CALL
-+ CHECK
-+ CLASS
-+ CLUBLOG_QSO_UPLOAD_DATE
-+ COMMENT
-+ COMMENT_INTL
-+ CONTACTED_OP
-+ CONTEST_ID
-+ COUNTRY
-+ COUNTRY_INTL
-+ CQZ
-+ DCL_QSLRDATE
-+ DCL_QSLSDATE
-+ EMAIL
-+ EQ_CALL
-+ EQSL_QSLRDATE
-+ EQSL_QSLSDATE
-+ FISTS
-+ FISTS_CC
-+ FORCE_INIT
-+ FREQ
-+ FREQ_RX
-+ GUEST_OP
-+ HAMLOGEU_QSO_UPLOAD_DATE
-+ HAMQTH_QSO_UPLOAD_DATE
-+ HRDLOG_QSO_UPLOAD_DATE
-+ IOTA_ISLAND_ID
-+ ITUZ
-+ K_INDEX
-+ LAT
-+ LON
-+ LOTW_QSLRDATE
-+ LOTW_QSLSDATE
-+ MODE
-+ MORSE_KEY_INFO
-+ MS_SHOWER
-+ MY_ANTENNA
-+ MY_ANTENNA_INTL
-+ MY_CITY
-+ MY_CITY_INTL
-+ MY_COUNTRY
-+ MY_COUNTRY_INTL
-+ MY_CQ_ZONE
-+ MY_FISTS
-+ MY_IOTA_ISLAND_ID
-+ MY_ITU_ZONE
-+ MY_LAT
-+ MY_LON
-+ MY_MORSE_KEY_INFO
-+ MY_NAME
-+ MY_NAME_INTL
-+ MY_POSTAL_CODE
-+ MY_POSTAL_CODE_INTL
-+ MY_RIG
-+ MY_RIG_INTL
-+ MY_SIG
-+ MY_SIG_INTL
-+ MY_SIG_INFO
-+ MY_SIG_INFO_INTL
-+ MY_STREET
-+ MY_STREET_INTL
-+ NAME
-+ NAME_INTL
-+ NOTES
-+ NOTES_INTL
-+ NR_BURSTS
-+ NR_PINGS
-+ OPERATOR
-+ OWNER_CALLSIGN
-+ PFX
-+ PRECEDENCE
-+ PUBLIC_KEY
-+ QRZCOM_QSO_DOWNLOAD_DATE
-+ QRZCOM_QSO_UPLOAD_DATE
-+ QSLMSG
-+ QSLMSG_INTL
-+ QSLMSG_RCVD
-+ QSLRDATE
-+ QSLSDATE
-+ QSL_VIA
-+ QSO_DATE
-+ QSO_DATE_OFF
-+ QSO_RANDOM
-+ QTH
-+ QTH_INTL
-+ RIG
-+ RIG_INTL
-+ RST_RCVD
-+ RST_SENT
-+ SAT_MODE
-+ SAT_NAME
-+ SFI
-+ SIG
-+ SIG_INTL
-+ SIG_INFO
-+ SIG_INFO_INTL
-+ SILENT_KEY
-+ SKCC
-+ SRX
-+ SRX_STRING
-+ STATION_CALLSIGN
-+ STX
-+ STX_STRING
-+ SUBMODE
-+ SWL
-+ TEN_TEN
-+ TIME_OFF
-+ TIME_ON
-+ UKSMG
-+ VE_PROV
-+ WEB
++ AWARD_SUBMITTED
++ AWARD_GRANTED
++ CNTY
++ CNTY_ALT
++ DARK_DOK
++ MY_CNTY
++ MY_CNTY_ALT
++ MY_DARK_DOK
++ MY_STATE
++ STATE

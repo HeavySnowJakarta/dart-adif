@@ -24,6 +24,48 @@ class AdifBoolean extends AdifGeneral<bool> {
   }
 }
 
+/// ADIF Character type.
+class AdifCharacter extends AdifGeneral<String> {
+  @override
+  String getType() => 'Character';
+  @override
+  String getString() => value;
+
+  AdifCharacter(super.value) {
+    if (value.length != 1) {
+      throw ArgumentError('Value must be a single character: $value');
+    }
+  }
+
+  static AdifCharacter fromString(String str) {
+    if (str.length != 1) {
+      throw ArgumentError('Invalid character string: $str');
+    }
+    return AdifCharacter(str);
+  }
+}
+
+/// ADIF International Character type.
+class AdifIntlCharacter extends AdifGeneral<String> {
+  @override
+  String getType() => 'IntlCharacter';
+  @override
+  String getString() => value;
+
+  AdifIntlCharacter(super.value) {
+    if (value.length != 1) {
+      throw ArgumentError('Value must be a single character: $value');
+    }
+  }
+
+  static AdifIntlCharacter fromString(String str) {
+    if (str.length != 1) {
+      throw ArgumentError('Invalid character string: $str');
+    }
+    return AdifIntlCharacter(str);
+  }
+}
+
 /// ADIF Integer type.
 class AdifInteger extends AdifGeneral<int> {
   @override
@@ -81,6 +123,27 @@ class AdifNumber extends AdifGeneral<double> {
   }
 }
 
+/// an ASCII character whose code lies in the range of 48 through 57, inclusive
+class AdifDigit extends AdifGeneral<String> {
+  @override
+  String getType() => 'Digit';
+  @override
+  String getString() => value;
+
+  AdifDigit(super.value) {
+    if (value.length != 1 || !RegExp(r'^[0-9]$').hasMatch(value)) {
+      throw ArgumentError('Value must be a single digit (0-9): $value');
+    }
+  }
+
+  static AdifDigit fromString(String str) {
+    if (str.length != 1 || !RegExp(r'^[0-9]$').hasMatch(str)) {
+      throw ArgumentError('Invalid digit string: $str');
+    }
+    return AdifDigit(str);
+  }
+}
+
 /// Date type, 8 digits in the format YYYYMMDD.
 class AdifDate extends AdifGeneral<DateTime> {
   @override
@@ -111,7 +174,7 @@ class AdifTime extends AdifGeneral<DateTime> {
   AdifTime(super.value);
 
   static AdifTime fromString(String str) {
-    try{
+    try {
       if (str.length == 4) {
         // HHMM
         final hour = int.parse(str.substring(0, 2));
@@ -126,8 +189,7 @@ class AdifTime extends AdifGeneral<DateTime> {
       } else {
         throw ArgumentError('');
       }
-    }
-    catch (e) {
+    } catch (e) {
       throw ArgumentError('Invalid HHMM or HHMMSS time string: $str');
     }
   }
@@ -189,13 +251,27 @@ class AdifIntlMultilineString extends AdifGeneral<String> {
   }
 }
 
-// TODO: Enumeration type.
-// class AdifEnumeration extends AdifGeneral {
-//   final List<String> enumerations;
-//   final String value;
+/// Enumeration type. The derived class shall provide the list of valid enumerations,
+/// and when initializing an instance, the value must be one among them.
+/// The enumeration is case-insensitive, so they shall be provided in upper case.
+abstract class AdifEnumeration extends AdifGeneral {
+  @override
+  String getType() => 'E';
+  @override
+  String getString() => value;
 
-//   AdifEnumeration(this.enumerations, this.value) : super(AdifType.enumeration);
-// }
+  AdifEnumeration(value, List<String> enumerations) : super(value.toUpperCase()) {
+    if (!enumerations.contains(value.toUpperCase())) {
+      throw ArgumentError(
+        'Value must be one of the enumerations: $enumerations',
+      );
+    }
+  }
+  
+  static AdifEnumeration fromString(String str) {
+    throw UnimplementedError('fromString must be implemented in subclasses');
+  }
+}
 
 /// a sequence of 11 characters representing a latitude or longitude in
 /// XDDD MM.MMM format, where
@@ -221,5 +297,176 @@ class AdifLocation extends AdifGeneral<String> {
       throw ArgumentError('Invalid location string: $str');
     }
     return AdifLocation(str);
+  }
+}
+
+/// a case-insensitive 2-character, 4-character, 6-character, or 8-character
+/// Maidenhead locator.
+/// Specific fields impose additional restrictions on the number of characters;
+/// see the field descriptions for the allowed numbers of characters.
+class AdifGridSquare extends AdifGeneral<String> {
+  @override
+  String getType() => 'GridSquare';
+  @override
+  String getString() => value;
+
+  AdifGridSquare(super.value) {
+    final len = value.length;
+    if (len != 2 && len != 4 && len != 6 && len != 8) {
+      throw ArgumentError('Value must be 2, 4, 6, or 8 characters: $value');
+    }
+    final regex = RegExp(r'^[A-Ra-r]{2}([0-9]{2}([A-Ra-r]{2}([0-9]{2})?)?)?$');
+    if (!regex.hasMatch(value)) {
+      throw ArgumentError('Invalid Maidenhead locator: $value');
+    }
+  }
+
+  static AdifGridSquare fromString(String str) {
+    return AdifGridSquare(str);
+  }
+}
+
+/// For a 10-character Maidenhead locator, contains characters 9 and 10.
+/// For a 12-character Maidenhead locator, contains characters 9, 10, 11 and 12.
+/// Characters 9 and 10 are case-insensitive ASCII letters in the range A-X.
+/// Characters 11 and 12 are Digits in the range 0-9.
+class AdifGridSquareExt extends AdifGeneral<String> {
+  @override
+  String getType() => 'GridSquareExt';
+  @override
+  String getString() => value;
+
+  AdifGridSquareExt(super.value) {
+    final len = value.length;
+    if (len != 2 && len != 4) {
+      throw ArgumentError('Value must be 2 or 4 characters: $value');
+    }
+    final regex = RegExp(r'^[A-Xa-x]{2}([0-9]{2})?$');
+    if (!regex.hasMatch(value)) {
+      throw ArgumentError('Invalid Maidenhead extended locator: $value');
+    }
+  }
+
+  static AdifGridSquareExt fromString(String str) {
+    return AdifGridSquareExt(str);
+  }
+}
+
+/// a comma-delimited list of GridSquare items
+class AdifGridSquareList extends AdifGeneral<List<AdifGridSquare>> {
+  @override
+  String getType() => 'GridSquareList';
+  @override
+  String getString() => value.map((e) => e.getString()).join(',');
+
+  AdifGridSquareList(super.value);
+
+  static AdifGridSquareList fromString(String str) {
+    final parts = str.split(',').map((e) => e.trim()).toList();
+    final gridSquares = parts.map((e) => AdifGridSquare.fromString(e)).toList();
+    return AdifGridSquareList(gridSquares);
+  }
+}
+
+/// a sequence of case-insensitive Characters representing a Parks on the Air
+/// park reference in the form xxxx-nnnnn[@yyyyyy] comprising 6 to 17
+/// characters where:
+/// - xxxx is the POTA national program and is 1 to 4 characters in length,
+/// typically the default callsign prefix of the national program (rather
+/// than the DX entity)
+/// - nnnnn represents the unique number within the national program and is
+/// either 4 or 5 characters in length (use the exact format listed on the
+/// POTA website)
+/// - yyyyyy **Optional** is the 4 to 6 character ISO 3166-2 code to
+/// differentiate which state/province/prefecture/primary administration
+/// location the contact represents, in the case that the park reference spans
+/// more than one location (such as a trail).
+class AdifPOTARef extends AdifGeneral<String> {
+  @override
+  String getType() => 'POTARef';
+  @override
+  String getString() => value;
+
+  AdifPOTARef(super.value) {
+    final regex = RegExp(r'^[A-Za-z0-9]{1,4}-\d{4,5}(@[A-Za-z0-9]{4,6})?$');
+    if (!regex.hasMatch(value)) {
+      throw ArgumentError('Invalid POTA reference: $value');
+    }
+  }
+
+  static AdifPOTARef fromString(String str) {
+    return AdifPOTARef(str);
+  }
+}
+
+
+/// a comma-delimited list of one or more POTARef items.
+class AdifPOTARefList extends AdifGeneral<List<AdifPOTARef>> {
+  @override
+  String getType() => 'POTARefList';
+  @override
+  String getString() => value.map((e) => e.getString()).join(',');
+
+  AdifPOTARefList(super.value);
+
+  static AdifPOTARefList fromString(String str) {
+    final parts = str.split(',').map((e) => e.trim()).toList();
+    final potaRefs = parts.map((e) => AdifPOTARef.fromString(e)).toList();
+    return AdifPOTARefList(potaRefs);
+  }
+}
+
+/// a sequence of Characters representing an International SOTA Reference.
+/// The sequence comprises:
+/// an ITU prefix
+/// if applicable, a SOTA subdivision
+/// a / Character
+/// a SOTA Reference Number
+/// Examples:
+/// W2/WE-003
+/// G/LD-003
+class AdifSOTARef extends AdifGeneral<String> {
+  @override
+  String getType() => 'SOTARef';
+  @override
+  String getString() => value;
+
+  AdifSOTARef(super.value) {
+    final regex = RegExp(r'^[A-Za-z0-9]+(/[A-Za-z0-9]+)?-\d{3}$');
+    if (!regex.hasMatch(value)) {
+      throw ArgumentError('Invalid SOTA reference: $value');
+    }
+  }
+
+  static AdifSOTARef fromString(String str) {
+    return AdifSOTARef(str);
+  }
+}
+
+/// a sequence of case-insensitive Characters representing an International
+/// WWFF (World Wildlife Flora & Fauna) reference in the form xxFF-nnnn
+/// comprising 8 to 11 characters where:
+/// xx is the WWFF national program and is 1 to 4 characters in length.
+/// FF- is two F characters followed by a dash character.
+/// nnnn represents the unique number within the national program and is
+/// 4 characters in length with leading zeros.
+/// Examples:
+/// KFF-4655
+/// 3DAFF-0002
+class AdifWWFFRef extends AdifGeneral<String> {
+  @override
+  String getType() => 'WWFFRef';
+  @override
+  String getString() => value;
+
+  AdifWWFFRef(super.value) {
+    final regex = RegExp(r'^[A-Za-z0-9]{1,4}FF-\d{4}$');
+    if (!regex.hasMatch(value)) {
+      throw ArgumentError('Invalid WWFF reference: $value');
+    }
+  }
+
+  static AdifWWFFRef fromString(String str) {
+    return AdifWWFFRef(str);
   }
 }
