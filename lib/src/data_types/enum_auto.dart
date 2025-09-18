@@ -4,16 +4,11 @@ library;
 
 import './basics.dart';
 
-const listAntPathEnumeration = [
-  'G',
-  'O',
-  'S',
-  'L',
-];
+const listAntPathEnumeration = ['G', 'O', 'S', 'L'];
 
 class AdifAntPathEnumeration extends AdifEnumeration {
   AdifAntPathEnumeration(String value) : super(value, listAntPathEnumeration);
-  
+
   static AdifAntPathEnumeration fromString(String str) {
     return AdifAntPathEnumeration(str);
   }
@@ -113,8 +108,9 @@ const listArrlSectionEnumeration = [
 ];
 
 class AdifArrlSectionEnumeration extends AdifEnumeration {
-  AdifArrlSectionEnumeration(String value) : super(value, listArrlSectionEnumeration);
-  
+  AdifArrlSectionEnumeration(String value)
+    : super(value, listArrlSectionEnumeration);
+
   static AdifArrlSectionEnumeration fromString(String str) {
     return AdifArrlSectionEnumeration(str);
   }
@@ -154,7 +150,7 @@ const listAwardEnumeration = [
 
 class AdifAwardEnumeration extends AdifEnumeration {
   AdifAwardEnumeration(String value) : super(value, listAwardEnumeration);
-  
+
   static AdifAwardEnumeration fromString(String str) {
     return AdifAwardEnumeration(str);
   }
@@ -198,7 +194,7 @@ const listBandEnumeration = [
 
 class AdifBandEnumeration extends AdifEnumeration {
   AdifBandEnumeration(String value) : super(value, listBandEnumeration);
-  
+
   static AdifBandEnumeration fromString(String str) {
     return AdifBandEnumeration(str);
   }
@@ -450,26 +446,20 @@ const listContestIdEnumeration = [
 ];
 
 class AdifContestIdEnumeration extends AdifEnumeration {
-  AdifContestIdEnumeration(String value) : super(value, listContestIdEnumeration);
-  
+  AdifContestIdEnumeration(String value)
+    : super(value, listContestIdEnumeration);
+
   static AdifContestIdEnumeration fromString(String str) {
     return AdifContestIdEnumeration(str);
   }
 }
 
-const listContinentEnumeration = [
-  'NA',
-  'SA',
-  'EU',
-  'AF',
-  'OC',
-  'AS',
-  'AN',
-];
+const listContinentEnumeration = ['NA', 'SA', 'EU', 'AF', 'OC', 'AS', 'AN'];
 
 class AdifContinentEnumeration extends AdifEnumeration {
-  AdifContinentEnumeration(String value) : super(value, listContinentEnumeration);
-  
+  AdifContinentEnumeration(String value)
+    : super(value, listContinentEnumeration);
+
   static AdifContinentEnumeration fromString(String str) {
     return AdifContinentEnumeration(str);
   }
@@ -551,7 +541,7 @@ const listCreditEnumeration = [
 
 class AdifCreditEnumeration extends AdifEnumeration {
   AdifCreditEnumeration(String value) : super(value, listCreditEnumeration);
-  
+
   static AdifCreditEnumeration fromString(String str) {
     return AdifCreditEnumeration(str);
   }
@@ -964,8 +954,9 @@ const listDxccEntityCodeEnumeration = [
 ];
 
 class AdifDxccEntityCodeEnumeration extends AdifEnumeration {
-  AdifDxccEntityCodeEnumeration(String value) : super(value, listDxccEntityCodeEnumeration);
-  
+  AdifDxccEntityCodeEnumeration(String value)
+    : super(value, listDxccEntityCodeEnumeration);
+
   static AdifDxccEntityCodeEnumeration fromString(String str) {
     return AdifDxccEntityCodeEnumeration(str);
   }
@@ -1018,11 +1009,189 @@ const listModeEnumeration = [
   'VOI',
   'WINMOR',
   'WSPR',
+  '8PSK125',
+  '8PSK125F',
+  '8PSK125FL',
+  '8PSK250',
+  '8PSK250F',
+  '8PSK250FL',
+  '8PSK500',
+  '8PSK500F',
+  '8PSK1000',
+  '8PSK1000F',
+  '8PSK1200F',
+  'AMTORFEC',
+  'ASCI',
+  'C4FM',
+  'CHIP64',
+  'CHIP128',
+  'DMR',
+  'DOM-M',
+  'DOM4',
+  'DOM5',
+  'DOM8',
+  'DOM11',
+  'DOM16',
+  'DOM22',
+  'DOM44',
+  'DOM88',
+  'DOMINOEX',
+  'DOMINOF',
+  'DSTAR',
+  'FMHELL',
+  'FREEDV',
+  'FSK31',
+  'FSKH105',
+  'FSKH245',
+  'FSKHELL',
+  'FSQCALL',
+  'FST4',
+  'FST4W',
+  'FT4',
+  'GTOR',
+  'HELL80',
+  'HELLX5',
+  'HELLX9',
+  'HFSK',
+  'ISCAT-A',
+  'ISCAT-B',
+  'JS8',
+  'JT4A',
+  'JT4B',
+  'JT4C',
+  'JT4D',
+  'JT4E',
+  'JT4F',
+  'JT4G',
+  'JT9-1',
+  'JT9-2',
+  'JT9-5',
+  'JT9-10',
+  'JT9-30',
+  'JT9A',
+  'JT9B',
+  'JT9C',
+  'JT9D',
+  'JT9E',
+  'JT9E_FAST',
+  'JT9F',
+  'JT9F_FAST',
+  'JT9G',
+  'JT9G_FAST',
+  'JT9H',
+  'JT9H_FAST',
+  'JT65A',
+  'JT65B',
+  'JT65B2',
+  'JT65C',
+  'JT65C2',
+  'JTMS',
+  'LSB',
+  'M17',
+  'MFSK4',
+  'MFSK8',
+  'MFSK11',
+  'MFSK16',
+  'MFSK22',
+  'MFSK31',
+  'MFSK32',
+  'MFSK64',
+  'MFSK64L',
+  'MFSK128',
+  'MFSK128L',
+  'NAVTEX',
+  'OLIVIA_4/125',
+  'OLIVIA_4/250',
+  'OLIVIA_8/250',
+  'OLIVIA_8/500',
+  'OLIVIA_16/500',
+  'OLIVIA_16/1000',
+  'OLIVIA_32/1000',
+  'OPERA-BEACON',
+  'OPERA-QSO',
+  'PAC2',
+  'PAC3',
+  'PAC4',
+  'PAX2',
+  'PCW',
+  'PSK10',
+  'PSK31',
+  'PSK63',
+  'PSK63F',
+  'PSK63RC10',
+  'PSK63RC20',
+  'PSK63RC32',
+  'PSK63RC4',
+  'PSK63RC5',
+  'PSK125',
+  'PSK125RC10',
+  'PSK125RC12',
+  'PSK125RC16',
+  'PSK125RC4',
+  'PSK125RC5',
+  'PSK250',
+  'PSK250RC2',
+  'PSK250RC3',
+  'PSK250RC5',
+  'PSK250RC6',
+  'PSK250RC7',
+  'PSK500',
+  'PSK500RC2',
+  'PSK500RC3',
+  'PSK500RC4',
+  'PSK800RC2',
+  'PSK1000',
+  'PSK1000RC2',
+  'PSKAM10',
+  'PSKAM31',
+  'PSKAM50',
+  'PSKFEC31',
+  'PSKHELL',
+  'Q65',
+  'QPSK31',
+  'QPSK63',
+  'QPSK125',
+  'QPSK250',
+  'QPSK500',
+  'QRA64A',
+  'QRA64B',
+  'QRA64C',
+  'QRA64D',
+  'QRA64E',
+  'ROS-EME',
+  'ROS-HF',
+  'ROS-MF',
+  'SIM31',
+  'SITORB',
+  'SLOWHELL',
+  'THOR-M',
+  'THOR4',
+  'THOR5',
+  'THOR8',
+  'THOR11',
+  'THOR16',
+  'THOR22',
+  'THOR25X4',
+  'THOR50X1',
+  'THOR50X2',
+  'THOR100',
+  'THRBX',
+  'THRBX1',
+  'THRBX2',
+  'THRBX4',
+  'THROB1',
+  'THROB2',
+  'THROB4',
+  'USB',
+  'VARA_HF',
+  'VARA_SATELLITE',
+  'VARA_FM_1200',
+  'VARA_FM_9600',
 ];
 
 class AdifModeEnumeration extends AdifEnumeration {
   AdifModeEnumeration(String value) : super(value, listModeEnumeration);
-  
+
   static AdifModeEnumeration fromString(String str) {
     return AdifModeEnumeration(str);
   }
@@ -1039,8 +1208,9 @@ const listMorseKeyTypeEnumeration = [
 ];
 
 class AdifMorseKeyTypeEnumeration extends AdifEnumeration {
-  AdifMorseKeyTypeEnumeration(String value) : super(value, listMorseKeyTypeEnumeration);
-  
+  AdifMorseKeyTypeEnumeration(String value)
+    : super(value, listMorseKeyTypeEnumeration);
+
   static AdifMorseKeyTypeEnumeration fromString(String str) {
     return AdifMorseKeyTypeEnumeration(str);
   }
@@ -1070,112 +1240,83 @@ const listPropagationModeEnumeration = [
 ];
 
 class AdifPropagationModeEnumeration extends AdifEnumeration {
-  AdifPropagationModeEnumeration(String value) : super(value, listPropagationModeEnumeration);
-  
+  AdifPropagationModeEnumeration(String value)
+    : super(value, listPropagationModeEnumeration);
+
   static AdifPropagationModeEnumeration fromString(String str) {
     return AdifPropagationModeEnumeration(str);
   }
 }
 
-const listQslMediumEnumeration = [
-  'CARD',
-  'EQSL',
-  'LOTW',
-];
+const listQslMediumEnumeration = ['CARD', 'EQSL', 'LOTW'];
 
 class AdifQslMediumEnumeration extends AdifEnumeration {
-  AdifQslMediumEnumeration(String value) : super(value, listQslMediumEnumeration);
-  
+  AdifQslMediumEnumeration(String value)
+    : super(value, listQslMediumEnumeration);
+
   static AdifQslMediumEnumeration fromString(String str) {
     return AdifQslMediumEnumeration(str);
   }
 }
 
-const listQslRcvdEnumeration = [
-  'Y',
-  'N',
-  'R',
-  'I',
-  'V',
-];
+const listQslRcvdEnumeration = ['Y', 'N', 'R', 'I', 'V'];
 
 class AdifQslRcvdEnumeration extends AdifEnumeration {
   AdifQslRcvdEnumeration(String value) : super(value, listQslRcvdEnumeration);
-  
+
   static AdifQslRcvdEnumeration fromString(String str) {
     return AdifQslRcvdEnumeration(str);
   }
 }
 
-const listQslSentEnumeration = [
-  'Y',
-  'N',
-  'R',
-  'Q',
-  'I',
-];
+const listQslSentEnumeration = ['Y', 'N', 'R', 'Q', 'I'];
 
 class AdifQslSentEnumeration extends AdifEnumeration {
   AdifQslSentEnumeration(String value) : super(value, listQslSentEnumeration);
-  
+
   static AdifQslSentEnumeration fromString(String str) {
     return AdifQslSentEnumeration(str);
   }
 }
 
-const listQslViaEnumeration = [
-  'B',
-  'D',
-  'E',
-  'M',
-];
+const listQslViaEnumeration = ['B', 'D', 'E', 'M'];
 
 class AdifQslViaEnumeration extends AdifEnumeration {
   AdifQslViaEnumeration(String value) : super(value, listQslViaEnumeration);
-  
+
   static AdifQslViaEnumeration fromString(String str) {
     return AdifQslViaEnumeration(str);
   }
 }
 
-const listQsoCompleteEnumeration = [
-  'Y',
-  'N',
-  'NIL',
-  '?',
-];
+const listQsoCompleteEnumeration = ['Y', 'N', 'NIL', '?'];
 
 class AdifQsoCompleteEnumeration extends AdifEnumeration {
-  AdifQsoCompleteEnumeration(String value) : super(value, listQsoCompleteEnumeration);
-  
+  AdifQsoCompleteEnumeration(String value)
+    : super(value, listQsoCompleteEnumeration);
+
   static AdifQsoCompleteEnumeration fromString(String str) {
     return AdifQsoCompleteEnumeration(str);
   }
 }
 
-const listQsoDownloadStatusEnumeration = [
-  'Y',
-  'N',
-  'I',
-];
+const listQsoDownloadStatusEnumeration = ['Y', 'N', 'I'];
 
 class AdifQsoDownloadStatusEnumeration extends AdifEnumeration {
-  AdifQsoDownloadStatusEnumeration(String value) : super(value, listQsoDownloadStatusEnumeration);
-  
+  AdifQsoDownloadStatusEnumeration(String value)
+    : super(value, listQsoDownloadStatusEnumeration);
+
   static AdifQsoDownloadStatusEnumeration fromString(String str) {
     return AdifQsoDownloadStatusEnumeration(str);
   }
 }
 
-const listQsoUploadStatusEnumeration = [
-  'Y',
-  'N',
-  'M',
-];
+const listQsoUploadStatusEnumeration = ['Y', 'N', 'M'];
 
 class AdifQsoUploadStatusEnumeration extends AdifEnumeration {
-  AdifQsoUploadStatusEnumeration(String value) : super(value, listQsoUploadStatusEnumeration);
-  
+  AdifQsoUploadStatusEnumeration(String value)
+    : super(value, listQsoUploadStatusEnumeration);
+
   static AdifQsoUploadStatusEnumeration fromString(String str) {
     return AdifQsoUploadStatusEnumeration(str);
   }
@@ -1194,7 +1335,7 @@ const listRegionEnumeration = [
 
 class AdifRegionEnumeration extends AdifEnumeration {
   AdifRegionEnumeration(String value) : super(value, listRegionEnumeration);
-  
+
   static AdifRegionEnumeration fromString(String str) {
     return AdifRegionEnumeration(str);
   }
@@ -1383,7 +1524,7 @@ const listSubmodeEnumeration = [
 
 class AdifSubmodeEnumeration extends AdifEnumeration {
   AdifSubmodeEnumeration(String value) : super(value, listSubmodeEnumeration);
-  
+
   static AdifSubmodeEnumeration fromString(String str) {
     return AdifSubmodeEnumeration(str);
   }

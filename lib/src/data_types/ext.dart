@@ -20,7 +20,7 @@ class AdifAwardList extends AdifGeneral<List<String>> {
       }
     });
   }
-  
+
   static AdifAwardList fromString(String str) {
     final parts = str.split(',').map((e) => e.trim()).toList();
     return AdifAwardList(parts);
@@ -57,7 +57,7 @@ class AdifCreditList extends AdifGeneral<List<String>> {
       }
     });
   }
-  
+
   static AdifCreditList fromString(String str) {
     final parts = str.split(',').map((e) => e.trim()).toList();
     return AdifCreditList(parts);
@@ -86,7 +86,7 @@ class AdifIOTARefNo extends AdifGeneral<String> {
       throw ArgumentError('Invalid IOTA_Ref_No value: $value');
     }
   }
-  
+
   static AdifIOTARefNo fromString(String str) {
     return AdifIOTARefNo(str);
   }
@@ -108,36 +108,10 @@ class AdifSecondarySubdivisionList extends AdifGeneral<List<String>> {
     if (value.length < 2) {
       throw ArgumentError('Invalid Secondary_Subdivision_List value: $value');
     }
-    // value.map((e) {
-    //   if (!listSecondaryAdministrativeSubdivisionEnumeration.contains(e)) {
-    //     throw ArgumentError('Invalid Secondary_Subdivision_List value: $e');
-    //   }
-    // });
   }
-  
+
   static AdifSecondarySubdivisionList fromString(String str) {
     final parts = str.split(':').map((e) => e.trim()).toList();
     return AdifSecondarySubdivisionList(parts);
   }
 }
-
-// /// a comma-delimited list of members of the Sponsored_Award enumeration
-// class AdifSponsoredAwardList extends AdifGeneral<List<String>> {
-//   @override
-//   String getType() => 'SponsoredAwardList';
-//   @override
-//   String getString() => value.join(',');
-
-//   AdifSponsoredAwardList(super.value) {
-//     value.map((e) {
-//       if (!listSponsoredAwardEnumeration.contains(e)) {
-//         throw ArgumentError('Invalid Sponsored_Award value: $e');
-//       }
-//     });
-//   }
-  
-//   static AdifSponsoredAwardList fromString(String str) {
-//     final parts = str.split(',').map((e) => e.trim()).toList();
-//     return AdifSponsoredAwardList(parts);
-//   }
-// }

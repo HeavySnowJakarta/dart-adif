@@ -33,11 +33,37 @@ Qso buildQso() {
   final myLonQso = adifFieldFactory('MY_LON', 'W073 59.395');
 
   return Qso(
-    [callQso, bandQso, modeQso, qsoDateQso, timeOnQso, timeOffQso, freqQso, 
-     rstSentQso, rstRcvdQso, nameQso, qthQso, gridQso, myGridQso, myCallQso,
-     txPwrQso, commentQso, qslSentQso, qslRcvdQso, contQso,
-     countryQso, myCountryQso, dxccQso, myDxccQso, cqzQso,
-     ituzQso, latQso, lonQso, myLatQso, myLonQso],
+    [
+      callQso,
+      bandQso,
+      modeQso,
+      qsoDateQso,
+      timeOnQso,
+      timeOffQso,
+      freqQso,
+      rstSentQso,
+      rstRcvdQso,
+      nameQso,
+      qthQso,
+      gridQso,
+      myGridQso,
+      myCallQso,
+      txPwrQso,
+      commentQso,
+      qslSentQso,
+      qslRcvdQso,
+      contQso,
+      countryQso,
+      myCountryQso,
+      dxccQso,
+      myDxccQso,
+      cqzQso,
+      ituzQso,
+      latQso,
+      lonQso,
+      myLatQso,
+      myLonQso,
+    ],
     [],
     [],
   );
@@ -62,9 +88,24 @@ Qso buildQso2() {
   final stxQso = adifFieldFactory('STX', '025');
 
   return Qso(
-    [callQso, bandQso, modeQso, qsoDateQso, timeOnQso, freqQso,
-     rstSentQso, rstRcvdQso, ageQso, operatorQso, rigQso, antQso,
-     propModeQso, contestIdQso, srrQso, stxQso],
+    [
+      callQso,
+      bandQso,
+      modeQso,
+      qsoDateQso,
+      timeOnQso,
+      freqQso,
+      rstSentQso,
+      rstRcvdQso,
+      ageQso,
+      operatorQso,
+      rigQso,
+      antQso,
+      propModeQso,
+      contestIdQso,
+      srrQso,
+      stxQso,
+    ],
     [],
     [],
   );
@@ -89,9 +130,24 @@ Qso buildQso3() {
   final nrPingsQso = adifFieldFactory('NR_PINGS', '12');
 
   return Qso(
-    [callQso, bandQso, modeQso, qsoDateQso, timeOnQso, freqQso,
-     rstSentQso, rstRcvdQso, emailQso, webQso, qslMsgQso, notesQso,
-     maxBurstsQso, msPingsQso, nrBurstsQso, nrPingsQso],
+    [
+      callQso,
+      bandQso,
+      modeQso,
+      qsoDateQso,
+      timeOnQso,
+      freqQso,
+      rstSentQso,
+      rstRcvdQso,
+      emailQso,
+      webQso,
+      qslMsgQso,
+      notesQso,
+      maxBurstsQso,
+      msPingsQso,
+      nrBurstsQso,
+      nrPingsQso,
+    ],
     [],
     [],
   );
@@ -104,11 +160,7 @@ void main() {
   final qso3 = buildQso3();
 
   // Generate an ADIF log
-  final adif = Adif(
-    "dart-adif.test_suites",
-    "315.0.1",
-    [],
-    [qso1, qso2, qso3]);
+  final adif = Adif("dart-adif.test_suites", "315.0.1", [], [qso1, qso2, qso3]);
 
   final adxString = adif.buildAdxString();
   print(adxString);

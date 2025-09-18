@@ -48,10 +48,7 @@ extension AdifOperations on Adif {
                 nest: () {
                   // ADIF-defined fields.
                   for (var adifField in qso.adifdefs) {
-                    b.element(
-                      adifField.fieldName,
-                      nest: adifField.getString(),
-                    );
+                    b.element(adifField.fieldName, nest: adifField.getString());
                   }
                   // Application-defined fields.
                   for (var appField in qso.appdefs) {
@@ -75,9 +72,6 @@ extension AdifOperations on Adif {
       },
     );
 
-    return b.buildDocument().toXmlString(
-      pretty: true,
-      indent: '  '
-    );
+    return b.buildDocument().toXmlString(pretty: true, indent: '  ');
   }
 }

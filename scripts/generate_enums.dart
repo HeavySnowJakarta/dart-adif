@@ -40,7 +40,7 @@ ${enumValuesList.map((e) => "  '$e',").join('\n')}
 
 class Adif$enumNameUpperSnake extends AdifEnumeration {
   Adif$enumNameUpperSnake(String value) : super(value, list$enumNameUpperSnake);
-  
+
   static Adif$enumNameUpperSnake fromString(String str) {
     return Adif$enumNameUpperSnake(str);
   }

@@ -257,7 +257,9 @@ class AdifClublogQsoUploadStatus extends AdifField {
   }
 
   static AdifClublogQsoUploadStatus fromString(String str) {
-    return AdifClublogQsoUploadStatus(AdifQsoUploadStatusEnumeration.fromString(str));
+    return AdifClublogQsoUploadStatus(
+      AdifQsoUploadStatusEnumeration.fromString(str),
+    );
   }
 }
 
@@ -769,7 +771,9 @@ class AdifHamlogeuQsoUploadStatus extends AdifField {
   }
 
   static AdifHamlogeuQsoUploadStatus fromString(String str) {
-    return AdifHamlogeuQsoUploadStatus(AdifQsoUploadStatusEnumeration.fromString(str));
+    return AdifHamlogeuQsoUploadStatus(
+      AdifQsoUploadStatusEnumeration.fromString(str),
+    );
   }
 }
 
@@ -801,7 +805,9 @@ class AdifHamqthQsoUploadStatus extends AdifField {
   }
 
   static AdifHamqthQsoUploadStatus fromString(String str) {
-    return AdifHamqthQsoUploadStatus(AdifQsoUploadStatusEnumeration.fromString(str));
+    return AdifHamqthQsoUploadStatus(
+      AdifQsoUploadStatusEnumeration.fromString(str),
+    );
   }
 }
 
@@ -833,7 +839,9 @@ class AdifHrdlogQsoUploadStatus extends AdifField {
   }
 
   static AdifHrdlogQsoUploadStatus fromString(String str) {
-    return AdifHrdlogQsoUploadStatus(AdifQsoUploadStatusEnumeration.fromString(str));
+    return AdifHrdlogQsoUploadStatus(
+      AdifQsoUploadStatusEnumeration.fromString(str),
+    );
   }
 }
 
@@ -1905,7 +1913,9 @@ class AdifQrzcomQsoDownloadStatus extends AdifField {
   }
 
   static AdifQrzcomQsoDownloadStatus fromString(String str) {
-    return AdifQrzcomQsoDownloadStatus(AdifQsoDownloadStatusEnumeration.fromString(str));
+    return AdifQrzcomQsoDownloadStatus(
+      AdifQsoDownloadStatusEnumeration.fromString(str),
+    );
   }
 }
 
@@ -1937,7 +1947,9 @@ class AdifQrzcomQsoUploadStatus extends AdifField {
   }
 
   static AdifQrzcomQsoUploadStatus fromString(String str) {
-    return AdifQrzcomQsoUploadStatus(AdifQsoUploadStatusEnumeration.fromString(str));
+    return AdifQrzcomQsoUploadStatus(
+      AdifQsoUploadStatusEnumeration.fromString(str),
+    );
   }
 }
 
@@ -2724,4 +2736,3 @@ class AdifWwffRef extends AdifField {
     return AdifWwffRef(AdifWWFFRef.fromString(str));
   }
 }
-

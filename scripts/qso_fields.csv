@@ -1,4 +1,4 @@
-#FIELD_NAME|DataType|description
+# FIELD_NAME|DataType|description
 ADDRESS|MultilineString|the contacted station's complete mailing address: full name, street address, city, postal code, and country
 ADDRESS_INTL|IntlMultilineString|the contacted station's complete mailing address: full name, street address, city, postal code, and country
 AGE|Number|the contacted station's operator's age in years in the range 0 to 120 (inclusive)
@@ -7,8 +7,8 @@ ANT_AZ|Number|the logging station's antenna azimuth, in degrees with a value bet
 ANT_EL|Number|the logging station's antenna elevation, in degrees with a value between -90 to 90 (inclusive).
 ANT_PATH|AntPathEnumeration|the signal path
 ARRL_SECT|ArrlSectionEnumeration|the contacted station's ARRL section
-#AWARD_SUBMITTED|SponsoredAwardList|the list of awards submitted to a sponsor.
-#AWARD_GRANTED|SponsoredAwardList|the list of awards granted by a sponsor.
+# AWARD_SUBMITTED|SponsoredAwardList|the list of awards submitted to a sponsor.
+# AWARD_GRANTED|SponsoredAwardList|the list of awards granted by a sponsor.
 A_INDEX|Number|the geomagnetic A index at the time of the QSO in the range 0 to 400 (inclusive)
 BAND|BandEnumeration|QSO Band
 BAND_RX|BandEnumeration|in a split frequency QSO, the logging station's receiving band
@@ -17,8 +17,8 @@ CHECK|String|contest check (e.g. for ARRL Sweepstakes)
 CLASS|String|contest class (e.g. for ARRL Field Day)
 CLUBLOG_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the Club Log online service
 CLUBLOG_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO on the Club Log online service
-#CNTY|SecondaryAdministrativeSubdivisionEnumeration|the contacted station's Secondary Administrative Subdivision (e.g. US county, JA Gun), in the specified format
-#CNTY_ALT|SecondaryAdministrativeSubdivisionListAlt|a semicolon (;) delimited, unordered list of Secondary Administrative Subdivision Alt codes for the contacted station
+# CNTY|SecondaryAdministrativeSubdivisionEnumeration|the contacted station's Secondary Administrative Subdivision (e.g. US county, JA Gun), in the specified format
+# CNTY_ALT|SecondaryAdministrativeSubdivisionListAlt|a semicolon (;) delimited, unordered list of Secondary Administrative Subdivision Alt codes for the contacted station
 COMMENT|String|comment field for QSO
 COMMENT_INTL|IntlString|comment field for QSO
 CONT|ContinentEnumeration|the contacted station's Continent
@@ -29,7 +29,7 @@ COUNTRY_INTL|IntlString|the contacted station's DXCC entity name
 CQZ|PositiveInteger|the contacted station's CQ Zone in the range 1 to 40 (inclusive)
 CREDIT_SUBMITTED|CreditList|the list of credits sought for this QSO
 CREDIT_GRANTED|CreditList|the list of credits granted to this QSO
-#DARC_DOK|DARC DOKEnumeration|the contacted station's DARC DOK (District Location Code)
+# DARC_DOK|DARC DOKEnumeration|the contacted station's DARC DOK (District Location Code)
 DCL_QSLRDATE|Date|date QSL received from DCL
 DCL_QSLSDATE|Date|date QSL sent to DCL
 DCL_QSL_RCVD|QslRcvdEnumeration|DCL QSL received status
@@ -77,12 +77,12 @@ MY_ANTENNA_INTL|IntlString|the logging station's antenna
 MY_ARRL_SECT|ArrlSectionEnumeration|the logging station's ARRL section
 MY_CITY|String|the logging station's city
 MY_CITY_INTL|IntlString|the logging station's city
-#MY_CNTY|SecondaryAdministrativeSubdivisionEnumeration|the logging station's Secondary Administrative Subdivision (e.g. US county, JA Gun), in the specified format
-#MY_CNTY_ALT|SecondaryAdministrativeSubdivisionListAlt|a semicolon (;) delimited, unordered list of Secondary Administrative Subdivision Alt codes for the logging station
+# MY_CNTY|SecondaryAdministrativeSubdivisionEnumeration|the logging station's Secondary Administrative Subdivision (e.g. US county, JA Gun), in the specified format
+# MY_CNTY_ALT|SecondaryAdministrativeSubdivisionListAlt|a semicolon (;) delimited, unordered list of Secondary Administrative Subdivision Alt codes for the logging station
 MY_COUNTRY|String|the logging station's DXCC entity name
 MY_COUNTRY_INTL|IntlString|the logging station's DXCC entity name
 MY_CQ_ZONE|PositiveInteger|the logging station's CQ Zone in the range 1 to 40 (inclusive)
-#MY_DARC_DOK|DARC DOKEnumeration|the logging station's DARC DOK (District Location Code)
+# MY_DARC_DOK|DARC DOKEnumeration|the logging station's DARC DOK (District Location Code)
 MY_DXCC|DxccEntityCodeEnumeration|the logging station's DXCC Entity Code
 MY_FISTS|PositiveInteger|the logging station's FISTS CW Club member number with a value greater than 0.
 MY_GRIDSQUARE|GridSquare|the logging station's 2-character, 4-character, 6-character, or 8-character Maidenhead Grid Square
@@ -106,7 +106,7 @@ MY_SIG_INTL|IntlString|special interest activity or event
 MY_SIG_INFO|String|special interest activity or event information
 MY_SIG_INFO_INTL|IntlString|special interest activity or event information
 MY_SOTA_REF|SOTARef|the logging station's International SOTA Reference.
-#MY_STATE|PrimaryAdministrativeSubdivisionEnumeration|the code for the logging station's Primary Administrative Subdivision (e.g. US State, JA Island, VE Province)
+# MY_STATE|PrimaryAdministrativeSubdivisionEnumeration|the code for the logging station's Primary Administrative Subdivision (e.g. US State, JA Island, VE Province)
 MY_STREET|String|the logging station's street
 MY_STREET_INTL|IntlString|the logging station's street
 MY_USACA_COUNTIES|SecondarySubdivisionList|two US counties in the case where the logging station is located on a border between two counties, representing counties that the contacted station may claim for the CQ Magazine USA-CA award program.
@@ -163,7 +163,7 @@ SKCC|String|the contacted station's Straight Key Century Club (SKCC) member info
 SOTA_REF|SOTARef|the contacted station's International SOTA Reference.
 SRX|Integer|contest QSO received serial number with a value greater than or equal to 0
 SRX_STRING|String|contest QSO received information
-#STATE|PrimaryAdministrativeSubdivisionEnumeration|the code for the contacted station's Primary Administrative Subdivision (e.g. US State, JA Island, VE Province)
+# STATE|PrimaryAdministrativeSubdivisionEnumeration|the code for the contacted station's Primary Administrative Subdivision (e.g. US State, JA Island, VE Province)
 STATION_CALLSIGN|String|the logging station's callsign (the callsign used over the air)
 STX|Integer|contest QSO transmitted serial number with a value greater than or equal to 0
 STX_STRING|String|contest QSO transmitted information

@@ -13,7 +13,7 @@ abstract class AdifField {
 
   /// The method to get it value as a string.
   String getString();
-  
+
   // TODO: The method to get the original type.
 
   /// The method to parse the value from a string.

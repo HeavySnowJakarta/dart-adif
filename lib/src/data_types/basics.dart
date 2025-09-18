@@ -260,14 +260,15 @@ abstract class AdifEnumeration extends AdifGeneral {
   @override
   String getString() => value;
 
-  AdifEnumeration(value, List<String> enumerations) : super(value.toUpperCase()) {
+  AdifEnumeration(value, List<String> enumerations)
+    : super(value.toUpperCase()) {
     if (!enumerations.contains(value.toUpperCase())) {
       throw ArgumentError(
         'Value must be one of the enumerations: $enumerations',
       );
     }
   }
-  
+
   static AdifEnumeration fromString(String str) {
     throw UnimplementedError('fromString must be implemented in subclasses');
   }
@@ -398,7 +399,6 @@ class AdifPOTARef extends AdifGeneral<String> {
     return AdifPOTARef(str);
   }
 }
-
 
 /// a comma-delimited list of one or more POTARef items.
 class AdifPOTARefList extends AdifGeneral<List<AdifPOTARef>> {
