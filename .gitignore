@@ -2,5 +2,8 @@
 # Created by `dart pub`
 .dart_tool/
 
+# The dependency lock file.
+pubspec.lock
+
 # Temporary Test files.
 test/test.dart
