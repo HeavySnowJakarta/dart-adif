@@ -2,6 +2,7 @@
 /// Currently not all fields are supported, but it may update in the future.
 library;
 
+import './data_types/index.dart';
 import './basic.dart';
 import './type.dart';
 
@@ -30,23 +31,71 @@ class Appdef {
   final String programid;
 
   /// The field's name.
-  final String fieldname;
+  final String fieldName;
 
   /// The field's value.
   final AdifGeneral value;
 
-  Appdef(this.programid, this.fieldname, this.value);
+  Appdef(this.programid, this.fieldName, this.value);
+
+  /// Generate an app-defined field from values of string.
+  Appdef.generate(
+    this.programid,
+    this.fieldName,
+    String type,
+    String valueString, {
+    List<String>? enums,
+    (double min, double max)? range,
+  }) : value = createAdifContentFromString(valueString, type, enums, range);
 }
 
 /// A user-defined field of a QSO.
 class Userdef {
   /// The field's name.
-  final String fieldname;
+  final String fieldName;
 
   /// The field's value.
   final AdifGeneral value;
 
-  Userdef(this.fieldname, this.value);
+  Userdef(this.fieldName, this.value);
+
+  /// Generate a user-defined field from values of string.
+  Userdef.generate(
+    this.fieldName,
+    String type,
+    String valueString, {
+    List<String>? enums,
+    (double min, double max)? range,
+  }) : value = createAdifContentFromString(valueString, type, enums, range);
+}
+
+/// Metadata of a user-defined field, stored on the header of a ADIF file.
+class UserdefMeta {
+  final String name;
+  final String type;
+  final List<String>? enums;
+  final (double min, double max)? range;
+
+  UserdefMeta(this.name, this.type, {this.enums, this.range});
+}
+
+extension UserdefMetaOps on List<UserdefMeta> {
+  /// Get a user-defined field's metadata by its index, starting from 1.
+  UserdefMeta? getByIndex(int index) {
+    if (index < 1 || index > length) {
+      return null;
+    }
+    return this[index - 1];
+  }
+
+  /// Get a user-defined field's metadata by its name.
+  UserdefMeta? getByName(String name) {
+    try {
+      return firstWhere((element) => element.name == name);
+    } catch (e) {
+      return null;
+    }
+  }
 }
 
 /// The structure of each QSO. The major fields are the same with ADIF defined
@@ -86,13 +135,8 @@ class Adif {
   /// The program's version.
   final String? programversion;
 
-  /// The userdefined fields.
-  /// The `index`th one on the list refers to `USERDEF[index+1]` as for ADIF it
-  /// shall be a postive number.
-  List<String> userdef;
-
   /// The QSO data.
   List<Qso> data;
 
-  Adif(this.programid, this.programversion, this.userdef, this.data);
+  Adif(this.programid, this.programversion, this.data);
 }

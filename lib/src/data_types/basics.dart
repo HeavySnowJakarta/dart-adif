@@ -123,6 +123,20 @@ class AdifNumber extends AdifGeneral<double> {
   }
 }
 
+/// Number value with a range.
+class AdifRange extends AdifNumber {
+  double min;
+  double max;
+
+  (double min, double max) get range => (min, max);
+
+  AdifRange(super.value, this.min, this.max) {
+    if (value < min || value > max) {
+      throw ArgumentError('Value must be in range [$min, $max]: $value');
+    }
+  }
+}
+
 /// an ASCII character whose code lies in the range of 48 through 57, inclusive
 class AdifDigit extends AdifGeneral<String> {
   @override
@@ -254,14 +268,16 @@ class AdifIntlMultilineString extends AdifGeneral<String> {
 /// Enumeration type. The derived class shall provide the list of valid enumerations,
 /// and when initializing an instance, the value must be one among them.
 /// The enumeration is case-insensitive, so they shall be provided in upper case.
+/// This class shall be extended for the needs of ADIF/application/user defined fields.
 abstract class AdifEnumeration extends AdifGeneral {
   @override
   String getType() => 'E';
   @override
   String getString() => value;
 
-  AdifEnumeration(value, List<String> enumerations)
-    : super(value.toUpperCase()) {
+  List<String> enumerations;
+
+  AdifEnumeration(value, this.enumerations) : super(value.toUpperCase()) {
     if (!enumerations.contains(value.toUpperCase())) {
       throw ArgumentError(
         'Value must be one of the enumerations: $enumerations',
@@ -271,6 +287,17 @@ abstract class AdifEnumeration extends AdifGeneral {
 
   static AdifEnumeration fromString(String str) {
     throw UnimplementedError('fromString must be implemented in subclasses');
+  }
+}
+
+/// APP/user-defined Enumeration type. See [AdifEnumeration].
+class AdifSelfEnum extends AdifEnumeration {
+  List<String> enumList;
+
+  AdifSelfEnum(value, this.enumList) : super(value, enumList);
+
+  static AdifSelfEnum fromString(String str, List<String> enumList) {
+    return AdifSelfEnum(str, enumList);
   }
 }
 
@@ -370,7 +397,7 @@ class AdifGridSquareList extends AdifGeneral<List<AdifGridSquare>> {
 }
 
 /// a sequence of case-insensitive Characters representing a Parks on the Air
-/// park reference in the form xxxx-nnnnn[@yyyyyy] comprising 6 to 17
+/// park reference in the form xxxx-nnnnn<@yyyyyy> comprising 6 to 17
 /// characters where:
 /// - xxxx is the POTA national program and is 1 to 4 characters in length,
 /// typically the default callsign prefix of the national program (rather
@@ -468,5 +495,83 @@ class AdifWWFFRef extends AdifGeneral<String> {
 
   static AdifWWFFRef fromString(String str) {
     return AdifWWFFRef(str);
+  }
+}
+
+/// Factory function to create AdifGeneral instances from string value and type.
+/// This function has covered all ADIF-defined types supported by this library.
+AdifGeneral createAdifContentFromString(
+  String value,
+  String type,
+  List<String>? enumList,
+  (double min, double max)? range,
+) {
+  switch (type.toLowerCase()) {
+    case 'b':
+    case 'boolean':
+      return AdifBoolean.fromString(value);
+    case 'character':
+      return AdifCharacter.fromString(value);
+    case 'intlcharacter':
+      return AdifIntlCharacter.fromString(value);
+    case 'integer':
+      return AdifInteger.fromString(value);
+    case 'positiveinteger':
+      return AdifPositiveInteger.fromString(value);
+    case 'n':
+    case 'number':
+      if (range != null) {
+        return AdifRange(
+          AdifNumber.fromString(value).value,
+          range.$1,
+          range.$2,
+        );
+      }
+      return AdifNumber.fromString(value);
+    case 'digit':
+      return AdifDigit.fromString(value);
+    case 'd':
+    case 'date':
+      return AdifDate.fromString(value);
+    case 't':
+    case 'time':
+      return AdifTime.fromString(value);
+    case 's':
+    case 'string':
+      return AdifString.fromString(value);
+    case 'i':
+    case 'intlstring':
+      return AdifIntlString.fromString(value);
+    case 'm':
+    case 'multilinestring':
+      return AdifMultilineString.fromString(value);
+    case 'g':
+    case 'intlmultilinestring':
+      return AdifIntlMultilineString.fromString(value);
+    case 'e':
+    case 'enumeration':
+      if (enumList == null) {
+        throw ArgumentError('Enumeration list must be provided for type $type');
+      }
+      return AdifSelfEnum(value.toUpperCase(), enumList);
+    case 'l':
+    case 'location':
+      return AdifLocation.fromString(value);
+    case 'gridsquare':
+      return AdifGridSquare.fromString(value);
+    case 'gridsquareext':
+      return AdifGridSquareExt.fromString(value);
+    case 'gridsquarelist':
+      return AdifGridSquareList.fromString(value);
+    case 'potaref':
+      return AdifPOTARef.fromString(value);
+    case 'potareflist':
+      return AdifPOTARefList.fromString(value);
+    case 'sotaref':
+      return AdifSOTARef.fromString(value);
+    case 'wwffref':
+      return AdifWWFFRef.fromString(value);
+    default:
+      throw ArgumentError('Unknown ADIF type: $type');
   }
 }

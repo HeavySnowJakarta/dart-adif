@@ -4,11 +4,14 @@ Amateur Data Interchange Format (ADIF) parser for Dart.
 
 There are three parts among the version. The first part is _the version of the related ADIF file_, for example `315` refers to [ADIF 3.1.5](https://www.adif.org/315/ADIF_315.htm). The second and third part are the version of this library that is compatiple to the corresponding ADIF version.
 
-This library is still under active development. Now it supports exproting ADIF-defined fields to ADX files, on the next version APP/user-defined fields and importing from ADX files will also be supported, and eventually ADI files.
+This library is still under active development. Now it supports exporting almost all ADIF-defined fields and APP/user-defined fields to ADX files. On the next version importing from ADX files will also be supported, and eventually ADI files.
 
 **Note**:
 + Submodes are considered as [strings](https://www.adif.org/315/ADIF_315.htm#QSO_Field_SUBMODE), but please use [the submodes enumeration](https://www.adif.org/315/ADIF_315.htm#Submode_Enumeration) for interoperability.
 + All the fields exported to ADX are considered as international as possible.
+
+**Breaking updates from `v315.1.1`**:
++ The constructor of `Adif()` has BROKEN after the field `userdef` of it has been proved to be useless. You have to update the constructor of it after updated.
 
 **Breaking updates from `v315.0.1`**:
 + Modes have been **no longer** considered as strings. Instead they must be one of [the modes enumeration](https://www.adif.org/315/ADIF_315.htm#Mode_Enumeration) or [the submodes enumeration](https://www.adif.org/315/ADIF_315.htm#Submode_Enumeration). Attempts to set a mode as one not among them will fail.
@@ -21,12 +24,12 @@ First let's see the data structure of a QSO:
 ```dart
 class Qso {
   /// The QSO's ADIF-defined fields.
-  List<AdifField> adifdefs = [];
+  List<AdifField> adifdefs;
 
-  /// TODO: The application-defined fields.
+  /// The application-defined fields.
   List<Appdef> appdefs;
 
-  /// TODO: The user-defined fields.
+  /// The user-defined fields.
   List<Userdef> userdefs;
 }
 ```
@@ -34,13 +37,37 @@ class Qso {
 You can generate a QSO like this:
 
 ```dart
+// Use ADIF-defined fields.
 final call = adifFieldFactory('CALL', 'BA1ABC');
 final date = adifFieldFactory('DATE', '20250505');
 
-final qso = Qso([call, date], [], []);
+// Use app-defined fields.
+final myRig = Appdef.generate(
+  'dart-adif.test_suites', // Program ID
+  'PHONE_NUMBER', // Field name
+  'S', // Type
+  '+12425333682' // Value in string
+);
+final gender = Appdef.generate(
+  'dart-adif.test_suites',
+  'GENDER',
+  'E', // Enumerations.
+  'M',
+  enums: ['M', 'F', 'X'], // When use enumerations, this field should be provided.
+);
+
+// Use user-defined fields.
+final opNumber = Userdef.generate(
+  'OP_NUMBER', // Field name
+  'N', // Type
+  '3', // Value in string
+  range: (1, 10), // optional allowed range (min, max) for numbers
+)
+
+final qso = Qso([call, date], [myRig, gender], [opNumber]);
 ```
 
-And here is the structure of an ADIF object:
+For the available types, see [ADIF types](https://www.adif.org/315/ADIF_315.htm#Data_Types). The fields `enums` and `range` are available for both App and user defined fields to specify the type more clearly. And here is the structure of an ADIF object:
 
 ```dart
 class Adif {
@@ -57,11 +84,6 @@ class Adif {
   /// The program's version.
   final String? programversion;
 
-  /// TODO: The userdefined fields.
-  /// The `index`th one on the list refers to `USERDEF[index+1]` as for ADIF it
-  /// shall be a postive number.
-  List<String> userdef;
-
   /// The QSO data.
   List<Qso> data;
 
@@ -75,8 +97,7 @@ Give the fields of your program, leave the `userdef` as empty, and put the QSOs 
 // Generate an ADIF log.
 final adif = Adif(
   "dart-adif.test_suites",
-  "315.1.1",
-  [],
+  "315.2.0",
   [qso1, qso2, qso3]);
 ```
 
@@ -126,13 +147,7 @@ final String adxString = adif.buildAdxString();
 + [ ] Import from ADX
 + [x] Export to ADX
 
-### Supported fields
-
-+ [x] ADIF-defined fields
-+ [ ] APP-defined fields
-+ [ ] User-defied fields
-
-### Unupported ADIF-defined fields
+### ADIF-defined fields unsupported yet
 
 + AWARD_SUBMITTED
 + AWARD_GRANTED

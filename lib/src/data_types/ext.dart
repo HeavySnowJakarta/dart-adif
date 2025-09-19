@@ -66,7 +66,7 @@ class AdifCreditList extends AdifGeneral<List<String>> {
 
 /// IOTA designator, in format CC-XXX, where
 /// CC is a member of the Continent enumeration
-/// XXX is the island group designator, where 1 <= XXX <= 999  [use leading zeroes]
+/// XXX is the island group designator, where 1 <= XXX <= 999  (use leading zeroes)
 class AdifIOTARefNo extends AdifGeneral<String> {
   @override
   String getType() => 'IOTARefNo';

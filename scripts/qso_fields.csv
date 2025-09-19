@@ -57,7 +57,7 @@ HAMQTH_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO
 HRDLOG_QSO_UPLOAD_DATE|Date|the date the QSO was last uploaded to the HRDLog.net online service
 HRDLOG_QSO_UPLOAD_STATUS|QsoUploadStatusEnumeration|the upload status of the QSO on the HRDLog.net online service
 IOTA|IOTARefNo|the contacted station's IOTA designator, in format CC-XXX, where
-IOTA_ISLAND_ID|PositiveInteger|the contacted station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
+IOTA_ISLAND_ID|PositiveInteger|the contacted station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 (leading zeroes optional)
 ITUZ|PositiveInteger|the contacted station's ITU zone in the range 1 to 90 (inclusive)
 K_INDEX|Integer|the geomagnetic K index at the time of the QSO in the range 0 to 9 (inclusive)
 LAT|Location|the contacted station's latitude
@@ -88,7 +88,7 @@ MY_FISTS|PositiveInteger|the logging station's FISTS CW Club member number with 
 MY_GRIDSQUARE|GridSquare|the logging station's 2-character, 4-character, 6-character, or 8-character Maidenhead Grid Square
 MY_GRIDSQUARE_EXT|GridSquareExt|for a logging station's 10-character Maidenhead locator, supplements the MY_GRIDSQUARE field by containing characters 9 and 10.
 MY_IOTA|IOTARefNo|the logging station's IOTA designator, in format CC-XXX, where
-MY_IOTA_ISLAND_ID|PositiveInteger|the logging station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
+MY_IOTA_ISLAND_ID|PositiveInteger|the logging station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 (leading zeroes optional)
 MY_ITU_ZONE|PositiveInteger|the logging station's ITU zone in the range 1 to 90 (inclusive)
 MY_LAT|Location|the logging station's latitude
 MY_LON|Location|the logging station's longitude

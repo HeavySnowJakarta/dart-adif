@@ -1,6 +1,6 @@
 name: adif
 description: Amateur Data Interchange Format (ADIF) parser for Dart.
-version: 315.1.1
+version: 315.2.0
 repository: https://github.com/HeavySnowJakarta/dart-adif
 
 environment:

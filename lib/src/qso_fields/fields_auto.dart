@@ -861,7 +861,7 @@ class AdifIota extends AdifField {
   }
 }
 
-/// the contacted station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
+/// the contacted station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 (leading zeroes optional)
 class AdifIotaIslandId extends AdifField {
   final AdifPositiveInteger value;
 
@@ -1309,7 +1309,7 @@ class AdifMyIota extends AdifField {
   }
 }
 
-/// the logging station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 [leading zeroes optional]
+/// the logging station's IOTA Island Identifier, an 8-digit integer in the range 1 to 99999999 (leading zeroes optional)
 class AdifMyIotaIslandId extends AdifField {
   final AdifPositiveInteger value;
 

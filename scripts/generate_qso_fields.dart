@@ -54,7 +54,7 @@ import '../data_types/index.dart';
 library;
 
 import '../data.dart';
-import './total.dart';
+import './index.dart';
 
 AdifField adifFieldFactory(String fieldName, String value) {
   switch (fieldName) {
