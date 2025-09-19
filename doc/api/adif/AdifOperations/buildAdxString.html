@@ -64,12 +64,19 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Build the ADX string.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String buildAdxString() {
+  &#47;&#47; Build the list of &lt;USERDEF&gt;.
+  List&lt;UserdefMeta&gt; userdefs = getUserdefMetaList(data);
+
+  &#47;&#47; Build the XML document.
   final b = XmlBuilder();
   b.processing(&#39;xml&#39;, &#39;version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;&#39;);
   b.element(
@@ -98,8 +105,20 @@
           }
 
           &#47;&#47; USERDEF
-          for (var i = 0; i &lt; userdef.length; i++) {
-            b.element(&#39;USERDEF${i + 1}&#39;, nest: userdef[i]);
+          for (var i = 0; i &lt; userdefs.length; i++) {
+            b.element(
+              &#39;USERDEF&#39;,
+              attributes: {
+                &#39;FIELDID&#39;: (i + 1).toString(),
+                &#39;TYPE&#39;: userdefs[i].type,
+                if (userdefs[i].enums != null)
+                  &#39;ENUMS&#39;: &#39;{${userdefs[i].enums!.join(&#39;,&#39;)}}&#39;,
+                if (userdefs[i].range != null)
+                  &#39;RANGE&#39;:
+                      &#39;{${userdefs[i].range!.$1}:${userdefs[i].range!.$2}}&#39;,
+              },
+              nest: userdefs[i].name,
+            );
           }
         },
       );
@@ -114,25 +133,30 @@
               nest: () {
                 &#47;&#47; ADIF-defined fields.
                 for (var adifField in qso.adifdefs) {
-                  b.element(
-                    adifField.fieldName,
-                    nest: adifField.getString(),
-                  );
+                  b.element(adifField.fieldName, nest: adifField.getString());
                 }
+
                 &#47;&#47; Application-defined fields.
                 for (var appField in qso.appdefs) {
                   b.element(
                     &#39;APP&#39;,
                     attributes: {
                       &#39;PROGRAMID&#39;: programid ?? &#39;&#39;,
-                      &#39;FIELDNAME&#39;: appField.fieldname,
+                      &#39;FIELDNAME&#39;: appField.fieldName,
                       &#39;TYPE&#39;: appField.value.getType(),
                     },
                     nest: appField.value.getString(),
                   );
                 }
 
-                &#47;&#47; TODO: User-defined fields.
+                &#47;&#47; User-defined fields.
+                for (var userField in qso.userdefs) {
+                  b.element(
+                    &#39;USERDEF&#39;,
+                    attributes: {&#39;FIELDNAME&#39;: userField.fieldName},
+                    nest: userField.value.getString(),
+                  );
+                }
               },
             );
           }
@@ -141,10 +165,7 @@
     },
   );
 
-  return b.buildDocument().toXmlString(
-    pretty: true,
-    indent: &#39;  &#39;
-  );
+  return b.buildDocument().toXmlString(pretty: true, indent: &#39;  &#39;);
 }</code></pre>
 </section>
 
@@ -173,7 +194,7 @@
 <footer>
   <span class="no-break">
     adif
-      315.0.0
+      315.2.0
   </span>
   
 </footer>

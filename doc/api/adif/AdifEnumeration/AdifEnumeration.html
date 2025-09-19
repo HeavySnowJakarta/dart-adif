@@ -57,8 +57,8 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">AdifEnumeration</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="-param-enumerations"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.0/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.7.0/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">enumerations</span>, </span></li>
-<li><span class="parameter" id="-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">value</span></span></li>
+      <span class="name ">AdifEnumeration</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="-param-value"><span class="type-annotation">dynamic</span> <span class="parameter-name">value</span>, </span></li>
+<li><span class="parameter" id="-param-enumerations"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.0/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.7.0/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">enumerations</span></span></li>
 </ol>)
     </section>
     
@@ -67,7 +67,13 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">AdifEnumeration(this.enumerations, this.value) : super(AdifType.enumeration);</code></pre>
+  <pre class="language-dart"><code class="language-dart">AdifEnumeration(value, this.enumerations) : super(value.toUpperCase()) {
+  if (!enumerations.contains(value.toUpperCase())) {
+    throw ArgumentError(
+      &#39;Value must be one of the enumerations: $enumerations&#39;,
+    );
+  }
+}</code></pre>
 </section>
 
 
@@ -95,7 +101,7 @@
 <footer>
   <span class="no-break">
     adif
-      315.0.0
+      315.2.0
   </span>
   
 </footer>

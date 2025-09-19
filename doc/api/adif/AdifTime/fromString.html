@@ -71,7 +71,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static AdifTime fromString(String str) {
-  try{
+  try {
     if (str.length == 4) {
       &#47;&#47; HHMM
       final hour = int.parse(str.substring(0, 2));
@@ -86,8 +86,7 @@
     } else {
       throw ArgumentError(&#39;&#39;);
     }
-  }
-  catch (e) {
+  } catch (e) {
     throw ArgumentError(&#39;Invalid HHMM or HHMMSS time string: $str&#39;);
   }
 }</code></pre>
@@ -118,7 +117,7 @@
 <footer>
   <span class="no-break">
     adif
-      315.0.0
+      315.2.0
   </span>
   
 </footer>

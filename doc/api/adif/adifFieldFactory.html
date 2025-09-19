@@ -77,6 +77,24 @@
       return AdifAddress.fromString(value);
     case &#39;ADDRESS_INTL&#39;:
       return AdifAddressIntl.fromString(value);
+    case &#39;AGE&#39;:
+      return AdifAge.fromString(value);
+    case &#39;ALTITUDE&#39;:
+      return AdifAltitude.fromString(value);
+    case &#39;ANT_AZ&#39;:
+      return AdifAntAz.fromString(value);
+    case &#39;ANT_EL&#39;:
+      return AdifAntEl.fromString(value);
+    case &#39;ANT_PATH&#39;:
+      return AdifAntPath.fromString(value);
+    case &#39;ARRL_SECT&#39;:
+      return AdifArrlSect.fromString(value);
+    case &#39;A_INDEX&#39;:
+      return AdifAIndex.fromString(value);
+    case &#39;BAND&#39;:
+      return AdifBand.fromString(value);
+    case &#39;BAND_RX&#39;:
+      return AdifBandRx.fromString(value);
     case &#39;CALL&#39;:
       return AdifCall.fromString(value);
     case &#39;CHECK&#39;:
@@ -85,10 +103,14 @@
       return AdifClass.fromString(value);
     case &#39;CLUBLOG_QSO_UPLOAD_DATE&#39;:
       return AdifClublogQsoUploadDate.fromString(value);
+    case &#39;CLUBLOG_QSO_UPLOAD_STATUS&#39;:
+      return AdifClublogQsoUploadStatus.fromString(value);
     case &#39;COMMENT&#39;:
       return AdifComment.fromString(value);
     case &#39;COMMENT_INTL&#39;:
       return AdifCommentIntl.fromString(value);
+    case &#39;CONT&#39;:
+      return AdifCont.fromString(value);
     case &#39;CONTACTED_OP&#39;:
       return AdifContactedOp.fromString(value);
     case &#39;CONTEST_ID&#39;:
@@ -99,10 +121,22 @@
       return AdifCountryIntl.fromString(value);
     case &#39;CQZ&#39;:
       return AdifCqz.fromString(value);
+    case &#39;CREDIT_SUBMITTED&#39;:
+      return AdifCreditSubmitted.fromString(value);
+    case &#39;CREDIT_GRANTED&#39;:
+      return AdifCreditGranted.fromString(value);
     case &#39;DCL_QSLRDATE&#39;:
       return AdifDclQslrdate.fromString(value);
     case &#39;DCL_QSLSDATE&#39;:
       return AdifDclQslsdate.fromString(value);
+    case &#39;DCL_QSL_RCVD&#39;:
+      return AdifDclQslRcvd.fromString(value);
+    case &#39;DCL_QSL_SENT&#39;:
+      return AdifDclQslSent.fromString(value);
+    case &#39;DISTANCE&#39;:
+      return AdifDistance.fromString(value);
+    case &#39;DXCC&#39;:
+      return AdifDxcc.fromString(value);
     case &#39;EMAIL&#39;:
       return AdifEmail.fromString(value);
     case &#39;EQ_CALL&#39;:
@@ -111,6 +145,10 @@
       return AdifEqslQslrdate.fromString(value);
     case &#39;EQSL_QSLSDATE&#39;:
       return AdifEqslQslsdate.fromString(value);
+    case &#39;EQSL_QSL_RCVD&#39;:
+      return AdifEqslQslRcvd.fromString(value);
+    case &#39;EQSL_QSL_SENT&#39;:
+      return AdifEqslQslSent.fromString(value);
     case &#39;FISTS&#39;:
       return AdifFists.fromString(value);
     case &#39;FISTS_CC&#39;:
@@ -121,14 +159,26 @@
       return AdifFreq.fromString(value);
     case &#39;FREQ_RX&#39;:
       return AdifFreqRx.fromString(value);
+    case &#39;GRIDSQUARE&#39;:
+      return AdifGridsquare.fromString(value);
+    case &#39;GRIDSQUARE_EXT&#39;:
+      return AdifGridsquareExt.fromString(value);
     case &#39;GUEST_OP&#39;:
       return AdifGuestOp.fromString(value);
     case &#39;HAMLOGEU_QSO_UPLOAD_DATE&#39;:
       return AdifHamlogeuQsoUploadDate.fromString(value);
+    case &#39;HAMLOGEU_QSO_UPLOAD_STATUS&#39;:
+      return AdifHamlogeuQsoUploadStatus.fromString(value);
     case &#39;HAMQTH_QSO_UPLOAD_DATE&#39;:
       return AdifHamqthQsoUploadDate.fromString(value);
+    case &#39;HAMQTH_QSO_UPLOAD_STATUS&#39;:
+      return AdifHamqthQsoUploadStatus.fromString(value);
     case &#39;HRDLOG_QSO_UPLOAD_DATE&#39;:
       return AdifHrdlogQsoUploadDate.fromString(value);
+    case &#39;HRDLOG_QSO_UPLOAD_STATUS&#39;:
+      return AdifHrdlogQsoUploadStatus.fromString(value);
+    case &#39;IOTA&#39;:
+      return AdifIota.fromString(value);
     case &#39;IOTA_ISLAND_ID&#39;:
       return AdifIotaIslandId.fromString(value);
     case &#39;ITUZ&#39;:
@@ -143,16 +193,28 @@
       return AdifLotwQslrdate.fromString(value);
     case &#39;LOTW_QSLSDATE&#39;:
       return AdifLotwQslsdate.fromString(value);
+    case &#39;LOTW_QSL_RCVD&#39;:
+      return AdifLotwQslRcvd.fromString(value);
+    case &#39;LOTW_QSL_SENT&#39;:
+      return AdifLotwQslSent.fromString(value);
+    case &#39;MAX_BURSTS&#39;:
+      return AdifMaxBursts.fromString(value);
     case &#39;MODE&#39;:
       return AdifMode.fromString(value);
     case &#39;MORSE_KEY_INFO&#39;:
       return AdifMorseKeyInfo.fromString(value);
+    case &#39;MORSE_KEY_TYPE&#39;:
+      return AdifMorseKeyType.fromString(value);
     case &#39;MS_SHOWER&#39;:
       return AdifMsShower.fromString(value);
+    case &#39;MY_ALTITUDE&#39;:
+      return AdifMyAltitude.fromString(value);
     case &#39;MY_ANTENNA&#39;:
       return AdifMyAntenna.fromString(value);
     case &#39;MY_ANTENNA_INTL&#39;:
       return AdifMyAntennaIntl.fromString(value);
+    case &#39;MY_ARRL_SECT&#39;:
+      return AdifMyArrlSect.fromString(value);
     case &#39;MY_CITY&#39;:
       return AdifMyCity.fromString(value);
     case &#39;MY_CITY_INTL&#39;:
@@ -163,8 +225,16 @@
       return AdifMyCountryIntl.fromString(value);
     case &#39;MY_CQ_ZONE&#39;:
       return AdifMyCqZone.fromString(value);
+    case &#39;MY_DXCC&#39;:
+      return AdifMyDxcc.fromString(value);
     case &#39;MY_FISTS&#39;:
       return AdifMyFists.fromString(value);
+    case &#39;MY_GRIDSQUARE&#39;:
+      return AdifMyGridsquare.fromString(value);
+    case &#39;MY_GRIDSQUARE_EXT&#39;:
+      return AdifMyGridsquareExt.fromString(value);
+    case &#39;MY_IOTA&#39;:
+      return AdifMyIota.fromString(value);
     case &#39;MY_IOTA_ISLAND_ID&#39;:
       return AdifMyIotaIslandId.fromString(value);
     case &#39;MY_ITU_ZONE&#39;:
@@ -175,6 +245,8 @@
       return AdifMyLon.fromString(value);
     case &#39;MY_MORSE_KEY_INFO&#39;:
       return AdifMyMorseKeyInfo.fromString(value);
+    case &#39;MY_MORSE_KEY_TYPE&#39;:
+      return AdifMyMorseKeyType.fromString(value);
     case &#39;MY_NAME&#39;:
       return AdifMyName.fromString(value);
     case &#39;MY_NAME_INTL&#39;:
@@ -183,6 +255,8 @@
       return AdifMyPostalCode.fromString(value);
     case &#39;MY_POSTAL_CODE_INTL&#39;:
       return AdifMyPostalCodeIntl.fromString(value);
+    case &#39;MY_POTA_REF&#39;:
+      return AdifMyPotaRef.fromString(value);
     case &#39;MY_RIG&#39;:
       return AdifMyRig.fromString(value);
     case &#39;MY_RIG_INTL&#39;:
@@ -195,10 +269,18 @@
       return AdifMySigInfo.fromString(value);
     case &#39;MY_SIG_INFO_INTL&#39;:
       return AdifMySigInfoIntl.fromString(value);
+    case &#39;MY_SOTA_REF&#39;:
+      return AdifMySotaRef.fromString(value);
     case &#39;MY_STREET&#39;:
       return AdifMyStreet.fromString(value);
     case &#39;MY_STREET_INTL&#39;:
       return AdifMyStreetIntl.fromString(value);
+    case &#39;MY_USACA_COUNTIES&#39;:
+      return AdifMyUsacaCounties.fromString(value);
+    case &#39;MY_VUCC_GRIDS&#39;:
+      return AdifMyVuccGrids.fromString(value);
+    case &#39;MY_WWFF_REF&#39;:
+      return AdifMyWwffRef.fromString(value);
     case &#39;NAME&#39;:
       return AdifName.fromString(value);
     case &#39;NAME_INTL&#39;:
@@ -217,14 +299,22 @@
       return AdifOwnerCallsign.fromString(value);
     case &#39;PFX&#39;:
       return AdifPfx.fromString(value);
+    case &#39;POTA_REF&#39;:
+      return AdifPotaRef.fromString(value);
     case &#39;PRECEDENCE&#39;:
       return AdifPrecedence.fromString(value);
+    case &#39;PROP_MODE&#39;:
+      return AdifPropMode.fromString(value);
     case &#39;PUBLIC_KEY&#39;:
       return AdifPublicKey.fromString(value);
     case &#39;QRZCOM_QSO_DOWNLOAD_DATE&#39;:
       return AdifQrzcomQsoDownloadDate.fromString(value);
+    case &#39;QRZCOM_QSO_DOWNLOAD_STATUS&#39;:
+      return AdifQrzcomQsoDownloadStatus.fromString(value);
     case &#39;QRZCOM_QSO_UPLOAD_DATE&#39;:
       return AdifQrzcomQsoUploadDate.fromString(value);
+    case &#39;QRZCOM_QSO_UPLOAD_STATUS&#39;:
+      return AdifQrzcomQsoUploadStatus.fromString(value);
     case &#39;QSLMSG&#39;:
       return AdifQslmsg.fromString(value);
     case &#39;QSLMSG_INTL&#39;:
@@ -235,8 +325,18 @@
       return AdifQslrdate.fromString(value);
     case &#39;QSLSDATE&#39;:
       return AdifQslsdate.fromString(value);
+    case &#39;QSL_RCVD&#39;:
+      return AdifQslRcvd.fromString(value);
+    case &#39;QSL_RCVD_VIA&#39;:
+      return AdifQslRcvdVia.fromString(value);
+    case &#39;QSL_SENT&#39;:
+      return AdifQslSent.fromString(value);
+    case &#39;QSL_SENT_VIA&#39;:
+      return AdifQslSentVia.fromString(value);
     case &#39;QSL_VIA&#39;:
       return AdifQslVia.fromString(value);
+    case &#39;QSO_COMPLETE&#39;:
+      return AdifQsoComplete.fromString(value);
     case &#39;QSO_DATE&#39;:
       return AdifQsoDate.fromString(value);
     case &#39;QSO_DATE_OFF&#39;:
@@ -247,6 +347,8 @@
       return AdifQth.fromString(value);
     case &#39;QTH_INTL&#39;:
       return AdifQthIntl.fromString(value);
+    case &#39;REGION&#39;:
+      return AdifRegion.fromString(value);
     case &#39;RIG&#39;:
       return AdifRig.fromString(value);
     case &#39;RIG_INTL&#39;:
@@ -255,6 +357,8 @@
       return AdifRstRcvd.fromString(value);
     case &#39;RST_SENT&#39;:
       return AdifRstSent.fromString(value);
+    case &#39;RX_PWR&#39;:
+      return AdifRxPwr.fromString(value);
     case &#39;SAT_MODE&#39;:
       return AdifSatMode.fromString(value);
     case &#39;SAT_NAME&#39;:
@@ -273,6 +377,8 @@
       return AdifSilentKey.fromString(value);
     case &#39;SKCC&#39;:
       return AdifSkcc.fromString(value);
+    case &#39;SOTA_REF&#39;:
+      return AdifSotaRef.fromString(value);
     case &#39;SRX&#39;:
       return AdifSrx.fromString(value);
     case &#39;SRX_STRING&#39;:
@@ -293,12 +399,20 @@
       return AdifTimeOff.fromString(value);
     case &#39;TIME_ON&#39;:
       return AdifTimeOn.fromString(value);
+    case &#39;TX_PWR&#39;:
+      return AdifTxPwr.fromString(value);
     case &#39;UKSMG&#39;:
       return AdifUksmg.fromString(value);
+    case &#39;USACA_COUNTIES&#39;:
+      return AdifUsacaCounties.fromString(value);
     case &#39;VE_PROV&#39;:
       return AdifVeProv.fromString(value);
+    case &#39;VUCC_GRIDS&#39;:
+      return AdifVuccGrids.fromString(value);
     case &#39;WEB&#39;:
       return AdifWeb.fromString(value);
+    case &#39;WWFF_REF&#39;:
+      return AdifWwffRef.fromString(value);
     default:
       throw ArgumentError(&#39;Unknown field name: $fieldName&#39;);
   }
@@ -329,7 +443,7 @@
 <footer>
   <span class="no-break">
     adif
-      315.0.0
+      315.2.0
   </span>
   
 </footer>
