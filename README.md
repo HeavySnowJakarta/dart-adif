@@ -19,6 +19,22 @@ This library is still under active development. Now it supports exporting almost
 
 ## Usage
 
+### Import an ADIF object from ADX (ADI planned in the future)
+
+Use the method provided in the extension `AdifOperations`:
+
+```dart
+final adifObj = AdifOperations.parseAdxString(adxString);
+```
+
+To parse more smoothly, you may want to ignore data that illegal to ADIF:
+
+```dart
+final adifObj = AdifOperations.parseAdxString(adxString, ignoreIllegals: true);
+```
+
+### Build an ADIF object manually and export it to ADX (ADI planned)
+
 First let's see the data structure of a QSO:
 
 ```dart
@@ -144,7 +160,7 @@ final String adxString = adif.buildAdxString();
 
 + [ ] Import from ADI
 + [ ] Export to ADI
-+ [ ] Import from ADX
++ [x] Import from ADX
 + [x] Export to ADX
 
 ### ADIF-defined fields unsupported yet

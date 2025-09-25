@@ -124,7 +124,7 @@ class Qso {
 /// lowerCamelCase style.
 class Adif {
   /// The ADIF version.
-  String adifVer = adifVersion;
+  String adifVer;
 
   /// Created timestamp, shall be converted to string when converting.
   DateTime? createdTimestamp = DateTime.now().toUtc();
@@ -138,5 +138,6 @@ class Adif {
   /// The QSO data.
   List<Qso> data;
 
-  Adif(this.programid, this.programversion, this.data);
+  Adif(this.programid, this.programversion, this.data, {String? adifVer})
+    : adifVer = adifVer ?? adifVersion;
 }
