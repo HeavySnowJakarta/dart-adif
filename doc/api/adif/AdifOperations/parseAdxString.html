@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the parseAdxString method from the AdifOperations extension, for the Dart programming language.">
+  <title>parseAdxString method - AdifOperations extension - adif library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">adif</a></li>
+    <li><a href="../../adif">adif.dart</a></li>
+    <li><a href="../../adif/AdifOperations.html">AdifOperations</a></li>
+    <li class="self-crumb">parseAdxString static method</li>
+  </ol>
+  <div class="self-name">parseAdxString</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="adif&#47;AdifOperations-extension-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">parseAdxString</span> static method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="../../adif/Adif-class.html">Adif</a></span>
+<span class="name ">parseAdxString</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="parseAdxString-param-str"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">str</span>, {</span></li>
+<li><span class="parameter" id="parseAdxString-param-ignoreIllegals"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignoreIllegals</span> = <span class="default-value">true</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Parse from ADX strings.</p>
+<ul>
+<li>@param str The ADX string to be parsed</li>
+<li>@param ignoreIllegals Whether to ignore illegal data. When this
+argument is set to true, the method ignores all illegal fields (they
+won't be parsed anyway), otherwise it throws an exception.</li>
+</ul>
+<p>Set <code>ignoreIllegals</code> to true does not mean it never throws an exception.
+When the ADX string is broken severely (eg. even not a valid XML string),
+exceptions may occur.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static Adif parseAdxString(String str, {bool ignoreIllegals = true}) {
+  final document = XmlDocument.parse(str);
+  final XmlElement adx =
+      document.getElement(&#39;ADX&#39;) ?? (throw Exception(&quot;Not a valid ADX file&quot;));
+
+  &#47;&#47; Parse the header.
+  final header = adx.getElement(&#39;HEADER&#39;);
+  final adifVer = header?.getElement(&#39;ADIF_VER&#39;);
+  final programId = header?.getElement(&#39;PROGRAMID&#39;);
+  final programVersion = header?.getElement(&#39;PROGRAMVERSION&#39;);
+  final userdefIterables = header?.findAllElements(&#39;USERDEF&#39;) ?? [];
+  final userdefMetas = userdefIterables.map((e) {
+    &#47;&#47; final fieldId = int.parse(e.getAttribute(&#39;FIELDID&#39;) ?? &#39;0&#39;);
+    final fieldName = e.innerText;
+    final type = e.getAttribute(&#39;TYPE&#39;) ?? &#39;S&#39;;
+    final enumsStr = e.getAttribute(&#39;ENUM&#39;);
+    final enums =
+        enumsStr
+            ?.substring(1, enumsStr.length - 1)
+            .split(&#39;,&#39;)
+            .map((e) =&gt; e.trim())
+            .toList();
+    final rangeStr = e.getAttribute(&#39;RANGE&#39;);
+    final range =
+        rangeStr
+            ?.substring(1, rangeStr.length - 1)
+            .split(&#39;:&#39;)
+            .map((e) =&gt; double.parse(e.trim()))
+            .toList();
+    try {
+      return UserdefMeta(
+        fieldName,
+        type,
+        enums: enums,
+        range:
+            range != null &amp;&amp; range.length == 2 ? (range[0], range[1]) : null,
+      );
+    } catch (e) {
+      if (ignoreIllegals) {
+        return null;
+      } else {
+        rethrow;
+      }
+    }
+  });
+
+  &#47;&#47; Parse the records.
+  final records = adx.getElement(&#39;RECORDS&#39;);
+  final qsos =
+      records?.findElements(&#39;RECORD&#39;).map((record) {
+        final fields = record.children.whereType&lt;XmlElement&gt;().map((field) {
+          final fieldName = field.name.local;
+
+          &#47;&#47; App-defined fields.
+          if (fieldName == &#39;APP&#39;) {
+            final programId = field.getAttribute(&#39;PROGRAMID&#39;);
+            final customFieldName = field.getAttribute(&#39;FIELDNAME&#39;);
+            final type = field.getAttribute(&#39;TYPE&#39;);
+            final value = field.innerText;
+            final (enums, range) = parseEnumsAndRanges(
+              field.getAttribute(&#39;ENUMS&#39;),
+              field.getAttribute(&#39;RANGE&#39;),
+            );
+            try {
+              return Appdef.generate(
+                programId ?? &#39;unknown&#39;,
+                customFieldName ??
+                    (throw Exception(&quot;APP-defined field without FIELDNAME&quot;)),
+                type ?? &#39;S&#39;,
+                value,
+                enums: enums,
+                range: range,
+              );
+            } catch (e) {
+              if (ignoreIllegals) {
+                return null;
+              } else {
+                rethrow;
+              }
+            }
+          }
+
+          &#47;&#47; User-defined fields.
+          if (fieldName == &#39;USERDEF&#39;) {
+            final customFieldName = field.getAttribute(&#39;FIELDNAME&#39;);
+            final value = field.innerText;
+            try {
+              &#47;&#47; Get the metadata.
+              final metadata =
+                  userdefMetas.firstWhere(
+                    (userdefMeta) =&gt; userdefMeta?.name == customFieldName,
+                  ) ??
+                  (throw Exception(&quot;USERDEF field undefined&quot;));
+              return Userdef.generate(
+                customFieldName ??
+                    (throw Exception(&quot;USERDEF field without FIELDNAME&quot;)),
+                metadata.type,
+                value,
+                enums: metadata.enums,
+                range: metadata.range,
+              );
+            } catch (e) {
+              if (ignoreIllegals) {
+                return null;
+              } else {
+                rethrow;
+              }
+            }
+          }
+
+          &#47;&#47; Any other fields are regarded as ADIF-defined fields.
+          final value = field.innerText;
+          try {
+            return adifFieldFactory(fieldName, value);
+          } catch (e) {
+            if (ignoreIllegals) {
+              return null;
+            } else {
+              rethrow;
+            }
+          }
+        });
+        return Qso(
+          fields.whereType&lt;AdifField&gt;().toList(),
+          fields.whereType&lt;Appdef&gt;().toList(),
+          fields.whereType&lt;Userdef&gt;().toList(),
+        );
+      }).toList() ??
+      [];
+
+  return Adif(
+    programId?.innerText ?? &#39;unknown&#39;,
+    programVersion?.innerText ?? &#39;&#39;,
+    qsos,
+    adifVer: adifVer?.innerText,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">adif</a></li>
+    <li><a href="../../adif">adif</a></li>
+    <li><a href="../../adif/AdifOperations.html">AdifOperations</a></li>
+    <li class="self-crumb">parseAdxString static method</li>
+</ol>
+
+    <h5>AdifOperations extension on <a href="../../adif/Adif-class.html">Adif</a></h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    adif
+      315.2.1
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

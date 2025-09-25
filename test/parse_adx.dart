@@ -98,9 +98,7 @@ void main() {
           (s.contains('>M<') || s.contains('>M</'));
       final hasShoe =
           s.contains('SHOESIZE') && (s.contains('>11') || s.contains('>11'));
-      final hasEpc =
-          s.contains('EPC') &&
-          (s.contains('32123'));
+      final hasEpc = s.contains('EPC') && (s.contains('32123'));
       if (!(hasSweater && hasShoe && hasEpc)) {
         throw StateError('One or more USERDEF field values missing.');
       }

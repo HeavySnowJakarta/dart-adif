@@ -67,6 +67,14 @@
 <li>Bands have been <strong>no longer</strong> considered as strings. Instead thay must be one of <a href="https://www.adif.org/315/ADIF_315.htm#Band_Enumeration">the bands enumeration</a>.</li>
 </ul>
 <h2 id="usage">Usage</h2>
+<h3 id="import-an-adif-object-from-adx-adi-planned-in-the-future">Import an ADIF object from ADX (ADI planned in the future)</h3>
+<p>Use the method provided in the extension <code>AdifOperations</code>:</p>
+<pre class="language-dart"><code class="language-dart">final adifObj = AdifOperations.parseAdxString(adxString);
+</code></pre>
+<p>To parse more smoothly, you may want to ignore data that illegal to ADIF:</p>
+<pre class="language-dart"><code class="language-dart">final adifObj = AdifOperations.parseAdxString(adxString, ignoreIllegals: true);
+</code></pre>
+<h3 id="build-an-adif-object-manually-and-export-it-to-adx-adi-planned">Build an ADIF object manually and export it to ADX (ADI planned)</h3>
 <p>First let's see the data structure of a QSO:</p>
 <pre class="language-dart"><code class="language-dart">class Qso {
   /// The QSO's ADIF-defined fields.
@@ -176,7 +184,7 @@ final adif = Adif(
 <ul>
 <li><code> </code> Import from ADI</li>
 <li><code> </code> Export to ADI</li>
-<li><code> </code> Import from ADX</li>
+<li><code>x</code> Import from ADX</li>
 <li><code>x</code> Export to ADX</li>
 </ul>
 <h3 id="adif-defined-fields-unsupported-yet">ADIF-defined fields unsupported yet</h3>
@@ -232,7 +240,7 @@ final adif = Adif(
 <footer>
   <span class="no-break">
     adif
-      315.2.0
+      315.2.1
   </span>
   
 </footer>
