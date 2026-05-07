@@ -6,7 +6,7 @@ import '../data.dart';
 import './index.dart';
 
 AdifField adifFieldFactory(String fieldName, String value) {
-  switch (fieldName) {
+  switch (fieldName.toUpperCase()) {
     case 'ADDRESS':
       return AdifAddress.fromString(value);
     case 'ADDRESS_INTL':

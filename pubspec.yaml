@@ -1,6 +1,6 @@
 name: adif
 description: Amateur Data Interchange Format (ADIF) parser for Dart.
-version: 315.2.1+1
+version: 315.3.0
 repository: https://github.com/HeavySnowJakarta/dart-adif
 
 environment:
@@ -12,7 +12,7 @@ dependencies:
   intl: '>=0.16.0 <0.20.0'
 
   # `xml` is used for parsing ADX files.
-  xml: ^6.0.0
+  xml: '>=6.0.0 <7.0.0'
 
 dev_dependencies:
   lints: ^5.0.0

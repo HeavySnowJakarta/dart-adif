@@ -10,6 +10,9 @@ abstract class AdifGeneral<T> {
   T value;
   String getType();
 
+  /// Whether the data type accepts non-ASCII characters.
+  bool isIntl() => false;
+
   AdifGeneral(this.value);
 
   /// The original data of the adif data.

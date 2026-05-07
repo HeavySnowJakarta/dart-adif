@@ -1,6 +1,7 @@
 /// This file defines basic data types used in ADIF files.
 library;
 
+import 'package:adif/src/helpers/intl.dart';
 import 'package:intl/intl.dart';
 import '../type.dart';
 
@@ -35,12 +36,12 @@ class AdifCharacter extends AdifGeneral<String> {
     if (value.length != 1) {
       throw ArgumentError('Value must be a single character: $value');
     }
+    if (isNotPureAscii(value)) {
+      throw ArgumentError('Value must not contain non-ASCII characters: $value');
+    }
   }
 
   static AdifCharacter fromString(String str) {
-    if (str.length != 1) {
-      throw ArgumentError('Invalid character string: $str');
-    }
     return AdifCharacter(str);
   }
 }
@@ -49,6 +50,8 @@ class AdifCharacter extends AdifGeneral<String> {
 class AdifIntlCharacter extends AdifGeneral<String> {
   @override
   String getType() => 'IntlCharacter';
+  @override
+  bool isIntl() => true;
   @override
   String getString() => value;
 
@@ -216,7 +219,14 @@ class AdifString extends AdifGeneral<String> {
   @override
   String getString() => value;
 
-  AdifString(super.value);
+  AdifString(super.value) {
+    if (isNotPureAscii(value)) {
+      throw ArgumentError('Value must not contain non-ASCII characters: $value');
+    }
+    if (value.contains('\n')) {
+      throw ArgumentError('Value must not contain newline characters: $value');
+    }
+  }
   static AdifString fromString(String str) {
     return AdifString(str);
   }
@@ -228,9 +238,15 @@ class AdifIntlString extends AdifGeneral<String> {
   @override
   String getType() => 'I';
   @override
+  bool isIntl() => true;
+  @override
   String getString() => value;
 
-  AdifIntlString(super.value);
+  AdifIntlString(super.value) {
+    if (value.contains('\n')) {
+      throw ArgumentError('Value must not contain newline characters: $value');
+    }
+  }
   static AdifIntlString fromString(String str) {
     return AdifIntlString(str);
   }
@@ -243,7 +259,11 @@ class AdifMultilineString extends AdifGeneral<String> {
   @override
   String getString() => value;
 
-  AdifMultilineString(super.value);
+  AdifMultilineString(super.value) {
+    if (isNotPureAscii(value)) {
+      throw ArgumentError('Value must not contain non-ASCII characters: $value');
+    }
+  }
 
   static AdifMultilineString fromString(String str) {
     return AdifMultilineString(str);
@@ -255,6 +275,8 @@ class AdifMultilineString extends AdifGeneral<String> {
 class AdifIntlMultilineString extends AdifGeneral<String> {
   @override
   String getType() => 'G';
+  @override
+  bool isIntl() => true;
   @override
   String getString() => value;
 
@@ -278,6 +300,9 @@ abstract class AdifEnumeration extends AdifGeneral {
   List<String> enumerations;
 
   AdifEnumeration(value, this.enumerations) : super(value.toUpperCase()) {
+    if (enumerations.any((e) => isNotPureAscii(e))) {
+      throw ArgumentError('Value must not contain non-ASCII characters: $enumerations');
+    }
     if (!enumerations.contains(value.toUpperCase())) {
       throw ArgumentError(
         'Value must be one of the enumerations: $enumerations',

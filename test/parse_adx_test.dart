@@ -28,7 +28,7 @@ const String sample1 = """
       <TIME_ON>0111</TIME_ON>
       <CALL>ON4UN</CALL>
       <BAND>40M</BAND>
-      <MODE>PSK</MODE>
+      <mode>PSK</mode>
       <SUBMODE>PSK63</SUBMODE>
       <USERDEF FIELDNAME="EPC">32123</USERDEF>
       <APP PROGRAMID="MONOLOG" FIELDNAME="COMPRESSION" TYPE="s">off</APP>
