@@ -1,4 +1,6 @@
+## 317.0.0
 
+No change since 315.2.0 except updated the ADIF version.
 
 ## 315.2.0
 

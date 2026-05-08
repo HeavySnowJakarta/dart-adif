@@ -145,9 +145,9 @@ void main() {
         const <Userdef>[],
       );
 
-      final adi = Adif('dart-adif', '1.0.0', [qso]).buildAdiString(
-        nonAsciiFallback: NonAsciiBuildOption.removeCharacters,
-      );
+      final adi = Adif('dart-adif', '1.0.0', [
+        qso,
+      ]).buildAdiString(nonAsciiFallback: NonAsciiBuildOption.removeCharacters);
 
       expect(adi, contains('<COMMENT:5>ASCII'));
       expect(adi, isNot(contains('COMMENT_INTL')));

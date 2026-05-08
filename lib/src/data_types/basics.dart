@@ -37,7 +37,9 @@ class AdifCharacter extends AdifGeneral<String> {
       throw ArgumentError('Value must be a single character: $value');
     }
     if (isNotPureAscii(value)) {
-      throw ArgumentError('Value must not contain non-ASCII characters: $value');
+      throw ArgumentError(
+        'Value must not contain non-ASCII characters: $value',
+      );
     }
   }
 
@@ -221,7 +223,9 @@ class AdifString extends AdifGeneral<String> {
 
   AdifString(super.value) {
     if (isNotPureAscii(value)) {
-      throw ArgumentError('Value must not contain non-ASCII characters: $value');
+      throw ArgumentError(
+        'Value must not contain non-ASCII characters: $value',
+      );
     }
     if (value.contains('\n')) {
       throw ArgumentError('Value must not contain newline characters: $value');
@@ -261,7 +265,9 @@ class AdifMultilineString extends AdifGeneral<String> {
 
   AdifMultilineString(super.value) {
     if (isNotPureAscii(value)) {
-      throw ArgumentError('Value must not contain non-ASCII characters: $value');
+      throw ArgumentError(
+        'Value must not contain non-ASCII characters: $value',
+      );
     }
   }
 
@@ -301,7 +307,9 @@ abstract class AdifEnumeration extends AdifGeneral {
 
   AdifEnumeration(value, this.enumerations) : super(value.toUpperCase()) {
     if (enumerations.any((e) => isNotPureAscii(e))) {
-      throw ArgumentError('Value must not contain non-ASCII characters: $enumerations');
+      throw ArgumentError(
+        'Value must not contain non-ASCII characters: $enumerations',
+      );
     }
     if (!enumerations.contains(value.toUpperCase())) {
       throw ArgumentError(

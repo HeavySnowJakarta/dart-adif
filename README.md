@@ -2,10 +2,10 @@
 
 Amateur Data Interchange Format (ADIF) parser for Dart.
 
-There are three parts among the version. The first part is _the version of the related ADIF file_, for example `315` refers to [ADIF 3.1.5](https://www.adif.org/315/ADIF_315.htm). The second and third part are the version of this library that is compatiple to the corresponding ADIF version. This library supports both ADI and ADX formats.
+There are three parts among the version. The first part is _the version of the related ADIF file_, for example `317` refers to [ADIF 3.1.7](https://www.adif.org/317/ADIF_317.htm). The second and third part are the version of this library that is compatiple to the corresponding ADIF version. This library supports both ADI and ADX formats.
 
 **Note**:
-+ Submodes are considered as [strings](https://www.adif.org/315/ADIF_315.htm#QSO_Field_SUBMODE), but please use [the submodes enumeration](https://www.adif.org/315/ADIF_315.htm#Submode_Enumeration) for interoperability.
++ Submodes are considered as [strings](https://www.adif.org/317/ADIF_317.htm#QSO_Field_SUBMODE), but please use [the submodes enumeration](https://www.adif.org/317/ADIF_317.htm#Submode_Enumeration) for interoperability.
 + This library rejects to generate non-standard ADIF texts. All the fields are checked strictly (eg. non-ASCII characters are not allowed in non-international fields). However, as many programs actually puts non-ASCII UTF-8 characters in ADI files (as there is no international field for ADI), you can configure whether to recognize the characters and try to transfer them to their international versions.
 
 When you want to upgrade the library for better functionality, please check the possible breaking changes in the [CHANGELOG](CHANGELOG.md).

@@ -30,17 +30,14 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button" title="Toggle brightness">
-    <label for="theme">
-      <input type="checkbox" id="theme" value="light-theme">
-      <span id="dark-theme-button" class="material-symbols-outlined">
-        dark_mode
-      </span>
-      <span id="light-theme-button" class="material-symbols-outlined">
-        light_mode
-      </span>
-    </label>
-  </div>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
 </header>
 <main>
   <div id="dartdoc-main-content" class="main-content">
@@ -48,33 +45,40 @@
 <section class="desc markdown">
   <h1 id="dart_adif">Dart_adif</h1>
 <p>Amateur Data Interchange Format (ADIF) parser for Dart.</p>
-<p>There are three parts among the version. The first part is <em>the version of the related ADIF file</em>, for example <code>315</code> refers to <a href="https://www.adif.org/315/ADIF_315.htm">ADIF 3.1.5</a>. The second and third part are the version of this library that is compatiple to the corresponding ADIF version.</p>
-<p>This library is still under active development. Now it supports exporting almost all ADIF-defined fields and APP/user-defined fields to ADX files. On the next version importing from ADX files will also be supported, and eventually ADI files.</p>
+<p>There are three parts among the version. The first part is <em>the version of the related ADIF file</em>, for example <code>315</code> refers to <a href="https://www.adif.org/315/ADIF_315.htm">ADIF 3.1.5</a>. The second and third part are the version of this library that is compatiple to the corresponding ADIF version. This library supports both ADI and ADX formats.</p>
 <p><strong>Note</strong>:</p>
 <ul>
 <li>Submodes are considered as <a href="https://www.adif.org/315/ADIF_315.htm#QSO_Field_SUBMODE">strings</a>, but please use <a href="https://www.adif.org/315/ADIF_315.htm#Submode_Enumeration">the submodes enumeration</a> for interoperability.</li>
-<li>All the fields exported to ADX are considered as international as possible.</li>
+<li>This library rejects to generate non-standard ADIF texts. All the fields are checked strictly (eg. non-ASCII characters are not allowed in non-international fields). However, as many programs actually puts non-ASCII UTF-8 characters in ADI files (as there is no international field for ADI), you can configure whether to recognize the characters and try to transfer them to their international versions.</li>
 </ul>
-<p><strong>Breaking updates from <code>v315.1.1</code></strong>:</p>
-<ul>
-<li>The constructor of <code>Adif()</code> has BROKEN after the field <code>userdef</code> of it has been proved to be useless. You have to update the constructor of it after updated.</li>
-</ul>
-<p><strong>Breaking updates from <code>v315.0.1</code></strong>:</p>
-<ul>
-<li>Modes have been <strong>no longer</strong> considered as strings. Instead they must be one of <a href="https://www.adif.org/315/ADIF_315.htm#Mode_Enumeration">the modes enumeration</a> or <a href="https://www.adif.org/315/ADIF_315.htm#Submode_Enumeration">the submodes enumeration</a>. Attempts to set a mode as one not among them will fail.</li>
-</ul>
-<ul>
-<li>Bands have been <strong>no longer</strong> considered as strings. Instead thay must be one of <a href="https://www.adif.org/315/ADIF_315.htm#Band_Enumeration">the bands enumeration</a>.</li>
-</ul>
+<p>When you want to upgrade the library for better functionality, please check the possible breaking changes in the <a href="CHANGELOG.md">CHANGELOG</a>.</p>
 <h2 id="usage">Usage</h2>
-<h3 id="import-an-adif-object-from-adx-adi-planned-in-the-future">Import an ADIF object from ADX (ADI planned in the future)</h3>
-<p>Use the method provided in the extension <code>AdifOperations</code>:</p>
-<pre class="language-dart"><code class="language-dart">final adifObj = AdifOperations.parseAdxString(adxString);
+<h3 id="import-an-adif-object">Import an ADIF object</h3>
+<p>To parse an ADI string, use the method provided in the extension <code>AdifOperations</code>:</p>
+<pre class="language-dart"><code class="language-dart">final adifObj = AdifOperations.parseAdiString(adiString);
 </code></pre>
 <p>To parse more smoothly, you may want to ignore data that illegal to ADIF:</p>
+<pre class="language-dart"><code class="language-dart">final adifObj = AdifOperations.parseAdiString(
+  adiString,
+  ignoreIllegals: true,
+  nonAsciiParse: NonAsciiParseOption.parseByCharacter
+);
+</code></pre>
+<p>When your ADI string contains non-ASCII characters generated by non-standard
+programs, you may choose one of the following <code>nonAsciiParseOption</code>:</p>
+<ul>
+<li><code>throwError</code>: Refuses to parse ADI texts if non-ASCII characters are found.</li>
+<li><code>parseByCharacter</code>: Regard each non-ASCII character as a single character
+for ADI.</li>
+<li><code>parseByByte</code>: Regard each byte as a single character for ADI.</li>
+</ul>
+<p>For ADX strings, use the method provided in the extension <code>AdifOperations</code>:</p>
+<pre class="language-dart"><code class="language-dart">final adifObj = AdifOperations.parseAdxString(adxString);
+</code></pre>
+<p>Also you may want to ignore data that illegal to ADIF:</p>
 <pre class="language-dart"><code class="language-dart">final adifObj = AdifOperations.parseAdxString(adxString, ignoreIllegals: true);
 </code></pre>
-<h3 id="build-an-adif-object-manually-and-export-it-to-adx-adi-planned">Build an ADIF object manually and export it to ADX (ADI planned)</h3>
+<h3 id="build-an-adif-object-manually-and-export-it-to-adiadx">Build an ADIF object manually and export it to ADI/ADX</h3>
 <p>First let's see the data structure of a QSO:</p>
 <pre class="language-dart"><code class="language-dart">class Qso {
   /// The QSO's ADIF-defined fields.
@@ -145,7 +149,16 @@ final adif = Adif(
   "315.2.0",
   [qso1, qso2, qso3]);
 </code></pre>
-<p>Then export it into an ADX string:</p>
+<p>You can export it into an ADI string:</p>
+<pre class="language-dart"><code class="language-dart">final String adiString = adif.buildAdiString(nonAsciiBuildOption: NonAsciiBuildOption.throwError);
+</code></pre>
+<p>As ADI texts are not allowed to contain non-ASCII characters, when your QSOs contain international fields, you may use one of the following <code>nonAsciiBuildOption</code>:</p>
+<ul>
+<li><code>throwError</code>: Refuses to generate texts if international fields are found.</li>
+<li><code>removeCharacters</code>: Remove non-ASCII characters directly from the strings and try to transfer them to their non-international versions. If the process fails, throw an exception.</li>
+<li><code>removeFields</code>: Ignore all international fields.</li>
+</ul>
+<p>Also you may export it into an ADX string:</p>
 <pre class="language-dart"><code class="language-dart">final String adxString = adif.buildAdxString();
 </code></pre>
 <h2 id="roadmap">Roadmap</h2>
@@ -182,8 +195,8 @@ final adif = Adif(
 </ul>
 <h3 id="supported-operations">Supported operations</h3>
 <ul>
-<li><code> </code> Import from ADI</li>
-<li><code> </code> Export to ADI</li>
+<li><code>x</code> Import from ADI</li>
+<li><code>x</code> Export to ADI</li>
 <li><code>x</code> Import from ADX</li>
 <li><code>x</code> Export to ADX</li>
 </ul>
@@ -207,7 +220,7 @@ final adif = Adif(
           <h2>Libraries</h2>
         <dl>
           <dt id="adif">
-  <span class="name"><a href="adif">adif</a></span> 
+  <span class="name"><a href="adif/">adif</a></span> 
 
 </dt>
 <dd>
@@ -230,7 +243,7 @@ final adif = Adif(
     <h5 class="hidden-xs"><span class="package-name">adif</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
-      <li><a href="adif">adif</a></li>
+      <li><a href="adif/">adif</a></li>
 </ol>
 
   </div>
@@ -240,7 +253,7 @@ final adif = Adif(
 <footer>
   <span class="no-break">
     adif
-      315.2.1
+      315.3.0
   </span>
   
 </footer>

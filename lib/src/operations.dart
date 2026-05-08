@@ -72,8 +72,12 @@ class _AdiFieldToken {
       isControl = true;
 
   /// Creates a regular ADI field token with its parsed value.
-  const _AdiFieldToken.data(this.fieldName, this.value, this.nextIndex, {this.type})
-    : isControl = false;
+  const _AdiFieldToken.data(
+    this.fieldName,
+    this.value,
+    this.nextIndex, {
+    this.type,
+  }) : isControl = false;
 }
 
 /// Returns whether [fieldName] points to an ADIF `_INTL` field.
